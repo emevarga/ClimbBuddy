@@ -7,21 +7,24 @@
 //
 
 #import "AppDelegate.h"
-
-#import "FirstViewController.h"
-
-#import "SecondViewController.h"
+#import "MyClimbsViewController.h"
+#import "SearchViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+    
+    SearchViewController *searchVC = [[SearchViewController alloc]init];
+    UINavigationController *searchNC = [[UINavigationController alloc]initWithRootViewController:searchVC];
+    
+    MyClimbsViewController *myClimbsVC = [[MyClimbsViewController alloc]init];
+    UINavigationController *myClimbsNC = [[UINavigationController alloc]initWithRootViewController:myClimbsVC];
+    
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
+    [self.tabBarController setViewControllers:@[searchNC,myClimbsNC]];
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

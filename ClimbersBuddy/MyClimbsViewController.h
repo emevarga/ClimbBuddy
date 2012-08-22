@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  MyClimbsViewController.h
 //  ClimbersBuddy
 //
 //  Created by Clark Barry on 8/21/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface MyClimbsViewController : UIViewController
 
 @end
