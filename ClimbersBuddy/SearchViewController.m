@@ -9,7 +9,7 @@
 #import "SearchViewController.h"
 
 #import "CommonDefines.h"
-
+#import "ClimbersBuddyStyle.h"
 
 const NSString *kSearchControlDistanceControl = @"distance";
 const NSString *kSearchControlTypeControl = @"type";
@@ -39,11 +39,12 @@ const NSString *kSearchControlSearchButton = @"search button";
     if(!_searchControls){
         _searchControls = [[NSMutableDictionary alloc]initWithCapacity:5];
     }
-    CGFloat controlSectionHeight = 76;
-    CGFloat offset = 0;
+    CGFloat controlSectionHeight = 70;
+    CGFloat offset = 10;
 
-    UILabel *distanceLabel = [[UILabel alloc]initWithFrame:[self getLabelRectForOffset:offset]];
-    [distanceLabel setText:@"Distance from location"];
+    UILabel *distanceLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    distanceLabel.frame = [self getLabelRectForOffset:offset];
+    [distanceLabel setText:@"Distance from location:"];
     [self.view addSubview:distanceLabel];
     
     NSArray *distanceItems = @[@"20 miles",@"50 miles",@"100 miles",@"500 miles"];
@@ -54,8 +55,9 @@ const NSString *kSearchControlSearchButton = @"search button";
     [_searchControls setObject:distanceControl forKey:kSearchControlDistanceControl];
     
     offset += controlSectionHeight;
-    UILabel *typeLabel = [[UILabel alloc]initWithFrame:[self getLabelRectForOffset:offset]];
-    [typeLabel setText:@"Climb type"];
+    UILabel *typeLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    typeLabel.frame = [self getLabelRectForOffset:offset];
+    [typeLabel setText:@"Climb type:"];
     [self.view addSubview:typeLabel];
     
     NSArray *typeItems = @[@"Roped",@"Boulder"];
@@ -67,8 +69,9 @@ const NSString *kSearchControlSearchButton = @"search button";
     
     
     offset += controlSectionHeight;
-    UILabel *difficultyLabel = [[UILabel alloc] initWithFrame:[self getLabelRectForOffset:offset]];
-    [difficultyLabel setText:@"Max Difficulty"];
+    UILabel *difficultyLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    difficultyLabel.frame = [self getLabelRectForOffset:offset];
+    [difficultyLabel setText:@"Max Difficulty:"];
     [self.view addSubview:difficultyLabel];
     
     UISlider *difficultySlider = [[UISlider alloc]initWithFrame:[self getControlRectForOffset:offset]];
@@ -77,8 +80,9 @@ const NSString *kSearchControlSearchButton = @"search button";
     
     offset += controlSectionHeight;
     
-    UILabel *heightLabel = [[UILabel alloc]initWithFrame:[self getLabelRectForOffset:offset]];
-    [heightLabel setText:@"Max Height"];
+    UILabel *heightLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    heightLabel.frame = [self getLabelRectForOffset:offset];
+    [heightLabel setText:@"Max Height:"];
     [self.view addSubview:heightLabel];
     
     UISlider *heightSlider = [[UISlider alloc]initWithFrame:[self getControlRectForOffset:offset]];
@@ -89,7 +93,9 @@ const NSString *kSearchControlSearchButton = @"search button";
     
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [searchButton setTitle:@"Search" forState:UIControlStateNormal];
-    searchButton.frame = CGRectMake(LABEL_PADDING, offset+LABEL_PADDING, 320-LABEL_PADDING*2, 40);
+    [searchButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    searchButton.frame = CGRectMake(CONTROL_HORIZONTAL_PADDING, offset+LABEL_PADDING*4, 320-CONTROL_HORIZONTAL_PADDING*2, 40);
+    
     [self.view addSubview:searchButton];
     [_searchControls setObject:searchButton forKey:kSearchControlSearchButton];
 

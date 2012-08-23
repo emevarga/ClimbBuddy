@@ -10,11 +10,16 @@
 #import "MyClimbsViewController.h"
 #import "SearchViewController.h"
 
+@interface AppDelegate (Internal)
+-(void)setUpAppearance;
+@end
+
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    [self setUpAppearance];
     
     SearchViewController *searchVC = [[SearchViewController alloc]init];
     UINavigationController *searchNC = [[UINavigationController alloc]initWithRootViewController:searchVC];
@@ -28,6 +33,15 @@
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(void)setUpAppearance{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    UIFont *labelFont = [UIFont systemFontOfSize:5];
+    [[UILabel appearance] setFont:labelFont];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
