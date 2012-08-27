@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-extern const NSString *kSearchControlAreaField;
 extern const NSString *kSearchControlDistanceControl;
 extern const NSString *kSearchControlTypeControl;
 extern const NSString *kSearchControlDifficultySlider;
