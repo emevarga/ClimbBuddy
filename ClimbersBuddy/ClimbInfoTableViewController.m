@@ -26,6 +26,8 @@
 -(void)loadView{
     [super loadView];
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
     [self.view addSubview:_tableView];
 }
 
@@ -33,6 +35,8 @@
     [super viewWillAppear:animated];
     if(!_tableView){
         _tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
     }
     _tableView.frame = self.view.frame;
 }
@@ -61,12 +65,12 @@
     cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
     
     ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
-    
     [cell.textLabel setText:climb.name];
+    [cell.detailTextLabel setText:climb.areaName];
     
     return cell;
 }

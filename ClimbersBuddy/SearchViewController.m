@@ -12,6 +12,7 @@
 #import "ClimbersBuddyStyle.h"
 #import "ToggleSegmentedControl.h"
 #import "ClimbFetcher.h"
+#import "SearchResultViewController.h"
 
 
 const NSString *kSearchControlDistanceControl = @"distance";
@@ -39,7 +40,10 @@ const NSString *kSearchControlSearchButton = @"search button";
 }
 
 -(void)searchButtonPressed{
-    [ClimbFetcher getClimbsFor:nil];
+    NSArray *climbs = [ClimbFetcher getClimbsFor:nil];
+    SearchResultViewController *climbInfoView = [[SearchResultViewController alloc] initWithClimbs:climbs];
+    [self.navigationController pushViewController:climbInfoView animated:YES];
+    
     //create search filter
     //create view with search filter
     //push view with search results

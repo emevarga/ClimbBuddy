@@ -41,7 +41,6 @@
 +(NSArray *)getClimbsFor:(SearchFilter *)filter{
     NSArray *climbs;
     climbs = [[self class] getTestClimbs];
-    NSLog(@"climbs = %@",climbs);
     return climbs;
 }
 
