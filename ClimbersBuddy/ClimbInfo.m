@@ -33,5 +33,42 @@ static NSArray *__boulderDifficulties = nil;
     return [NSArray arrayWithArray:__boulderDifficulties];
 }
 
+@synthesize name = _name;
+@synthesize type = _type;
+@synthesize difficulty = _difficulty;
+@synthesize wallName = _wallName;
+@synthesize areaName = _areaName;
+@synthesize location = _location;
+@synthesize imageName = _imageName;
+
+const NSString *kClimbNameKey = @"climb name";
+const NSString *kClimbTypeKey = @"climb type";
+const NSString *kDifficultyKey = @"difficulty";
+const NSString *kWallNameKey = @"route name";
+const NSString *kAreaNameKey = @"area name";
+const NSString *kLocationKey = @"location";
+const NSString *kImageNameKey = @"image name";
+
+const NSString *noImage = @"noImage";
+
+-(id)initWithDictionary:(NSDictionary *)climbData{
+    self = [super init];
+    if(self){
+        _name = [climbData objectForKey:kClimbNameKey];
+        NSNumber *climbTypeValue = [climbData objectForKey:kClimbTypeKey];
+        _type = [climbTypeValue intValue];
+        NSNumber *difficultyValue = [climbData objectForKey:kDifficultyKey];
+        _difficulty = [difficultyValue integerValue];
+        _wallName = [climbData objectForKey:kWallNameKey];
+        _areaName = [climbData objectForKey:kAreaNameKey];
+        NSValue *locationValue = [climbData objectForKey:kLocationKey];
+        [locationValue getValue:&_location];
+        _imageName = [climbData objectForKey:kImageNameKey];
+        if(!_imageName){
+            _imageName = noImage;
+        }
+    }
+    return self;
+}
 
 @end
