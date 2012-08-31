@@ -8,6 +8,7 @@
 
 #import "ClimbInfoTableViewController.h"
 #import "ClimbInfo.h"
+#import "ClimbDetailViewController.h"
 
 @interface ClimbInfoTableViewController ()
 
@@ -78,7 +79,9 @@
 #pragma mark Table View Delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //push view controller for climb
+    ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
+    ClimbDetailViewController *detail = [[ClimbDetailViewController alloc] initWithClimb:climb];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 

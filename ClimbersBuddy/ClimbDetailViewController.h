@@ -12,6 +12,9 @@
 
 @interface ClimbDetailViewController : UIViewController{
     ClimbInfo *_climb;
+    UIImageView *_imageView;
+    UILabel *_areaLabel;
+    UILabel *_descriptionLabel;
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;

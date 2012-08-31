@@ -22,6 +22,7 @@
     [self setUpAppearance];
     
     SearchViewController *searchVC = [[SearchViewController alloc]init];
+    searchVC.tabBarItem.image = [UIImage imageNamed:@"SearchIcon.png"];
     UINavigationController *searchNC = [[UINavigationController alloc]initWithRootViewController:searchVC];
     
     MyClimbsViewController *myClimbsVC = [[MyClimbsViewController alloc]init];

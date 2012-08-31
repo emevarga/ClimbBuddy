@@ -49,7 +49,7 @@ const NSString *kAreaNameKey = @"area name";
 const NSString *kLocationKey = @"location";
 const NSString *kImageNameKey = @"image name";
 
-const NSString *noImage = @"noImage";
+const NSString *noImage = @"nopic.png";
 
 -(id)initWithDictionary:(NSDictionary *)climbData{
     self = [super init];
