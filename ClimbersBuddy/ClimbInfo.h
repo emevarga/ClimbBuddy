@@ -21,27 +21,30 @@ extern const NSString *kClimbNameKey;
 extern const NSString *kClimbTypeKey;
 extern const NSString *kDifficultyKey;
 extern const NSString *kWallNameKey;
-extern const NSString *kAreaNameKey;
 extern const NSString *kLocationKey;
+extern const NSString *kCoordinateKey;
 extern const NSString *kImageNameKey;
+extern const NSString *kDescriptionKey;
 
 @interface ClimbInfo : NSObject{
     NSString *_name;
     ClimbType _type;
     NSUInteger _difficulty;
     NSString *_wallName;
-    NSString *_areaName;
-    CLLocationCoordinate2D _location;
+    NSString *_locationName;
+    CLLocationCoordinate2D _coordinate;
     const NSString *_imageName;
+    NSString *_description;
 }
 
 @property(readonly)NSString *name;
 @property(readonly)ClimbType type;
 @property(readonly)NSUInteger difficulty;
 @property(readonly)NSString *wallName;
-@property(readonly)NSString *areaName;
-@property(readonly)CLLocationCoordinate2D location;
+@property(readonly)NSString *locationName;
+@property(readonly)CLLocationCoordinate2D coordinate;
 @property(readonly)NSString *imageName;
+@property(readonly)NSString *description;
 
 
 +(NSArray *)getRopedDifficulties;

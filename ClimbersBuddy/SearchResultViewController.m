@@ -22,6 +22,14 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSIndexPath *selectedIndex = [_tableView indexPathForSelectedRow];
+    if(selectedIndex){
+        [_tableView deselectRowAtIndexPath:selectedIndex animated:YES];
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

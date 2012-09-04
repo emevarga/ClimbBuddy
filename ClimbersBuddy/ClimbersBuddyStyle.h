@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ClimbInfo.h"
 
 @interface ClimbersBuddyStyle : NSObject
 
 +(UILabel *)getLabelWithSearchFormatting;
-
++(UILabel *)getClimbDetailLabel;
++(NSString *)getFillerDescriptionText;
++(NSString *)getStringForTypeEnum:(ClimbType)type;
 @end

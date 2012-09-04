@@ -13,7 +13,8 @@
 @interface ClimbDetailViewController : UIViewController{
     ClimbInfo *_climb;
     UIImageView *_imageView;
-    UILabel *_areaLabel;
+    UILabel *_typeLabel;
+    UILabel *_wallLabel;
     UILabel *_descriptionLabel;
 }
 

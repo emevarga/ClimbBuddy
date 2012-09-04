@@ -71,8 +71,11 @@
     
     ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
     [cell.textLabel setText:climb.name];
-    [cell.detailTextLabel setText:climb.areaName];
-    
+    NSString *detailText;
+    if(climb.wallName && climb.locationName){
+        detailText = [NSString stringWithFormat:@"%@, %@",climb.wallName,climb.locationName];
+    }
+    [cell.detailTextLabel setText:detailText];
     return cell;
 }
 

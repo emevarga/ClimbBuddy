@@ -9,6 +9,7 @@
 #import "ClimbFetcher.h"
 #import "SearchFilter.h"
 #import "ClimbInfo.h"
+#import "ClimbersBuddyStyle.h"
 
 @implementation ClimbFetcher
 
@@ -24,9 +25,10 @@
                 NSString *wall = [NSString stringWithFormat:@"Wall: %d",j];
                 [climbData setObject:wall forKey:kWallNameKey];
                 NSString *area = [NSString stringWithFormat:@"Area: %d",i];
-                [climbData setObject:area forKey:kAreaNameKey];
+                [climbData setObject:area forKey:kLocationKey];
                 NSNumber *type = [NSNumber numberWithInt:(((i+j+k)%4)+10)];
                 [climbData setObject:type forKey:kClimbTypeKey];
+                [climbData setObject:[ClimbersBuddyStyle getFillerDescriptionText] forKey:kDescriptionKey];
                 ClimbInfo *climb = [[ClimbInfo alloc] initWithDictionary:climbData];
                 [climbs addObject:climb];
                 [climbData removeAllObjects];
