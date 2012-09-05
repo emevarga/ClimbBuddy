@@ -7,6 +7,8 @@
 //
 
 #import "ClimbersBuddyStyle.h"
+
+#import <QuartzCore/QuartzCore.h>
 @implementation ClimbersBuddyStyle
 
 +(UILabel *)getLabelWithSearchFormatting{
@@ -22,6 +24,10 @@
     UIFont *font = [UIFont boldSystemFontOfSize:18];
     [detailLabel setFont:font];
     [detailLabel setTextColor:[UIColor darkGrayColor]];
+    
+    detailLabel.layer.borderColor = [UIColor redColor].CGColor;
+    detailLabel.layer.borderWidth = 1.0f;
+    
     return detailLabel;
 }
 
