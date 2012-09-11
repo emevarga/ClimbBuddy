@@ -17,7 +17,6 @@
 		D3400DEF15E424DF00503B1F /* MyClimbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DEE15E424DF00503B1F /* MyClimbsViewController.m */; };
 		D3400DF315E6CA3300503B1F /* ClimbersBuddyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DF215E6CA3300503B1F /* ClimbersBuddyStyle.m */; };
 		D349BE0915F05FDC00BDBB3C /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D349BE0815F05FDC00BDBB3C /* SearchIcon.png */; };
-		D34D3E1915E88C580047E8A3 /* ClimbInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D34D3E1815E88C580047E8A3 /* ClimbInfo.m */; };
 		D3666C5A15E963B5001490BF /* SearchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3666C5915E963B5001490BF /* SearchFilter.m */; };
 		D39A364D15EF23A1009FDC9E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39A364C15EF23A1009FDC9E /* CoreLocation.framework */; };
 		D39A365115EF3334009FDC9E /* ClimbInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39A365015EF3334009FDC9E /* ClimbInfoTableViewController.m */; };
@@ -26,6 +25,8 @@
 		D3B4A73E15F129A100744F08 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B4A73D15F129A100744F08 /* nopic.png */; };
 		D3FDD3A615F01F54001DF726 /* ClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */; };
 		D3FDD3AA15F020F9001DF726 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD3A915F020F9001DF726 /* SearchResultViewController.m */; };
+		D3FE669615FF8F2A001EF84A /* MyClimbsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3FE669415FF8F2A001EF84A /* MyClimbsModel.xcdatamodeld */; };
+		D3FE669A15FF9944001EF84A /* ClimbInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FE669915FF9944001EF84A /* ClimbInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +48,6 @@
 		D3400DF115E6CA3300503B1F /* ClimbersBuddyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbersBuddyStyle.h; sourceTree = "<group>"; };
 		D3400DF215E6CA3300503B1F /* ClimbersBuddyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbersBuddyStyle.m; sourceTree = "<group>"; };
 		D349BE0815F05FDC00BDBB3C /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchIcon.png; sourceTree = "<group>"; };
-		D34D3E1715E88C580047E8A3 /* ClimbInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbInfo.h; sourceTree = "<group>"; };
-		D34D3E1815E88C580047E8A3 /* ClimbInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbInfo.m; sourceTree = "<group>"; };
 		D3666C5815E963B5001490BF /* SearchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchFilter.h; sourceTree = "<group>"; };
 		D3666C5915E963B5001490BF /* SearchFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchFilter.m; sourceTree = "<group>"; };
 		D39A364C15EF23A1009FDC9E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -63,6 +62,9 @@
 		D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbDetailViewController.m; sourceTree = "<group>"; };
 		D3FDD3A815F020F9001DF726 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		D3FDD3A915F020F9001DF726 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
+		D3FE669515FF8F2A001EF84A /* MyClimbsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyClimbsModel.xcdatamodel; sourceTree = "<group>"; };
+		D3FE669815FF9944001EF84A /* ClimbInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbInfo.h; sourceTree = "<group>"; };
+		D3FE669915FF9944001EF84A /* ClimbInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		D3400DC515E4212600503B1F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D3FE669415FF8F2A001EF84A /* MyClimbsModel.xcdatamodeld */,
 				D3400DC615E4212600503B1F /* ClimbersBuddy-Info.plist */,
 				D3400DC715E4212600503B1F /* InfoPlist.strings */,
 				D3400DCA15E4212600503B1F /* main.m */,
@@ -165,8 +168,8 @@
 			children = (
 				D3666C5815E963B5001490BF /* SearchFilter.h */,
 				D3666C5915E963B5001490BF /* SearchFilter.m */,
-				D34D3E1715E88C580047E8A3 /* ClimbInfo.h */,
-				D34D3E1815E88C580047E8A3 /* ClimbInfo.m */,
+				D3FE669815FF9944001EF84A /* ClimbInfo.h */,
+				D3FE669915FF9944001EF84A /* ClimbInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -261,13 +264,14 @@
 				D3400DEB15E4238300503B1F /* SearchViewController.m in Sources */,
 				D3400DEF15E424DF00503B1F /* MyClimbsViewController.m in Sources */,
 				D3400DF315E6CA3300503B1F /* ClimbersBuddyStyle.m in Sources */,
-				D34D3E1915E88C580047E8A3 /* ClimbInfo.m in Sources */,
 				D3666C5A15E963B5001490BF /* SearchFilter.m in Sources */,
 				D3A6A96115EC09530098539C /* ToggleSegmentedControl.m in Sources */,
 				D39A365115EF3334009FDC9E /* ClimbInfoTableViewController.m in Sources */,
 				D39A365515EFD2EB009FDC9E /* ClimbFetcher.m in Sources */,
 				D3FDD3A615F01F54001DF726 /* ClimbDetailViewController.m in Sources */,
 				D3FDD3AA15F020F9001DF726 /* SearchResultViewController.m in Sources */,
+				D3FE669615FF8F2A001EF84A /* MyClimbsModel.xcdatamodeld in Sources */,
+				D3FE669A15FF9944001EF84A /* ClimbInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +382,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D3FE669415FF8F2A001EF84A /* MyClimbsModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D3FE669515FF8F2A001EF84A /* MyClimbsModel.xcdatamodel */,
+			);
+			currentVersion = D3FE669515FF8F2A001EF84A /* MyClimbsModel.xcdatamodel */;
+			path = MyClimbsModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D3400DB115E4212500503B1F /* Project object */;
 }
