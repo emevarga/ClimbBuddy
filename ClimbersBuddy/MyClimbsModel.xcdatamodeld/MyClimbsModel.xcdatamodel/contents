@@ -8,10 +8,10 @@
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="routeName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="wallName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ClimbInfo" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ClimbInfo" positionX="0" positionY="0" width="128" height="180"/>
     </elements>
 </model>

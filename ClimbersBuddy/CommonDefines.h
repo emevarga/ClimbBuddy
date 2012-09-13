@@ -17,22 +17,5 @@
 
 #define SEARCH_CONTROL_WIDTH 300
 
-typedef enum{
-    any = 9,
-    boulder = 10,
-    topRope = 11,
-    lead = 12,
-    trad = 13,
-}ClimbType;
-
-
-extern const NSString *kClimbNameKey;
-extern const NSString *kClimbTypeKey;
-extern const NSString *kDifficultyKey;
-extern const NSString *kWallNameKey;
-extern const NSString *kLocationKey;
-extern const NSString *kCoordinateKey;
-extern const NSString *kImageNameKey;
-extern const NSString *kDescriptionKey;
 
 #endif

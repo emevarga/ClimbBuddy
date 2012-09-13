@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CoreData/CoreData.h>
 @class ClimbInfo;
 
 @interface ClimbDetailViewController : UIViewController{
@@ -20,5 +20,7 @@
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;
+
+@property(strong) NSManagedObjectContext *managedObjectContext;
 
 @end

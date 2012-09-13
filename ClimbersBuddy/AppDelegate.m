@@ -30,7 +30,6 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     [self.tabBarController setViewControllers:@[searchNC,myClimbsNC]];
-    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

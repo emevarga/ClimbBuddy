@@ -29,8 +29,9 @@
                 NSNumber *type = [NSNumber numberWithInt:(((i+j+k)%4)+10)];
                 [climbData setObject:type forKey:kClimbTypeKey];
                 [climbData setObject:[ClimbersBuddyStyle getFillerDescriptionText] forKey:kDescriptionKey];
-                ClimbInfo *climb = [[ClimbInfo alloc] initWithDictionary:climbData];
-                [climbs addObject:climb];
+                ClimbInfo *climb = []
+//                ClimbInfo *climb = [[ClimbInfo alloc] initWithDictionary:climbData];
+  //              [climbs addObject:climb];
                 [climbData removeAllObjects];
             }
         }

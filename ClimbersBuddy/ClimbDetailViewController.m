@@ -13,7 +13,7 @@
 
 
 @interface ClimbDetailViewController ()
-
+-(void)addToMyClimbs;
 @end
 
 @implementation ClimbDetailViewController
@@ -25,6 +25,11 @@
         self.title = @"Info";
     }
     return self;
+}
+
+-(void)addToMyClimbs{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
 }
 
 -(void)loadView{
@@ -42,9 +47,9 @@
     [self.view addSubview:_nameLabel];
     
     _typeLabel = [ClimbersBuddyStyle getClimbDetailLabel];
-    NSString *typeString = [NSString stringWithFormat:@"%@",[ClimbersBuddyStyle getStringForTypeEnum:_climb.type]];
-    NSArray *difficulties = _climb.type == boulder ? [ClimbInfo getBoulderDifficulties] : [ClimbInfo getRopedDifficulties];
-    NSString *difficultyString = [difficulties objectAtIndex:_climb.difficulty];
+    NSString *typeString = [NSString stringWithFormat:@"%@",[ClimbersBuddyStyle getStringForTypeEnum:[_climb.type intValue]]];
+    NSArray *difficulties = [_climb.type intValue] == boulder ? [ClimbInfo getBoulderDifficulties] : [ClimbInfo getRopedDifficulties];
+    NSString *difficultyString = [difficulties objectAtIndex:[_climb.difficulty intValue]];
     if(difficultyString){
         typeString = [NSString stringWithFormat:@"%@, %@",typeString,difficultyString];
     }
@@ -76,6 +81,7 @@
     buttonFrame.origin.y += buttonFrame.size.height + 10;
     addButton.frame = buttonFrame;
     [addButton setTitle:@"Add to MyClimbs" forState:UIControlStateNormal];
+    [addButton addTarget:self action:@selector(addToMyClimbs) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:addButton];
     
     _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
