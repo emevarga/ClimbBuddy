@@ -7,6 +7,7 @@
 //
 
 #import "ClimbInfo.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation ClimbInfo
 
@@ -38,21 +39,22 @@ static NSArray *__boulderDifficulties = nil;
 @synthesize difficulty = _difficulty;
 @synthesize wallName = _wallName;
 @synthesize locationName = _locationName;
-@synthesize coordinate = _coordinate;
+@synthesize latitude = _latitude;
+@synthesize longitude = _longitude;
 @synthesize imageName = _imageName;
 @synthesize description = _description;
 
-const NSString *kClimbNameKey = @"climb name";
-const NSString *kClimbTypeKey = @"climb type";
-const NSString *kDifficultyKey = @"difficulty";
-const NSString *kWallNameKey = @"route name";
-const NSString *kLocationKey = @"location";
-const NSString *kCoordinateKey = @"coordinate";
-const NSString *kImageNameKey = @"image name";
-const NSString *kDescriptionKey = @"description";
+NSString *kClimbNameKey = @"climb name";
+NSString *kClimbTypeKey = @"climb type";
+NSString *kDifficultyKey = @"difficulty";
+NSString *kWallNameKey = @"route name";
+NSString *kLocationKey = @"location";
+NSString *kLatitudeKey = @"latitude";
+NSString *kLongitudeKey = @"longitude";
+NSString *kImageNameKey = @"image name";
+NSString *kDescriptionKey = @"description";
 
-
-const NSString *noImage = @"nopic.png";
+NSString *noImage = @"nopic.png";
 
 -(id)initWithDictionary:(NSDictionary *)climbData{
     self = [super init];
@@ -64,8 +66,8 @@ const NSString *noImage = @"nopic.png";
         _difficulty = [difficultyValue integerValue];
         _wallName = [climbData objectForKey:kWallNameKey];
         _locationName = [climbData objectForKey:kLocationKey];
-        NSValue *locationValue = [climbData objectForKey:kCoordinateKey];
-        [locationValue getValue:&_coordinate];
+        _latitude = [climbData objectForKey:kLatitudeKey];
+        _longitude = [climbData objectForKey:kLongitudeKey];
         _imageName = [climbData objectForKey:kImageNameKey];
         if(!_imageName){
             _imageName = noImage;
@@ -74,6 +76,43 @@ const NSString *noImage = @"nopic.png";
         
     }
     return self;
+}
+
+-(id)initWithPath:(NSString *)path{
+    self = [super init];
+    if(self){
+        //load from path
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)encoder{
+    [encoder encodeObject:_name forKey:kClimbNameKey];
+    [encoder encodeObject:[NSNumber numberWithInt:_type] forKey:kClimbTypeKey];
+    [encoder encodeObject:[NSNumber numberWithInt:_difficulty] forKey:kDifficultyKey];
+    [encoder encodeObject:_wallName forKey:kWallNameKey];
+    [encoder encodeObject:_locationName forKey:kLocationKey];
+    [encoder encodeObject:_latitude forKey:kLatitudeKey];
+    [encoder encodeObject:_longitude forKey:kLongitudeKey];
+    [encoder encodeObject:_imageName forKey:kImageNameKey];
+    [encoder encodeObject:_description forKey:kDescriptionKey];
+}
+
+-(id)initWithCoder:(NSCoder *)encoder{
+    NSMutableDictionary *climbData = [NSMutableDictionary dictionaryWithCapacity:10];
+    [climbData setValue:[encoder decodeObjectForKey:kClimbNameKey] forKey:kClimbNameKey];
+    [climbData setValue:[encoder decodeObjectForKey:kClimbTypeKey] forKey:kClimbTypeKey];
+    [climbData setValue:[encoder decodeObjectForKey:kWallNameKey] forKey:kWallNameKey];
+    [climbData setValue:[encoder decodeObjectForKey:kLocationKey] forKey:kLocationKey];
+    [climbData setValue:[encoder decodeObjectForKey:kLatitudeKey] forKey:kLatitudeKey];
+    [climbData setValue:[encoder decodeObjectForKey:kLongitudeKey] forKey:kLongitudeKey];
+    [climbData setValue:[encoder decodeObjectForKey:kImageNameKey] forKey:kImageNameKey];
+    [climbData setValue:[encoder decodeObjectForKey:kDescriptionKey] forKey:kDescriptionKey];
+    return [self initWithDictionary:climbData];
+}
+
+-(void)saveToMyClimbs{
+    //save
 }
 
 @end

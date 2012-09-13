@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
+
 
 typedef enum{
     any = 9,
@@ -17,23 +17,25 @@ typedef enum{
     trad = 13,
 }ClimbType;
 
-extern const NSString *kClimbNameKey;
-extern const NSString *kClimbTypeKey;
-extern const NSString *kDifficultyKey;
-extern const NSString *kWallNameKey;
-extern const NSString *kLocationKey;
-extern const NSString *kCoordinateKey;
-extern const NSString *kImageNameKey;
-extern const NSString *kDescriptionKey;
+extern NSString *kClimbNameKey;
+extern NSString *kClimbTypeKey;
+extern NSString *kDifficultyKey;
+extern NSString *kWallNameKey;
+extern NSString *kLocationKey;
+extern NSString *kLatitudeKey;
+extern NSString *kLongitudeKey;
+extern NSString *kImageNameKey;
+extern NSString *kDescriptionKey;
 
-@interface ClimbInfo : NSObject{
+@interface ClimbInfo : NSObject<NSCoding>{
     NSString *_name;
     ClimbType _type;
     NSUInteger _difficulty;
     NSString *_wallName;
     NSString *_locationName;
-    CLLocationCoordinate2D _coordinate;
-    const NSString *_imageName;
+    NSNumber *_latitude;
+    NSNumber *_longitude;
+    NSString *_imageName;
     NSString *_description;
 }
 
@@ -42,7 +44,8 @@ extern const NSString *kDescriptionKey;
 @property(readonly)NSUInteger difficulty;
 @property(readonly)NSString *wallName;
 @property(readonly)NSString *locationName;
-@property(readonly)CLLocationCoordinate2D coordinate;
+@property(readonly)NSNumber *latitude;
+@property(readonly)NSNumber *longitude;
 @property(readonly)NSString *imageName;
 @property(readonly)NSString *description;
 
@@ -51,5 +54,7 @@ extern const NSString *kDescriptionKey;
 +(NSArray *)getBoulderDifficulties;
 
 -(id)initWithDictionary:(NSDictionary *)climbData;
+-(id)initWithPath:(NSString *)path;
+-(void)saveToMyClimbs;
 
 @end
