@@ -48,6 +48,7 @@ extern NSString *kDescriptionKey;
 @property(readonly)NSNumber *longitude;
 @property(readonly)NSString *imageName;
 @property(readonly)NSString *description;
+@property(readonly)NSString *docPath;
 
 
 +(NSArray *)getRopedDifficulties;
@@ -55,6 +56,5 @@ extern NSString *kDescriptionKey;
 
 -(id)initWithDictionary:(NSDictionary *)climbData;
 -(id)initWithPath:(NSString *)path;
--(void)saveToMyClimbs;
 
 @end

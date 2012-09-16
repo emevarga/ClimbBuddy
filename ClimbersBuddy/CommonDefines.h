@@ -17,5 +17,8 @@
 
 #define SEARCH_CONTROL_WIDTH 300
 
+#define DATA_KEY @"Data"
+#define DATA_FILE @"/data.plist"
+
 
 #endif

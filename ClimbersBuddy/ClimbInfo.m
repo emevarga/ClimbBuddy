@@ -7,13 +7,18 @@
 //
 
 #import "ClimbInfo.h"
+#import "CommonDefines.h"
 #import <CoreLocation/CoreLocation.h>
+
+@interface ClimbInfo (Persistance)
++(NSString *)getDocumentsDirectory;
+-(BOOL)createDataPath;
+@end
 
 @implementation ClimbInfo
 
 static NSArray *__ropedDifficulties = nil;
 static NSArray *__boulderDifficulties = nil;
-
 
 +(NSArray *)getRopedDifficulties{
     if(!__ropedDifficulties){
@@ -53,6 +58,7 @@ NSString *kLatitudeKey = @"latitude";
 NSString *kLongitudeKey = @"longitude";
 NSString *kImageNameKey = @"image name";
 NSString *kDescriptionKey = @"description";
+
 
 NSString *noImage = @"nopic.png";
 
@@ -109,10 +115,6 @@ NSString *noImage = @"nopic.png";
     [climbData setValue:[encoder decodeObjectForKey:kImageNameKey] forKey:kImageNameKey];
     [climbData setValue:[encoder decodeObjectForKey:kDescriptionKey] forKey:kDescriptionKey];
     return [self initWithDictionary:climbData];
-}
-
--(void)saveToMyClimbs{
-    //save
 }
 
 @end

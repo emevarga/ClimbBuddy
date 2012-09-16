@@ -8,7 +8,7 @@
 
 #import "ClimbDetailViewController.h"
 #import "ClimbInfo.h"
-
+#import "MyClimbsManager.h"
 #import "ClimbersBuddyStyle.h"
 
 
@@ -76,6 +76,7 @@
     buttonFrame.origin.y += buttonFrame.size.height + 10;
     addButton.frame = buttonFrame;
     [addButton setTitle:@"Add to MyClimbs" forState:UIControlStateNormal];
+    [addButton addTarget:self action:@selector(saveClimb) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:addButton];
     
     _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
@@ -83,6 +84,10 @@
     _descriptionLabel.adjustsFontSizeToFitWidth = YES;
     [_descriptionLabel setText:_climb.description];
     [self.view addSubview:_descriptionLabel];
+}
+
+-(void)saveClimb{
+    [MyClimbsManager addClimb:_climb];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

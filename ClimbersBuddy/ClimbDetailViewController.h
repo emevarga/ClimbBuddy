@@ -20,5 +20,5 @@
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;
-
+-(void)saveClimb;
 @end
