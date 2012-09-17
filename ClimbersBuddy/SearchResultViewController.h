@@ -10,6 +10,4 @@
 
 @interface SearchResultViewController : ClimbInfoTableViewController
 
--(id)initWithClimbs:(NSArray *)climbs;
-
 @end

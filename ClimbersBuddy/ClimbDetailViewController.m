@@ -63,21 +63,14 @@
     [_wallLabel setText:[NSString stringWithFormat:@"%@, %@",_climb.wallName,_climb.locationName]];
     [self.view addSubview:_wallLabel];
     
-    UIButton *directionsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [directionsButton setTitle:@"Get Directions" forState:UIControlStateNormal];
+    _directionsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_directionsButton setTitle:@"Get Directions" forState:UIControlStateNormal];
     CGRect buttonFrame = wallFrame;
     buttonFrame.origin.y += wallFrame.size.height + 10;
     buttonFrame.size.width -= 10;
     buttonFrame.size.height = 30;
-    directionsButton.frame = buttonFrame;
-    [self.view addSubview:directionsButton];
-    
-    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    buttonFrame.origin.y += buttonFrame.size.height + 10;
-    addButton.frame = buttonFrame;
-    [addButton setTitle:@"Add to MyClimbs" forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(saveClimb) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:addButton];
+    _directionsButton.frame = buttonFrame;
+    [self.view addSubview:_directionsButton];
     
     _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
     _descriptionLabel.numberOfLines = 0;

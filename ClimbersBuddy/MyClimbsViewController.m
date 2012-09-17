@@ -8,6 +8,7 @@
 
 #import "MyClimbsViewController.h"
 #import "MyClimbsManager.h"
+#import "MyClimbsDetailViewController.h"
 
 @interface MyClimbsViewController ()
 
@@ -16,8 +17,15 @@
 @implementation MyClimbsViewController
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     _climbs = [NSMutableArray arrayWithArray:[MyClimbsManager myClimbs]];
+    [super viewWillAppear:animated];
+
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
+    ClimbDetailViewController *detail = [[MyClimbsDetailViewController alloc] initWithClimb:climb];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

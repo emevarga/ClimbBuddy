@@ -35,6 +35,16 @@ static NSMutableArray *__myClimbs = nil;
     return __myClimbs;
 }
 
++(BOOL)myClimbsContains:(ClimbInfo *)climb{
+    NSMutableArray *myClimbs = [[self class]getMyClimbs];
+    for(ClimbInfo *aClimb in myClimbs){
+        if([aClimb.name isEqualToString:climb.name] && [aClimb.locationName isEqualToString:climb.locationName] && [aClimb.wallName isEqualToString:climb.wallName]){
+            return YES;
+        }
+    }
+    return NO;
+}
+
 +(void)addClimb:(ClimbInfo *)climb{
     NSMutableArray *myClimbs = [[self class]getMyClimbs];
     if(![myClimbs containsObject:climb]){
