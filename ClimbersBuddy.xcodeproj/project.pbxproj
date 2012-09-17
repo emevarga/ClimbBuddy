@@ -16,17 +16,18 @@
 		D3400DEB15E4238300503B1F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DEA15E4238300503B1F /* SearchViewController.m */; };
 		D3400DEF15E424DF00503B1F /* MyClimbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DEE15E424DF00503B1F /* MyClimbsViewController.m */; };
 		D3400DF315E6CA3300503B1F /* ClimbersBuddyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DF215E6CA3300503B1F /* ClimbersBuddyStyle.m */; };
-		D349BE0915F05FDC00BDBB3C /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D349BE0815F05FDC00BDBB3C /* SearchIcon.png */; };
 		D34D3E1915E88C580047E8A3 /* ClimbInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D34D3E1815E88C580047E8A3 /* ClimbInfo.m */; };
 		D35DBDF516079B2F003F9C94 /* SearchResultClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35DBDF416079B2F003F9C94 /* SearchResultClimbDetailViewController.m */; };
 		D35DBDFB16079DC6003F9C94 /* MyClimbsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35DBDFA16079DC6003F9C94 /* MyClimbsDetailViewController.m */; };
+		D35DBDFF1607BE7E003F9C94 /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D35DBDFE1607BE7E003F9C94 /* SearchIcon.png */; };
+		D35DBE031607C106003F9C94 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = D35DBE021607C106003F9C94 /* nopic.png */; };
+		D35DBE051607C195003F9C94 /* myclimbs.png in Resources */ = {isa = PBXBuildFile; fileRef = D35DBE041607C195003F9C94 /* myclimbs.png */; };
 		D3666C5A15E963B5001490BF /* SearchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3666C5915E963B5001490BF /* SearchFilter.m */; };
 		D39A364D15EF23A1009FDC9E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39A364C15EF23A1009FDC9E /* CoreLocation.framework */; };
 		D39A365115EF3334009FDC9E /* ClimbInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39A365015EF3334009FDC9E /* ClimbInfoTableViewController.m */; };
 		D39A365515EFD2EB009FDC9E /* ClimbFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D39A365415EFD2EB009FDC9E /* ClimbFetcher.m */; };
 		D3A6A96115EC09530098539C /* ToggleSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A6A96015EC09530098539C /* ToggleSegmentedControl.m */; };
 		D3AC2F34160306FE00065D46 /* MyClimbsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AC2F33160306FE00065D46 /* MyClimbsManager.m */; };
-		D3B4A73E15F129A100744F08 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B4A73D15F129A100744F08 /* nopic.png */; };
 		D3FDD3A615F01F54001DF726 /* ClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */; };
 		D3FDD3AA15F020F9001DF726 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD3A915F020F9001DF726 /* SearchResultViewController.m */; };
 /* End PBXBuildFile section */
@@ -49,13 +50,15 @@
 		D3400DF015E4377700503B1F /* CommonDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefines.h; sourceTree = "<group>"; };
 		D3400DF115E6CA3300503B1F /* ClimbersBuddyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbersBuddyStyle.h; sourceTree = "<group>"; };
 		D3400DF215E6CA3300503B1F /* ClimbersBuddyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbersBuddyStyle.m; sourceTree = "<group>"; };
-		D349BE0815F05FDC00BDBB3C /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchIcon.png; sourceTree = "<group>"; };
 		D34D3E1715E88C580047E8A3 /* ClimbInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbInfo.h; sourceTree = "<group>"; };
 		D34D3E1815E88C580047E8A3 /* ClimbInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbInfo.m; sourceTree = "<group>"; };
 		D35DBDF316079B2F003F9C94 /* SearchResultClimbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultClimbDetailViewController.h; sourceTree = "<group>"; };
 		D35DBDF416079B2F003F9C94 /* SearchResultClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultClimbDetailViewController.m; sourceTree = "<group>"; };
 		D35DBDF916079DC6003F9C94 /* MyClimbsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClimbsDetailViewController.h; sourceTree = "<group>"; };
 		D35DBDFA16079DC6003F9C94 /* MyClimbsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClimbsDetailViewController.m; sourceTree = "<group>"; };
+		D35DBDFE1607BE7E003F9C94 /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchIcon.png; sourceTree = "<group>"; };
+		D35DBE021607C106003F9C94 /* nopic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nopic.png; path = ClimbersBuddy/nopic.png; sourceTree = "<group>"; };
+		D35DBE041607C195003F9C94 /* myclimbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myclimbs.png; sourceTree = "<group>"; };
 		D3666C5815E963B5001490BF /* SearchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchFilter.h; sourceTree = "<group>"; };
 		D3666C5915E963B5001490BF /* SearchFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchFilter.m; sourceTree = "<group>"; };
 		D39A364C15EF23A1009FDC9E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -67,7 +70,6 @@
 		D3A6A96015EC09530098539C /* ToggleSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleSegmentedControl.m; sourceTree = "<group>"; };
 		D3AC2F32160306FE00065D46 /* MyClimbsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClimbsManager.h; sourceTree = "<group>"; };
 		D3AC2F33160306FE00065D46 /* MyClimbsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClimbsManager.m; sourceTree = "<group>"; };
-		D3B4A73D15F129A100744F08 /* nopic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nopic.png; sourceTree = "<group>"; };
 		D3FDD3A415F01F54001DF726 /* ClimbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbDetailViewController.h; sourceTree = "<group>"; };
 		D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbDetailViewController.m; sourceTree = "<group>"; };
 		D3FDD3A815F020F9001DF726 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
@@ -146,9 +148,9 @@
 		D3400DEC15E4238900503B1F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D35DBDF816079B67003F9C94 /* Climb Table View Controllers */,
 				D3400DE915E4238300503B1F /* SearchViewController.h */,
 				D3400DEA15E4238300503B1F /* SearchViewController.m */,
+				D35DBDF816079B67003F9C94 /* Climb Table View Controllers */,
 				D35DBDF716079B3C003F9C94 /* Climb Detail View Controllers */,
 			);
 			name = "View Controllers";
@@ -157,8 +159,9 @@
 		D349BDFF15F05E7300BDBB3C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				D3B4A73D15F129A100744F08 /* nopic.png */,
-				D349BE0815F05FDC00BDBB3C /* SearchIcon.png */,
+				D35DBE041607C195003F9C94 /* myclimbs.png */,
+				D35DBDFE1607BE7E003F9C94 /* SearchIcon.png */,
+				D35DBE021607C106003F9C94 /* nopic.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -275,8 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3400DC915E4212600503B1F /* InfoPlist.strings in Resources */,
-				D349BE0915F05FDC00BDBB3C /* SearchIcon.png in Resources */,
-				D3B4A73E15F129A100744F08 /* nopic.png in Resources */,
+				D35DBDFF1607BE7E003F9C94 /* SearchIcon.png in Resources */,
+				D35DBE031607C106003F9C94 /* nopic.png in Resources */,
+				D35DBE051607C195003F9C94 /* myclimbs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

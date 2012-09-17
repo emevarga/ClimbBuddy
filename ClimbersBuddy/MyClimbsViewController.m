@@ -16,6 +16,16 @@
 
 @implementation MyClimbsViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.title = @"My Climbs";
+        self.tabBarItem.image = [UIImage imageNamed:@"myclimbs.png"];
+    }
+    return self;
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     _climbs = [NSMutableArray arrayWithArray:[MyClimbsManager myClimbs]];
     [super viewWillAppear:animated];

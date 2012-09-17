@@ -35,6 +35,7 @@ const NSString *kSearchControlSearchButton = @"search button";
     self = [super init];
     if (self) {
         self.title = @"Search";
+        self.tabBarItem.image = [UIImage imageNamed:@"SearchIcon.png"];
     }
     return self;
 }
