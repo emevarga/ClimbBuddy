@@ -7,11 +7,16 @@
 //
 
 #import "MyClimbsDetailViewController.h"
+#import "MyClimbsManager.h"
 
 @interface MyClimbsDetailViewController ()
 
 @end
 
 @implementation MyClimbsDetailViewController
+
+
+
+
 
 @end

@@ -10,10 +10,13 @@
 #import "ClimbInfo.h"
 #import "MyClimbsManager.h"
 #import "ClimbersBuddyStyle.h"
+#import "CommonDefines.h"
+
+#define IMAGE_RECT CGRectMake(10,10,self.view.frame.size.width/2-20,self.view.frame.size.height/3-20)
 
 
 @interface ClimbDetailViewController ()
-
+-(void)positionLabels:(NSArray *)views inRect:(CGRect)rect;
 @end
 
 @implementation ClimbDetailViewController
@@ -32,13 +35,13 @@
     self.view.backgroundColor = [UIColor whiteColor];
     UIImage *climbImage = [UIImage imageNamed:_climb.imageName];
     _imageView = [[UIImageView alloc] initWithImage:climbImage];
-    _imageView.frame = CGRectMake(10, 10, _imageView.frame.size.width/2-10, _imageView.frame.size.height/2-10);
+    _imageView.frame = IMAGE_RECT;
     [self.view addSubview:_imageView];
     
     _nameLabel = [ClimbersBuddyStyle getClimbDetailLabel];
     [_nameLabel setText:_climb.name];
     CGSize textSize = [_nameLabel.text sizeWithFont:_nameLabel.font];
-    _nameLabel.frame = CGRectMake(self.view.frame.size.width/2-10, 10, self.view.frame.size.width/2+10, textSize.height);
+    _nameLabel.frame = CGRectMake(self.view.frame.size.width/2 + 10, 10, self.view.frame.size.width/2-20, textSize.height);
     [self.view addSubview:_nameLabel];
     
     _typeLabel = [ClimbersBuddyStyle getClimbDetailLabel];
@@ -51,32 +54,60 @@
     [_typeLabel setText:typeString];
     
     CGRect typeRect = _nameLabel.frame;
-    typeRect.origin.y += 10+typeRect.size.height;
-    
     _typeLabel.frame = typeRect;
     [self.view addSubview:_typeLabel];
     
     _wallLabel = [ClimbersBuddyStyle getClimbDetailLabel];
     CGRect wallFrame = _typeLabel.frame;
-    wallFrame.origin.y += 10+wallFrame.size.height;
     _wallLabel.frame = wallFrame;
-    [_wallLabel setText:[NSString stringWithFormat:@"%@, %@",_climb.wallName,_climb.locationName]];
+    [_wallLabel setText:_climb.wallName];
     [self.view addSubview:_wallLabel];
     
-    _directionsButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [_directionsButton setTitle:@"Get Directions" forState:UIControlStateNormal];
-    CGRect buttonFrame = wallFrame;
-    buttonFrame.origin.y += wallFrame.size.height + 10;
-    buttonFrame.size.width -= 10;
-    buttonFrame.size.height = 30;
-    _directionsButton.frame = buttonFrame;
-    [self.view addSubview:_directionsButton];
+    _locationLabel = [ClimbersBuddyStyle getClimbDetailLabel];
+    CGRect locationFrame = _wallLabel.frame;
+    _locationLabel.frame = locationFrame;
+    [_locationLabel setText:_climb.locationName];
+    [self.view addSubview:_locationLabel];
     
-    _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
+    CGRect labelRect = CGRectMake(self.view.frame.size.width/2, _imageView.frame.origin.y, self.view.frame.size.width/2, _imageView.frame.size.height);
+    NSArray *labels = [NSArray arrayWithObjects:_nameLabel,_typeLabel,_wallLabel,_locationLabel, nil];
+    [self positionLabels:labels inRect:labelRect];
+    
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
+    [self.navigationItem setRightBarButtonItem:rightItem animated:YES];
+    
+    _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _imageView.frame.origin.y+_imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
     _descriptionLabel.numberOfLines = 0;
     _descriptionLabel.adjustsFontSizeToFitWidth = YES;
     [_descriptionLabel setText:_climb.description];
     [self.view addSubview:_descriptionLabel];
+}
+
+-(void)positionLabels:(NSArray *)views inRect:(CGRect)rect{
+    CGPoint origin = CGPointMake(rect.origin.x+MYCLIMBS_PADDING, rect.origin.y-MYCLIMBS_PADDING/2);
+    for(UIView *view in views){
+        origin.y += MYCLIMBS_PADDING;
+        CGRect viewFrame = view.frame;
+        viewFrame.origin = origin;
+        view.frame = viewFrame;
+        origin.y += view.frame.size.height;
+
+    }
+}
+
+-(void)showActionSheet{
+    NSString *myClimbsString = [MyClimbsManager myClimbsContains:_climb] ? @"Remove from My Climbs" : @"Add to My Climbs";
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Climb Actions"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"Get Directions",myClimbsString, nil];
+    [sheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    NSLog(@"%d",buttonIndex);
 }
 
 -(void)saveClimb{

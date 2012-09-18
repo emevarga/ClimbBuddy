@@ -10,16 +10,17 @@
 
 @class ClimbInfo;
 
-@interface ClimbDetailViewController : UIViewController{
+@interface ClimbDetailViewController : UIViewController<UIActionSheetDelegate>{
     ClimbInfo *_climb;
     UIImageView *_imageView;
     UILabel *_nameLabel;
     UILabel *_typeLabel;
     UILabel *_wallLabel;
+    UILabel *_locationLabel;
     UILabel *_descriptionLabel;
-    UIButton *_directionsButton;
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;
 -(void)saveClimb;
+-(void)showActionSheet;
 @end

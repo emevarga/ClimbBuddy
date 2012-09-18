@@ -9,7 +9,7 @@
 #import "ClimbDetailViewController.h"
 
 @interface SearchResultClimbDetailViewController : ClimbDetailViewController{
-    UIButton *_addButton;
+    
 }
 
 @end

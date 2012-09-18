@@ -111,7 +111,7 @@ const NSString *kSearchControlSearchButton = @"search button";
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [searchButton setTitle:@"Search" forState:UIControlStateNormal];
     [searchButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    searchButton.frame = CGRectMake(CONTROL_HORIZONTAL_PADDING, offset+LABEL_PADDING*4, 320-CONTROL_HORIZONTAL_PADDING*2, 40);
+    searchButton.frame = CGRectMake(CONTROL_HORIZONTAL_PADDING, offset+SEARCH_LABEL_PADDING*4, 320-CONTROL_HORIZONTAL_PADDING*2, 40);
     [searchButton addTarget:self action:@selector(searchButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:searchButton];
@@ -120,11 +120,11 @@ const NSString *kSearchControlSearchButton = @"search button";
 }
 
 -(CGRect)getLabelRectForOffset:(CGFloat)offset{
-    return CGRectMake(CONTROL_HORIZONTAL_PADDING, offset+CONTROL_VERTICAL_PADDING, SEARCH_CONTROL_WIDTH, LABEL_HEIGHT);
+    return CGRectMake(CONTROL_HORIZONTAL_PADDING, offset+CONTROL_VERTICAL_PADDING, SEARCH_CONTROL_WIDTH, SEARCH_LABEL_HEIGHT);
 }
 
 -(CGRect)getControlRectForOffset:(CGFloat)offset{
-    return CGRectMake(CONTROL_HORIZONTAL_PADDING, offset+CONTROL_VERTICAL_PADDING+LABEL_PADDING+LABEL_HEIGHT, SEARCH_CONTROL_WIDTH, SEARCH_CONTROL_HEIGHT);
+    return CGRectMake(CONTROL_HORIZONTAL_PADDING, offset+CONTROL_VERTICAL_PADDING+SEARCH_LABEL_PADDING+SEARCH_LABEL_HEIGHT, SEARCH_CONTROL_WIDTH, SEARCH_CONTROL_HEIGHT);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
