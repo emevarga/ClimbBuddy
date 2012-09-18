@@ -16,7 +16,9 @@ static NSMutableArray *__myClimbs = nil;
 +(NSMutableArray *)getMyClimbs;
 +(NSMutableArray *)loadMyClimbs;
 +(NSString *)getDocumentsDirectory;
++(NSString *)getPathForClimb:(ClimbInfo *)climb;
 +(ClimbInfo *)climbForPath:(NSString *)path;
++(BOOL)findAndRemoveClimb:(ClimbInfo *)climb;
 @end
 
 @implementation MyClimbsManager
@@ -45,13 +47,18 @@ static NSMutableArray *__myClimbs = nil;
     return NO;
 }
 
++(NSString *)getPathForClimb:(ClimbInfo *)climb{
+    NSString *path = [[self class] getDocumentsDirectory];
+    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@.climb",climb.name,climb.wallName]];
+    return path;
+}
+
 +(void)addClimb:(ClimbInfo *)climb{
     NSMutableArray *myClimbs = [[self class]getMyClimbs];
     if(![myClimbs containsObject:climb]){
         [myClimbs addObject:climb];
     }
-    NSString *filePath = [[self class] getDocumentsDirectory];
-    filePath = [filePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@.climb",climb.name,climb.wallName]];
+    NSString *filePath = [[self class]getPathForClimb:climb];
     NSError *error;
     if(![[NSFileManager defaultManager] createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:&error]){
         NSLog(@"Error savingToMyClimbs: %@",[error localizedDescription]);
@@ -63,6 +70,31 @@ static NSMutableArray *__myClimbs = nil;
     [writer encodeObject:climb forKey:DATA_KEY];
     [writer finishEncoding];
     [climbData writeToFile:filePath atomically:YES];
+}
+
++(void)removeClimb:(ClimbInfo *)climb{    
+    if([[self class] findAndRemoveClimb:climb]){
+        NSError *error;
+        NSString *path = [[self class] getPathForClimb:climb];
+        if(![[NSFileManager defaultManager] removeItemAtPath:path error:&error]){
+            NSLog(@"Error removing: %@",[error localizedDescription]);
+        }
+    }
+}
+
++(BOOL)findAndRemoveClimb:(ClimbInfo *)climb{
+    ClimbInfo *climbToRemove;
+    NSMutableArray *myClimbs = [[self class]getMyClimbs];
+    for(ClimbInfo *aClimb in myClimbs){
+        if([aClimb.name isEqualToString:climb.name] && [aClimb.locationName isEqualToString:climb.locationName] && [aClimb.wallName isEqualToString:climb.wallName]){
+            climbToRemove = aClimb;
+            break;
+        }
+    }
+    if(climbToRemove){
+        [myClimbs removeObject:climbToRemove];
+    }
+    return climbToRemove != nil;
 }
 
 +(NSString *)getDocumentsDirectory{

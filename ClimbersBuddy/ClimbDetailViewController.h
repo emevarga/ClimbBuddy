@@ -22,5 +22,6 @@
 
 -(id)initWithClimb:(ClimbInfo *)climb;
 -(void)saveClimb;
+-(void)removeClimb;
 -(void)showActionSheet;
 @end

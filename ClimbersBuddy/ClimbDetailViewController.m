@@ -107,11 +107,31 @@
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    NSLog(@"%d",buttonIndex);
+    switch (buttonIndex) {
+        case 0:
+            //get directions
+            break;
+        case 1:{
+            NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+            if([buttonTitle rangeOfString:@"Remove" options:NSCaseInsensitiveSearch].location == NSNotFound){
+                [self saveClimb];
+            }else{
+                [self removeClimb];
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
 }
 
 -(void)saveClimb{
     [MyClimbsManager addClimb:_climb];
+}
+
+-(void)removeClimb{
+    [MyClimbsManager removeClimb:_climb];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -13,6 +13,7 @@
 @interface MyClimbsManager : NSObject
 
 +(void)addClimb:(ClimbInfo *)climb;
++(void)removeClimb:(ClimbInfo *)climb;
 +(BOOL)myClimbsContains:(ClimbInfo *)climb;
 +(NSArray *)myClimbs;
 
