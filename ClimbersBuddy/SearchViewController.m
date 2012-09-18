@@ -10,7 +10,6 @@
 
 #import "CommonDefines.h"
 #import "ClimbersBuddyStyle.h"
-#import "ToggleSegmentedControl.h"
 #import "ClimbFetcher.h"
 #import "SearchResultViewController.h"
 
@@ -65,9 +64,8 @@ const NSString *kSearchControlSearchButton = @"search button";
     [self.view addSubview:distanceLabel];
     
     NSArray *distanceItems = @[@"20 miles",@"50 miles",@"100 miles",@"500 miles"];
-    ToggleSegmentedControl *distanceControl = [[ToggleSegmentedControl alloc]initWithItems:distanceItems];
+    UISegmentedControl *distanceControl = [ClimbersBuddyStyle getSegmentedControlWithItems:distanceItems];
     distanceControl.frame = [self getControlRectForOffset:offset];
-    [distanceControl setTitleTextAttributes:@{ UITextAttributeFont : [UIFont systemFontOfSize:12] } forState:UIControlStateNormal];
     [self.view addSubview:distanceControl];
     [_searchControls setObject:distanceControl forKey:kSearchControlDistanceControl];
     
@@ -78,8 +76,7 @@ const NSString *kSearchControlSearchButton = @"search button";
     [self.view addSubview:typeLabel];
     
     NSArray *typeItems = @[@"Boulder",@"Top Rope",@"Lead",@"Trad."];
-    ToggleSegmentedControl *typeControl = [[ToggleSegmentedControl alloc]initWithItems:typeItems];
-    [typeControl setTitleTextAttributes:@{ UITextAttributeFont : [UIFont systemFontOfSize:12] } forState:UIControlStateNormal];
+    UISegmentedControl *typeControl = [ClimbersBuddyStyle getSegmentedControlWithItems:typeItems];
     typeControl.frame = [self getControlRectForOffset:offset];
     [self.view addSubview:typeControl];
     [_searchControls setObject:typeItems forKey:kSearchControlTypeControl];

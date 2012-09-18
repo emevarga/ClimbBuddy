@@ -15,4 +15,6 @@
 +(UILabel *)getClimbDetailLabel;
 +(NSString *)getFillerDescriptionText;
 +(NSString *)getStringForTypeEnum:(ClimbType)type;
++(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items;
+
 @end

@@ -7,8 +7,8 @@
 //
 
 #import "ClimbersBuddyStyle.h"
-
 #import <QuartzCore/QuartzCore.h>
+#import "ToggleSegmentedControl.h"
 @implementation ClimbersBuddyStyle
 
 +(UILabel *)getLabelWithSearchFormatting{
@@ -50,6 +50,15 @@
             break;
     }
     return string;
+}
+
++(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items{
+    UISegmentedControl *control = [[ToggleSegmentedControl alloc] initWithItems:items];
+    control.segmentedControlStyle = UISegmentedControlStyleBar;
+    [control setTitleTextAttributes:@{ UITextAttributeFont : [UIFont systemFontOfSize:12],UITextAttributeTextColor:[UIColor colorWithRed:.8 green:.8 blue:.8 alpha:1] }
+                                   forState:UIControlStateNormal];
+    control.tintColor = [UIColor colorWithRed:.6 green:.6 blue:.6 alpha:1];
+    return control;
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "MyClimbsManager.h"
 #import "ClimbersBuddyStyle.h"
 #import "CommonDefines.h"
+#import "LineLayer.h"
 
 #define IMAGE_RECT CGRectMake(10,10,self.view.frame.size.width/2-20,self.view.frame.size.height/3-20)
 
@@ -32,6 +33,7 @@
 
 -(void)loadView{
     [super loadView];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     UIImage *climbImage = [UIImage imageNamed:_climb.imageName];
     _imageView = [[UIImageView alloc] initWithImage:climbImage];
@@ -77,9 +79,9 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
     [self.navigationItem setRightBarButtonItem:rightItem animated:YES];
     
-    _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _imageView.frame.origin.y+_imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
-    _descriptionLabel.numberOfLines = 0;
-    _descriptionLabel.adjustsFontSizeToFitWidth = YES;
+    _descriptionLabel = [[UITextView alloc]initWithFrame:CGRectMake(10, _imageView.frame.origin.y+_imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
+    _descriptionLabel.font = [UIFont systemFontOfSize:15];
+    _descriptionLabel.editable = NO;
     [_descriptionLabel setText:_climb.description];
     [self.view addSubview:_descriptionLabel];
 }

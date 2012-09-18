@@ -17,7 +17,7 @@
     UILabel *_typeLabel;
     UILabel *_wallLabel;
     UILabel *_locationLabel;
-    UILabel *_descriptionLabel;
+    UITextView *_descriptionLabel;
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;

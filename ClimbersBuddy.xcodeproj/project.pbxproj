@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D31616081608F32E0044DA09 /* LineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D31616071608F32E0044DA09 /* LineLayer.m */; };
+		D316160B1608F8C30044DA09 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D316160A1608F8C30044DA09 /* QuartzCore.framework */; };
 		D3400DBF15E4212600503B1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3400DBE15E4212600503B1F /* UIKit.framework */; };
 		D3400DC115E4212600503B1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3400DC015E4212600503B1F /* Foundation.framework */; };
 		D3400DC315E4212600503B1F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3400DC215E4212600503B1F /* CoreGraphics.framework */; };
@@ -33,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D31616061608F32E0044DA09 /* LineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineLayer.h; path = ../LineLayer.h; sourceTree = "<group>"; };
+		D31616071608F32E0044DA09 /* LineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineLayer.m; path = ../LineLayer.m; sourceTree = "<group>"; };
+		D316160A1608F8C30044DA09 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3400DBA15E4212600503B1F /* ClimbersBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbersBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3400DBE15E4212600503B1F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3400DC015E4212600503B1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D316160B1608F8C30044DA09 /* QuartzCore.framework in Frameworks */,
 				D39A364D15EF23A1009FDC9E /* CoreLocation.framework in Frameworks */,
 				D3400DBF15E4212600503B1F /* UIKit.framework in Frameworks */,
 				D3400DC115E4212600503B1F /* Foundation.framework in Frameworks */,
@@ -112,6 +118,7 @@
 		D3400DBD15E4212600503B1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D316160A1608F8C30044DA09 /* QuartzCore.framework */,
 				D39A364C15EF23A1009FDC9E /* CoreLocation.framework */,
 				D3400DBE15E4212600503B1F /* UIKit.framework */,
 				D3400DC015E4212600503B1F /* Foundation.framework */,
@@ -222,6 +229,8 @@
 			children = (
 				D3A6A95F15EC09530098539C /* ToggleSegmentedControl.h */,
 				D3A6A96015EC09530098539C /* ToggleSegmentedControl.m */,
+				D31616061608F32E0044DA09 /* LineLayer.h */,
+				D31616071608F32E0044DA09 /* LineLayer.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -306,6 +315,7 @@
 				D3AC2F34160306FE00065D46 /* MyClimbsManager.m in Sources */,
 				D35DBDF516079B2F003F9C94 /* SearchResultClimbDetailViewController.m in Sources */,
 				D35DBDFB16079DC6003F9C94 /* MyClimbsDetailViewController.m in Sources */,
+				D31616081608F32E0044DA09 /* LineLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
