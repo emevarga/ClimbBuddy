@@ -10,7 +10,7 @@
 
 extern const NSString *kSearchControlDistanceControl;
 extern const NSString *kSearchControlTypeControl;
-extern const NSString *kSearchControlDifficultySlider;
+extern const NSString *kSearchControlDifficultyControl;
 extern const NSString *kSearchControlHeightSlider;
 extern const NSString *kSearchControlSearchButton;
 extern const NSString *kSearchControlDifficultyLabel;

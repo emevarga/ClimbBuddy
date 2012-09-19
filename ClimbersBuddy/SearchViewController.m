@@ -12,6 +12,7 @@
 #import "ClimbersBuddyStyle.h"
 #import "ClimbFetcher.h"
 #import "SearchResultViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 const NSString *kSearchControlDistanceControl = @"distance";
@@ -60,10 +61,10 @@ const NSString *kSearchControlSearchButton = @"search button";
 
     UILabel *distanceLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
     distanceLabel.frame = [self getLabelRectForOffset:offset];
-    [distanceLabel setText:@"Distance from location:"];
+    [distanceLabel setText:@"Max miles from location:"];
     [self.view addSubview:distanceLabel];
     
-    NSArray *distanceItems = @[@"20 miles",@"50 miles",@"100 miles",@"500 miles"];
+    NSArray *distanceItems = @[@"5",@"25",@"50",@"100"];
     UISegmentedControl *distanceControl = [ClimbersBuddyStyle getSegmentedControlWithItems:distanceItems];
     distanceControl.frame = [self getControlRectForOffset:offset];
     [self.view addSubview:distanceControl];
@@ -105,12 +106,11 @@ const NSString *kSearchControlSearchButton = @"search button";
     
     offset += controlSectionHeight;
     
-    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [searchButton setTitle:@"Search" forState:UIControlStateNormal];
-    [searchButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    UIButton *searchButton = [ClimbersBuddyStyle getButtonForSearch];
     searchButton.frame = CGRectMake(CONTROL_HORIZONTAL_PADDING, offset+SEARCH_LABEL_PADDING*4, 320-CONTROL_HORIZONTAL_PADDING*2, 40);
     [searchButton addTarget:self action:@selector(searchButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    
+    CALayer *gradientLayer = [ClimbersBuddyStyle getGradientForLayer:searchButton.layer];
+    [searchButton.layer insertSublayer:gradientLayer atIndex:0];
     [self.view addSubview:searchButton];
     [_searchControls setObject:searchButton forKey:kSearchControlSearchButton];
 
