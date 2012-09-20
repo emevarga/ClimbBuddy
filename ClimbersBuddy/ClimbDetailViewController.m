@@ -11,7 +11,6 @@
 #import "MyClimbsManager.h"
 #import "ClimbersBuddyStyle.h"
 #import "CommonDefines.h"
-#import "LineLayer.h"
 
 #define IMAGE_RECT CGRectMake(10,10,self.view.frame.size.width/2-20,self.view.frame.size.height/3-20)
 

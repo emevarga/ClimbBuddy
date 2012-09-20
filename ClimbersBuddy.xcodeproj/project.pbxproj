@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D31616081608F32E0044DA09 /* LineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D31616071608F32E0044DA09 /* LineLayer.m */; };
+		D31537B0160AED220027D3DF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D31537AF160AED220027D3DF /* Default-568h@2x.png */; };
 		D316160B1608F8C30044DA09 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D316160A1608F8C30044DA09 /* QuartzCore.framework */; };
 		D3400DBF15E4212600503B1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3400DBE15E4212600503B1F /* UIKit.framework */; };
 		D3400DC115E4212600503B1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3400DC015E4212600503B1F /* Foundation.framework */; };
@@ -35,8 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D31616061608F32E0044DA09 /* LineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineLayer.h; path = ../LineLayer.h; sourceTree = "<group>"; };
-		D31616071608F32E0044DA09 /* LineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LineLayer.m; path = ../LineLayer.m; sourceTree = "<group>"; };
+		D31537AF160AED220027D3DF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D316160A1608F8C30044DA09 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3400DBA15E4212600503B1F /* ClimbersBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbersBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3400DBE15E4212600503B1F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -166,6 +165,7 @@
 		D349BDFF15F05E7300BDBB3C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				D31537AF160AED220027D3DF /* Default-568h@2x.png */,
 				D35DBE041607C195003F9C94 /* myclimbs.png */,
 				D35DBDFE1607BE7E003F9C94 /* SearchIcon.png */,
 				D35DBE021607C106003F9C94 /* nopic.png */,
@@ -229,8 +229,6 @@
 			children = (
 				D3A6A95F15EC09530098539C /* ToggleSegmentedControl.h */,
 				D3A6A96015EC09530098539C /* ToggleSegmentedControl.m */,
-				D31616061608F32E0044DA09 /* LineLayer.h */,
-				D31616071608F32E0044DA09 /* LineLayer.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -290,6 +288,7 @@
 				D35DBDFF1607BE7E003F9C94 /* SearchIcon.png in Resources */,
 				D35DBE031607C106003F9C94 /* nopic.png in Resources */,
 				D35DBE051607C195003F9C94 /* myclimbs.png in Resources */,
+				D31537B0160AED220027D3DF /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +314,6 @@
 				D3AC2F34160306FE00065D46 /* MyClimbsManager.m in Sources */,
 				D35DBDF516079B2F003F9C94 /* SearchResultClimbDetailViewController.m in Sources */,
 				D35DBDFB16079DC6003F9C94 /* MyClimbsDetailViewController.m in Sources */,
-				D31616081608F32E0044DA09 /* LineLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
