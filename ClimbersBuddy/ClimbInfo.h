@@ -55,6 +55,5 @@ extern NSString *kDescriptionKey;
 +(NSArray *)getBoulderDifficulties;
 
 -(id)initWithDictionary:(NSDictionary *)climbData;
--(id)initWithPath:(NSString *)path;
 
 @end

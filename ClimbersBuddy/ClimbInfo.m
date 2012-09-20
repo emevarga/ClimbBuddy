@@ -84,14 +84,6 @@ NSString *kDescriptionKey = @"description";
     self.climbDescription = [climbData objectForKey:kDescriptionKey];
 }
 
--(id)initWithPath:(NSString *)path{
-    self = [super init];
-    if(self){
-        //load from path
-    }
-    return self;
-}
-
 -(void)encodeWithCoder:(NSCoder *)encoder{
     [encoder encodeObject:_name forKey:kClimbNameKey];
     [encoder encodeObject:[NSNumber numberWithInt:_type] forKey:kClimbTypeKey];
