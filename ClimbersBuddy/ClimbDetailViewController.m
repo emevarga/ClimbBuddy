@@ -40,14 +40,14 @@
     
     _nameLabel = [ClimbersBuddyStyle getClimbDetailLabel];
     [_nameLabel setText:_climb.name];
+    CGSize textSize = [_nameLabel.text sizeWithFont:_nameLabel.font];
+    _nameLabel.frame = CGRectMake(self.view.frame.size.width/2 + 10, 10, self.view.frame.size.width/2-20, textSize.height);
+    [self.view addSubview:_nameLabel];
+    
+    _typeLabel = [ClimbersBuddyStyle getClimbDetailLabel];
     NSString *typeString = [NSString stringWithFormat:@"%@",[ClimbersBuddyStyle getStringForTypeEnum:_climb.type]];
     NSArray *difficulties = _climb.type == boulder ? [ClimbInfo getBoulderDifficulties] : [ClimbInfo getRopedDifficulties];
     NSString *difficultyString = [difficulties objectAtIndex:_climb.difficulty];
-    
-    _typeLabel = [ClimbersBuddyStyle getClimbDetailLabel];
-    NSString *typeString = [NSString stringWithFormat:@"%@",[ClimbersBuddyStyle getStringForTypeEnum:[_climb.type intValue]]];
-    NSArray *difficulties = [_climb.type intValue] == boulder ? [ClimbInfo getBoulderDifficulties] : [ClimbInfo getRopedDifficulties];
-    NSString *difficultyString = [difficulties objectAtIndex:[_climb.difficulty intValue]];
     if(difficultyString){
         typeString = [NSString stringWithFormat:@"%@, %@",typeString,difficultyString];
     }
@@ -64,14 +64,14 @@
     [self.view addSubview:_wallLabel];
     
     _locationLabel = [ClimbersBuddyStyle getClimbDetailLabel];
+    CGRect locationFrame = _wallLabel.frame;
+    _locationLabel.frame = locationFrame;
+    [_locationLabel setText:_climb.locationName];
+    [self.view addSubview:_locationLabel];
+    
     CGRect labelRect = CGRectMake(self.view.frame.size.width/2, _imageView.frame.origin.y, self.view.frame.size.width/2, _imageView.frame.size.height);
     NSArray *labels = [NSArray arrayWithObjects:_nameLabel,_typeLabel,_wallLabel,_locationLabel, nil];
     [self positionLabels:labels inRect:labelRect];
-    buttonFrame.origin.y += buttonFrame.size.height + 10;
-    addButton.frame = buttonFrame;
-    [addButton setTitle:@"Add to MyClimbs" forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(addToMyClimbs) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:addButton];
     
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
