@@ -14,7 +14,6 @@
 
 #define IMAGE_RECT CGRectMake(10,10,self.view.frame.size.width/2-20,self.view.frame.size.height/3-20)
 
-
 @interface ClimbDetailViewController ()
 -(void)positionLabels:(NSArray *)views inRect:(CGRect)rect;
 @end
