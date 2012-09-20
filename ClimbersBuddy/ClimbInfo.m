@@ -59,7 +59,6 @@ NSString *kLongitudeKey = @"longitude";
 NSString *kImageNameKey = @"image name";
 NSString *kDescriptionKey = @"description";
 
-
 NSString *noImage = @"nopic.png";
 
 -(id)initWithDictionary:(NSDictionary *)climbData{
