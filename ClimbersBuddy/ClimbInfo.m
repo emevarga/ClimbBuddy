@@ -46,6 +46,18 @@ static NSArray *__boulderDifficulties = nil;
 @synthesize locationName = _locationName;
 @synthesize latitude = _latitude;
 @synthesize longitude = _longitude;
+@synthesize imageName = _imageName;
+@synthesize description = _description;
+
+NSString *kClimbNameKey = @"climb name";
+NSString *kClimbTypeKey = @"climb type";
+NSString *kDifficultyKey = @"difficulty";
+NSString *kWallNameKey = @"route name";
+NSString *kLocationKey = @"location";
+NSString *kLatitudeKey = @"latitude";
+NSString *kLongitudeKey = @"longitude";
+NSString *kImageNameKey = @"image name";
+NSString *kDescriptionKey = @"description";
 
 NSString *noImage = @"nopic.png";
 
@@ -67,21 +79,8 @@ NSString *noImage = @"nopic.png";
         }
         _description = [climbData objectForKey:kDescriptionKey];
         
-NSString *kDescriptionKey = @"description";
-
--(void)setValuesFor:(NSDictionary *)climbData{
-    self.name = [climbData objectForKey:kClimbNameKey];
-    self.type = [climbData objectForKey:kClimbTypeKey];
-    self.difficulty = [climbData objectForKey:kDifficultyKey];
-    self.wallName = [climbData objectForKey:kWallNameKey];
-    self.locationName = [climbData objectForKey:kLocationKey];
-    self.latitude = [climbData objectForKey:kLatitudeKey];
-    self.longitude = [climbData objectForKey:kLongitudeKey];
-    self.imageName = [climbData objectForKey:kImageNameKey];
-    return self;
-        self.imageName = noImage;
     }
-    self.climbDescription = [climbData objectForKey:kDescriptionKey];
+    return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)encoder{
