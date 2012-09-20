@@ -7,6 +7,7 @@
 //
 
 #import "SearchResultViewController.h"
+#import "SearchResultClimbDetailViewController.h"
 
 @interface SearchResultViewController ()
 
@@ -29,6 +30,14 @@
         [_tableView deselectRowAtIndexPath:selectedIndex animated:YES];
     }
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
+    ClimbDetailViewController *detail = [[SearchResultClimbDetailViewController alloc] initWithClimb:climb];
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

@@ -7,6 +7,13 @@
 //
 
 #import "ClimbInfo.h"
+#import "CommonDefines.h"
+#import <CoreLocation/CoreLocation.h>
+
+@interface ClimbInfo (Persistance)
++(NSString *)getDocumentsDirectory;
+-(BOOL)createDataPath;
+@end
 
 
 @implementation ClimbInfo
@@ -34,7 +41,6 @@ const NSString *kDescriptionKey = @"description";
 
 static NSArray *__ropedDifficulties = nil;
 static NSArray *__boulderDifficulties = nil;
-
 
 +(NSArray *)getRopedDifficulties{
     if(!__ropedDifficulties){
@@ -71,6 +77,39 @@ static NSString *noImage = @"nopic.png";
         self.imageName = noImage;
     }
     self.climbDescription = [climbData objectForKey:kDescriptionKey];
+}
+
+-(id)initWithPath:(NSString *)path{
+    self = [super init];
+    if(self){
+        //load from path
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)encoder{
+    [encoder encodeObject:_name forKey:kClimbNameKey];
+    [encoder encodeObject:[NSNumber numberWithInt:_type] forKey:kClimbTypeKey];
+    [encoder encodeObject:[NSNumber numberWithInt:_difficulty] forKey:kDifficultyKey];
+    [encoder encodeObject:_wallName forKey:kWallNameKey];
+    [encoder encodeObject:_locationName forKey:kLocationKey];
+    [encoder encodeObject:_latitude forKey:kLatitudeKey];
+    [encoder encodeObject:_longitude forKey:kLongitudeKey];
+    [encoder encodeObject:_imageName forKey:kImageNameKey];
+    [encoder encodeObject:_description forKey:kDescriptionKey];
+}
+
+-(id)initWithCoder:(NSCoder *)encoder{
+    NSMutableDictionary *climbData = [NSMutableDictionary dictionaryWithCapacity:10];
+    [climbData setValue:[encoder decodeObjectForKey:kClimbNameKey] forKey:kClimbNameKey];
+    [climbData setValue:[encoder decodeObjectForKey:kClimbTypeKey] forKey:kClimbTypeKey];
+    [climbData setValue:[encoder decodeObjectForKey:kWallNameKey] forKey:kWallNameKey];
+    [climbData setValue:[encoder decodeObjectForKey:kLocationKey] forKey:kLocationKey];
+    [climbData setValue:[encoder decodeObjectForKey:kLatitudeKey] forKey:kLatitudeKey];
+    [climbData setValue:[encoder decodeObjectForKey:kLongitudeKey] forKey:kLongitudeKey];
+    [climbData setValue:[encoder decodeObjectForKey:kImageNameKey] forKey:kImageNameKey];
+    [climbData setValue:[encoder decodeObjectForKey:kDescriptionKey] forKey:kDescriptionKey];
+    return [self initWithDictionary:climbData];
 }
 
 @end

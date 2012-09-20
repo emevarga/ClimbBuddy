@@ -7,6 +7,8 @@
 //
 
 #import "MyClimbsViewController.h"
+#import "MyClimbsManager.h"
+#import "MyClimbsDetailViewController.h"
 
 @interface MyClimbsViewController ()
 
@@ -14,25 +16,26 @@
 
 @implementation MyClimbsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        self.title = @"My Climbs";
+        self.tabBarItem.image = [UIImage imageNamed:@"myclimbs.png"];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+-(void)viewWillAppear:(BOOL)animated{
+    _climbs = [NSMutableArray arrayWithArray:[MyClimbsManager myClimbs]];
+    [super viewWillAppear:animated];
+
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
+    ClimbDetailViewController *detail = [[MyClimbsDetailViewController alloc] initWithClimb:climb];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

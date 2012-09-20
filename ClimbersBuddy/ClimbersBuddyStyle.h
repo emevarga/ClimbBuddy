@@ -15,4 +15,8 @@
 +(UILabel *)getClimbDetailLabel;
 +(NSString *)getFillerDescriptionText;
 +(NSString *)getStringForTypeEnum:(ClimbType)type;
++(UIButton *)getButtonForSearch;
++(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items;
++(CALayer *)getGradientForLayer:(CALayer *)layer;
+
 @end

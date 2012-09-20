@@ -10,13 +10,14 @@
 #import <CoreData/CoreData.h>
 @class ClimbInfo;
 
-@interface ClimbDetailViewController : UIViewController{
+@interface ClimbDetailViewController : UIViewController<UIActionSheetDelegate>{
     ClimbInfo *_climb;
     UIImageView *_imageView;
     UILabel *_nameLabel;
     UILabel *_typeLabel;
     UILabel *_wallLabel;
-    UILabel *_descriptionLabel;
+    UILabel *_locationLabel;
+    UITextView *_descriptionLabel;
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;

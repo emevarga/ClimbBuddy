@@ -14,7 +14,7 @@
     NSUInteger previousIndex = self.selectedSegmentIndex;
     [super touchesBegan:touches withEvent:event];
     if(self.selectedSegmentIndex == previousIndex){
-        [super setSelectedSegmentIndex:UISegmentedControlNoSegment];
+        [self setSelectedSegmentIndex:UISegmentedControlNoSegment];
         [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }

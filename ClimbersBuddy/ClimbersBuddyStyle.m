@@ -7,8 +7,14 @@
 //
 
 #import "ClimbersBuddyStyle.h"
-
 #import <QuartzCore/QuartzCore.h>
+#import "ToggleSegmentedControl.h"
+#import "CommonDefines.h"
+
+@interface ClimbersBuddyStyle (Internal)
++(UIImage *)imageForColor:(UIColor *)color;
++(CALayer *)getGradientForLayer:(CALayer *)layer;
+@end
 @implementation ClimbersBuddyStyle
 
 +(UILabel *)getLabelWithSearchFormatting{
@@ -50,6 +56,58 @@
             break;
     }
     return string;
+}
+
++(UIImage *)imageForColor:(UIColor *)color{
+    CGRect rect = CGRectMake(0, 0, 1, 1);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
++(CALayer *)getGradientForLayer:(CALayer *)layer{
+    CALayer *backgroundLayer = [CALayer layer];
+    backgroundLayer.cornerRadius = layer.cornerRadius;
+    backgroundLayer.masksToBounds = layer.masksToBounds;
+    backgroundLayer.frame = layer.bounds;
+    
+    CAGradientLayer *gradeientLayer = [CAGradientLayer layer];
+    gradeientLayer.frame = layer.bounds;
+    gradeientLayer.colors = @[(id)[[UIColor colorWithWhite:1 alpha:.1]CGColor],(id)[[UIColor colorWithWhite:.8 alpha:.2]CGColor],(id)[[UIColor colorWithWhite:.75 alpha:.02]CGColor],(id)[[UIColor colorWithWhite:.5 alpha:.1]CGColor]];
+    gradeientLayer.locations = @[[NSNumber numberWithFloat:0],[NSNumber numberWithFloat:.5],[NSNumber numberWithFloat:.5],[NSNumber numberWithFloat:1]];
+    [backgroundLayer addSublayer:gradeientLayer];
+    return backgroundLayer;
+}
+
++(UIButton *)getButtonForSearch{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Search" forState:UIControlStateNormal];
+    [button setTitleColor:SEARCH_CONTROL_TEXT_COLOR forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor lightTextColor] forState:UIControlStateHighlighted];
+    [button setBackgroundImage:[[self class]imageForColor:SEARCH_CONTROL_HIGHLIGHTED_COLOR] forState:UIControlStateHighlighted];
+    button.backgroundColor = SEARCH_CONTROL_COLOR;
+    [button.layer setMasksToBounds:YES];
+    button.layer.borderWidth = .5;
+    button.layer.borderColor = [[UIColor darkGrayColor]CGColor];
+    button.layer.cornerRadius = 7;
+    
+    [button.layer insertSublayer:[[self class]getGradientForLayer:button.layer]atIndex:0];
+    
+    return button;
+}
+
+
++(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items{
+    UISegmentedControl *control = [[ToggleSegmentedControl alloc] initWithItems:items];
+    control.segmentedControlStyle = UISegmentedControlStyleBar;
+    [control setTitleTextAttributes:@{ UITextAttributeFont : [UIFont systemFontOfSize:13],UITextAttributeTextColor: SEARCH_CONTROL_TEXT_COLOR}
+                                   forState:UIControlStateNormal];
+    control.tintColor = [UIColor lightGrayColor];
+    return control;
 }
 
 @end

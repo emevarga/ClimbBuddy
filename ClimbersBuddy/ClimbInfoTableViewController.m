@@ -39,6 +39,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }
+    [_tableView reloadData];
     _tableView.frame = self.view.frame;
 }
 
@@ -81,11 +82,6 @@
 
 #pragma mark Table View Delegate
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
-    ClimbDetailViewController *detail = [[ClimbDetailViewController alloc] initWithClimb:climb];
-    [self.navigationController pushViewController:detail animated:YES];
-}
 
 
 

@@ -11,11 +11,19 @@
 
 #define CONTROL_HORIZONTAL_PADDING 10
 #define CONTROL_VERTICAL_PADDING 8
-#define LABEL_HEIGHT 20
-#define LABEL_PADDING 2
-#define SEARCH_CONTROL_HEIGHT 30
+#define SEARCH_LABEL_HEIGHT 20
+#define SEARCH_LABEL_PADDING 2
+#define SEARCH_CONTROL_HEIGHT 32
 
 #define SEARCH_CONTROL_WIDTH 300
+#define SEARCH_CONTROL_COLOR [UIColor colorWithRed:.55 green:.55 blue:.55 alpha:1]
+#define SEARCH_CONTROL_HIGHLIGHTED_COLOR [UIColor colorWithRed:.4 green:.4 blue:.4 alpha:1]
+#define SEARCH_CONTROL_TEXT_COLOR [UIColor colorWithRed:.89 green:.89 blue:.89 alpha:1]
+
+#define MYCLIMBS_PADDING 10
+
+#define DATA_KEY @"Data"
+#define DATA_FILE @"/data.plist"
 
 
 #endif

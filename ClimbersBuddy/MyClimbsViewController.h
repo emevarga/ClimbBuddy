@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClimbInfoTableViewController.h"
 
-@interface MyClimbsViewController : UIViewController
+@interface MyClimbsViewController : ClimbInfoTableViewController
 
 @end
