@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+
 @class ClimbInfo;
 
 @interface ClimbDetailViewController : UIViewController<UIActionSheetDelegate>{
@@ -21,7 +21,7 @@
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;
-
-@property(strong) NSManagedObjectContext *managedObjectContext;
-
+-(void)saveClimb;
+-(void)removeClimb;
+-(void)showActionSheet;
 @end

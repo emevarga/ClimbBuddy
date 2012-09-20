@@ -2,12 +2,12 @@
 //  ClimbInfo.h
 //  ClimbersBuddy
 //
-//  Created by Clark Barry on 9/11/12.
+//  Created by Clark Barry on 8/24/12.
 //  Copyright (c) 2012 CSHaus. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+
 
 typedef enum{
     any = 9,
@@ -17,33 +17,44 @@ typedef enum{
     trad = 13,
 }ClimbType;
 
-extern const NSString *kClimbNameKey;
-extern const NSString *kClimbTypeKey;
-extern const NSString *kDifficultyKey;
-extern const NSString *kWallNameKey;
-extern const NSString *kLocationKey;
-extern const NSString *kCoordinateKey;
-extern const NSString *kLatitudeKey;
-extern const NSString *kLongitudeKey;
-extern const NSString *kImageNameKey;
-extern const NSString *kDescriptionKey;
+extern NSString *kClimbNameKey;
+extern NSString *kClimbTypeKey;
+extern NSString *kDifficultyKey;
+extern NSString *kWallNameKey;
+extern NSString *kLocationKey;
+extern NSString *kLatitudeKey;
+extern NSString *kLongitudeKey;
+extern NSString *kImageNameKey;
+extern NSString *kDescriptionKey;
 
+@interface ClimbInfo : NSObject<NSCoding>{
+    NSString *_name;
+    ClimbType _type;
+    NSUInteger _difficulty;
+    NSString *_wallName;
+    NSString *_locationName;
+    NSNumber *_latitude;
+    NSNumber *_longitude;
+    NSString *_imageName;
+    NSString *_description;
+}
 
-@interface ClimbInfo : NSManagedObject
+@property(readonly)NSString *name;
+@property(readonly)ClimbType type;
+@property(readonly)NSUInteger difficulty;
+@property(readonly)NSString *wallName;
+@property(readonly)NSString *locationName;
+@property(readonly)NSNumber *latitude;
+@property(readonly)NSNumber *longitude;
+@property(readonly)NSString *imageName;
+@property(readonly)NSString *description;
+@property(readonly)NSString *docPath;
 
-@property (nonatomic, retain) NSString * climbDescription;
-@property (nonatomic, retain) NSString * difficulty;
-@property (nonatomic, retain) NSString * imageName;
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSString * locationName;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * wallName;
-@property (nonatomic, retain) NSNumber * type;
 
 +(NSArray *)getRopedDifficulties;
 +(NSArray *)getBoulderDifficulties;
 
--(void)setValuesFor:(NSDictionary *)climbData;
+-(id)initWithDictionary:(NSDictionary *)climbData;
+-(id)initWithPath:(NSString *)path;
 
 @end
