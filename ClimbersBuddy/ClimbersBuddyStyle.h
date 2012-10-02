@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ClimbInfo.h"
+@class RangeSlider;
 
 @interface ClimbersBuddyStyle : NSObject
 
@@ -16,7 +17,8 @@
 +(NSString *)getFillerDescriptionText;
 +(NSString *)getStringForTypeEnum:(ClimbType)type;
 +(UIButton *)getButtonForSearch;
-+(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items;
++(RangeSlider *)getRangeSlider:(CGRect)rect;
++(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items withToggle:(BOOL)toggle;
 +(CALayer *)getGradientForLayer:(CALayer *)layer;
 
 @end

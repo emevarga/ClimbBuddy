@@ -12,6 +12,7 @@
 #import "ClimbersBuddyStyle.h"
 #import "ClimbFetcher.h"
 #import "SearchResultViewController.h"
+#import "RangeSlider.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -25,6 +26,7 @@ const NSString *kSearchControlSearchButton = @"search button";
 -(CGRect)getLabelRectForOffset:(CGFloat)offset;
 -(CGRect)getControlRectForOffset:(CGFloat)offset;
 
+-(void)difficultySliderChanged:(RangeSlider *)rangeSlider;
 -(void)searchButtonPressed;
 @end
 
@@ -50,6 +52,10 @@ const NSString *kSearchControlSearchButton = @"search button";
     //push view with search results
 }
 
+-(void)difficultySliderChanged:(RangeSlider *)rangeSlider{
+
+}
+
 -(void)loadView{
     [super loadView];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -58,6 +64,19 @@ const NSString *kSearchControlSearchButton = @"search button";
     }
     CGFloat controlSectionHeight = 70;
     CGFloat offset = 10;
+    
+    UILabel *filterLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    filterLabel.frame = [self getLabelRectForOffset:offset];
+    [filterLabel setText:@"Sort results by:"];
+    [self.view addSubview:filterLabel];
+    
+    NSArray *filterItems = @[@"Best Match",@"Nearest",@"Most Difficult"];
+    UISegmentedControl *filterControl = [ClimbersBuddyStyle getSegmentedControlWithItems:filterItems withToggle:NO];
+    [filterControl setSelectedSegmentIndex:0];
+    filterControl.frame = [self getControlRectForOffset:offset];
+    [self.view addSubview:filterControl];
+    //add to control dictionary
+    offset += controlSectionHeight;
 
     UILabel *distanceLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
     distanceLabel.frame = [self getLabelRectForOffset:offset];
@@ -65,7 +84,7 @@ const NSString *kSearchControlSearchButton = @"search button";
     [self.view addSubview:distanceLabel];
     
     NSArray *distanceItems = @[@"5",@"25",@"50",@"100"];
-    UISegmentedControl *distanceControl = [ClimbersBuddyStyle getSegmentedControlWithItems:distanceItems];
+    UISegmentedControl *distanceControl = [ClimbersBuddyStyle getSegmentedControlWithItems:distanceItems withToggle:YES];
     distanceControl.frame = [self getControlRectForOffset:offset];
     [self.view addSubview:distanceControl];
     [_searchControls setObject:distanceControl forKey:kSearchControlDistanceControl];
@@ -77,7 +96,7 @@ const NSString *kSearchControlSearchButton = @"search button";
     [self.view addSubview:typeLabel];
     
     NSArray *typeItems = @[@"Boulder",@"Top Rope",@"Lead",@"Trad."];
-    UISegmentedControl *typeControl = [ClimbersBuddyStyle getSegmentedControlWithItems:typeItems];
+    UISegmentedControl *typeControl = [ClimbersBuddyStyle getSegmentedControlWithItems:typeItems withToggle:YES];
     typeControl.frame = [self getControlRectForOffset:offset];
     [self.view addSubview:typeControl];
     [_searchControls setObject:typeItems forKey:kSearchControlTypeControl];
@@ -89,20 +108,11 @@ const NSString *kSearchControlSearchButton = @"search button";
     [difficultyLabel setText:@"Max Difficulty:"];
     [self.view addSubview:difficultyLabel];
     
-    UISlider *difficultySlider = [[UISlider alloc]initWithFrame:[self getControlRectForOffset:offset]];
+    CGRect rangeSliderRect = [self getControlRectForOffset:offset];
+    RangeSlider *difficultySlider = [ClimbersBuddyStyle getRangeSlider:rangeSliderRect];
+    [difficultySlider addTarget:self action:@selector(difficultySliderChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:difficultySlider];
     [_searchControls setObject:difficultySlider forKey:kSearchControlDifficultySlider];
-    
-    offset += controlSectionHeight;
-    
-    UILabel *heightLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
-    heightLabel.frame = [self getLabelRectForOffset:offset];
-    [heightLabel setText:@"Max Height:"];
-    [self.view addSubview:heightLabel];
-    
-    UISlider *heightSlider = [[UISlider alloc]initWithFrame:[self getControlRectForOffset:offset]];
-    [self.view addSubview:heightSlider];
-    [_searchControls setObject:heightSlider forKey:kSearchControlHeightSlider];
     
     offset += controlSectionHeight;
     

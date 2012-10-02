@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ToggleSegmentedControl.h"
 #import "CommonDefines.h"
+#import "RangeSlider.h"
 
 @interface ClimbersBuddyStyle (Internal)
 +(UIImage *)imageForColor:(UIColor *)color;
@@ -83,6 +84,14 @@
     return backgroundLayer;
 }
 
++(RangeSlider *)getRangeSlider:(CGRect)rect{
+    RangeSlider *rangeSilder = [[RangeSlider alloc] initWithFrame:rect];
+    [rangeSilder setTrackBackgroundColor:SEARCH_CONTROL_TEXT_COLOR];
+    [rangeSilder setTrackHighlightColor:SEARCH_CONTROL_COLOR];
+    [rangeSilder setThumbColor:SEARCH_CONTROL_HIGHLIGHTED_COLOR];
+    return rangeSilder;
+}
+
 +(UIButton *)getButtonForSearch{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Search" forState:UIControlStateNormal];
@@ -101,8 +110,8 @@
 }
 
 
-+(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items{
-    UISegmentedControl *control = [[ToggleSegmentedControl alloc] initWithItems:items];
++(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items withToggle:(BOOL)toggle{
+    UISegmentedControl *control = toggle ? [[ToggleSegmentedControl alloc] initWithItems:items]: [[UISegmentedControl alloc]initWithItems:items];
     control.segmentedControlStyle = UISegmentedControlStyleBar;
     [control setTitleTextAttributes:@{ UITextAttributeFont : [UIFont systemFontOfSize:13],UITextAttributeTextColor: SEARCH_CONTROL_TEXT_COLOR}
                                    forState:UIControlStateNormal];
