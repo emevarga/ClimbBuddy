@@ -20,6 +20,8 @@
 #define SEARCH_CONTROL_HIGHLIGHTED_COLOR [UIColor colorWithRed:.4 green:.4 blue:.4 alpha:1]
 #define SEARCH_CONTROL_TEXT_COLOR [UIColor colorWithRed:.89 green:.89 blue:.89 alpha:1]
 
+#define BACKGROUND_COLOR [UIColor colorWithRed:.91 green:.91 blue:.91 alpha:1]
+
 #define MYCLIMBS_PADDING 10
 
 #define DATA_KEY @"Data"

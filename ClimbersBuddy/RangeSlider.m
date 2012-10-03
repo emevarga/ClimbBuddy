@@ -72,6 +72,7 @@
     CGPoint center = _minThumb.center;
     _minThumb.frame = CGRectMake(_minThumb.frame.origin.x, _minThumb.frame.origin.y, 44, 44);
     _minThumb.center = center;
+    
     _maxThumb.contentMode = UIViewContentModeCenter;
     center = _maxThumb.center;
     _maxThumb.frame = CGRectMake(_maxThumb.frame.origin.x, _maxThumb.frame.origin.y, 44, 44);

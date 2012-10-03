@@ -27,6 +27,8 @@ const NSString *kSearchControlSearchButton = @"search button";
 -(CGRect)getControlRectForOffset:(CGFloat)offset;
 
 -(void)difficultySliderChanged:(RangeSlider *)rangeSlider;
+-(void)typeChanged:(UISegmentedControl *)typeControl;
+-(void)updateLabels;
 -(void)searchButtonPressed;
 @end
 
@@ -53,31 +55,69 @@ const NSString *kSearchControlSearchButton = @"search button";
 }
 
 -(void)difficultySliderChanged:(RangeSlider *)rangeSlider{
+    [self updateLabels];
+}
 
+-(void)typeChanged:(UISegmentedControl *)typeControl{
+    RangeSlider *rangeSlider = [_searchControls objectForKey:kSearchControlDifficultySlider];
+    NSInteger size;
+    if(typeControl.selectedSegmentIndex == 0){
+        size = [[ClimbInfo getBoulderDifficulties]count];
+    }else{
+        size = [[ClimbInfo getRopedDifficulties]count];
+    }
+    size--;
+    [rangeSlider setMinimumValue:0];
+    [rangeSlider setMaximumValue:size];
+    [self updateLabels];
+}
+
+-(void)updateLabels{
+    RangeSlider *rangeSlider = [_searchControls objectForKey:kSearchControlDifficultySlider];
+    NSInteger lowerValue = floor(rangeSlider.selectedMinimumValue);
+    NSInteger upperValue = floor(rangeSlider.selectedMaximumValue);
+    UISegmentedControl *typeControl = [_searchControls objectForKey:kSearchControlTypeControl];
+    NSArray *difficultyStrings;
+    if(typeControl.selectedSegmentIndex == 0){
+        difficultyStrings = [ClimbInfo getBoulderDifficulties];
+    }else{
+        difficultyStrings = [ClimbInfo getRopedDifficulties];
+    }
+    [_minDifficultyLabel setText:[difficultyStrings objectAtIndex:lowerValue]];
+    [_maxDifficultyLabel setText:[difficultyStrings objectAtIndex:upperValue]];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self typeChanged:[_searchControls objectForKey:kSearchControlTypeControl]];
 }
 
 -(void)loadView{
     [super loadView];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = BACKGROUND_COLOR;
+    self.view.layer.masksToBounds = YES;
     if(!_searchControls){
         _searchControls = [[NSMutableDictionary alloc]initWithCapacity:5];
     }
     CGFloat controlSectionHeight = 70;
     CGFloat offset = 10;
     
+    //add to control dictionary
+    
     UILabel *filterLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
     filterLabel.frame = [self getLabelRectForOffset:offset];
     [filterLabel setText:@"Sort results by:"];
     [self.view addSubview:filterLabel];
     
-    NSArray *filterItems = @[@"Best Match",@"Nearest",@"Most Difficult"];
+    NSArray *filterItems = @[@"Nearest",@"Best Match",@"Most Difficult"];
     UISegmentedControl *filterControl = [ClimbersBuddyStyle getSegmentedControlWithItems:filterItems withToggle:NO];
-    [filterControl setSelectedSegmentIndex:0];
+    [filterControl setSelectedSegmentIndex:1];
     filterControl.frame = [self getControlRectForOffset:offset];
     [self.view addSubview:filterControl];
-    //add to control dictionary
+    
     offset += controlSectionHeight;
-
+    
     UILabel *distanceLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
     distanceLabel.frame = [self getLabelRectForOffset:offset];
     [distanceLabel setText:@"Max miles from location:"];
@@ -90,23 +130,48 @@ const NSString *kSearchControlSearchButton = @"search button";
     [_searchControls setObject:distanceControl forKey:kSearchControlDistanceControl];
     
     offset += controlSectionHeight;
+    
     UILabel *typeLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
     typeLabel.frame = [self getLabelRectForOffset:offset];
     [typeLabel setText:@"Climb type:"];
     [self.view addSubview:typeLabel];
     
     NSArray *typeItems = @[@"Boulder",@"Top Rope",@"Lead",@"Trad."];
-    UISegmentedControl *typeControl = [ClimbersBuddyStyle getSegmentedControlWithItems:typeItems withToggle:YES];
+    UISegmentedControl *typeControl = [ClimbersBuddyStyle getSegmentedControlWithItems:typeItems withToggle:NO];
     typeControl.frame = [self getControlRectForOffset:offset];
+    [typeControl setSelectedSegmentIndex:0];
+    [typeControl addTarget:self action:@selector(typeChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:typeControl];
-    [_searchControls setObject:typeItems forKey:kSearchControlTypeControl];
+    [_searchControls setObject:typeControl forKey:kSearchControlTypeControl];
     
-    
+
     offset += controlSectionHeight;
-    UILabel *difficultyLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
-    difficultyLabel.frame = [self getLabelRectForOffset:offset];
-    [difficultyLabel setText:@"Max Difficulty:"];
-    [self.view addSubview:difficultyLabel];
+    
+    UILabel *minDifficultyHolder = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    minDifficultyHolder.frame = [self getLabelRectForOffset:offset];
+    [minDifficultyHolder setText:@"Min difficulty:"];
+    [self.view addSubview:minDifficultyHolder];
+    
+    _minDifficultyLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    CGRect minRect = [self getLabelRectForOffset:offset];
+    minRect.origin.x += self.view.frame.size.width/4;
+    _minDifficultyLabel.frame = minRect;
+    [_minDifficultyLabel setText:@"TEST"];
+    [self.view addSubview:_minDifficultyLabel];
+    
+    UILabel *maxDifficultyHolder = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    CGRect maxDifficultyHolderRect = [self getLabelRectForOffset:offset];
+    maxDifficultyHolderRect.origin.x += self.view.frame.size.width/2 - CONTROL_HORIZONTAL_PADDING;
+    maxDifficultyHolder.frame = maxDifficultyHolderRect;
+    [maxDifficultyHolder setText:@"Max difficulty:"];
+    [self.view addSubview:maxDifficultyHolder];
+    
+    _maxDifficultyLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    CGRect maxRect = [self getLabelRectForOffset:offset];
+    maxRect.origin.x += self.view.frame.size.width*3/4 - CONTROL_HORIZONTAL_PADDING;
+    _maxDifficultyLabel.frame = maxRect;
+    [_maxDifficultyLabel setText:@"TEST"];
+    [self.view addSubview:_maxDifficultyLabel];
     
     CGRect rangeSliderRect = [self getControlRectForOffset:offset];
     RangeSlider *difficultySlider = [ClimbersBuddyStyle getRangeSlider:rangeSliderRect];

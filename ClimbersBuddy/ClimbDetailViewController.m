@@ -32,7 +32,7 @@
 -(void)loadView{
     [super loadView];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = BACKGROUND_COLOR;
     UIImage *climbImage = [UIImage imageNamed:_climb.imageName];
     _imageView = [[UIImageView alloc] initWithImage:climbImage];
     _imageView.frame = IMAGE_RECT;
@@ -81,6 +81,7 @@
     _descriptionLabel.font = [UIFont systemFontOfSize:15];
     _descriptionLabel.editable = NO;
     [_descriptionLabel setText:_climb.description];
+    _descriptionLabel.backgroundColor = BACKGROUND_COLOR;
     [self.view addSubview:_descriptionLabel];
 }
 

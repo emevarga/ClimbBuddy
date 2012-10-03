@@ -21,6 +21,7 @@
 +(UILabel *)getLabelWithSearchFormatting{
     UILabel *searchLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     UIFont *searchFont = [UIFont boldSystemFontOfSize:11];
+    searchLabel.backgroundColor = BACKGROUND_COLOR;
     [searchLabel setFont:searchFont];
     [searchLabel setTextColor:[UIColor darkGrayColor]];
     return searchLabel;
@@ -29,6 +30,7 @@
 +(UILabel *)getClimbDetailLabel{
     UILabel *detailLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     UIFont *font = [UIFont boldSystemFontOfSize:18];
+    detailLabel.backgroundColor = BACKGROUND_COLOR;
     [detailLabel setFont:font];
     [detailLabel setTextColor:[UIColor darkGrayColor]];    
     return detailLabel;

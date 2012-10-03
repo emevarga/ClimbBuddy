@@ -32,10 +32,11 @@
 -(void)setThumbColor:(UIColor *)color;
 -(void)setTrackBackgroundColor:(UIColor *)color;
 -(void)setTrackHighlightColor:(UIColor *)color;
+-(void)setMinimumValue:(CGFloat)minimumValue;
+-(void)setMaximumValue:(CGFloat)maximumValue;
 
-
-@property(nonatomic)float minimumValue;
-@property(nonatomic)float maximumValue;
+@property(readonly)float minimumValue;
+@property(readonly)float maximumValue;
 @property(nonatomic)float selectedMinimumValue;
 @property(nonatomic)float selectedMaximumValue;
 
