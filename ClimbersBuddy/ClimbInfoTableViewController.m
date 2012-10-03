@@ -9,6 +9,7 @@
 #import "ClimbInfoTableViewController.h"
 #import "ClimbInfo.h"
 #import "ClimbDetailViewController.h"
+#import "CommonDefines.h"
 
 @interface ClimbInfoTableViewController ()
 
@@ -26,9 +27,11 @@
 
 -(void)loadView{
     [super loadView];
+    self.view.backgroundColor = BACKGROUND_COLOR;
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _tableView.backgroundColor = BACKGROUND_COLOR;
     [self.view addSubview:_tableView];
 }
 
@@ -72,11 +75,16 @@
     
     ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
     [cell.textLabel setText:climb.name];
+    cell.textLabel.backgroundColor = BACKGROUND_COLOR;
     NSString *detailText;
     if(climb.wallName && climb.locationName){
         detailText = [NSString stringWithFormat:@"%@, %@",climb.wallName,climb.locationName];
     }
     [cell.detailTextLabel setText:detailText];
+    cell.detailTextLabel.backgroundColor = BACKGROUND_COLOR;
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.contentView.backgroundColor = BACKGROUND_COLOR;
     return cell;
 }
 
