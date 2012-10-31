@@ -74,8 +74,8 @@ const NSString *kSearchControlSearchButton = @"search button";
 
 -(void)updateLabels{
     RangeSlider *rangeSlider = [_searchControls objectForKey:kSearchControlDifficultySlider];
-    NSInteger lowerValue = floor(rangeSlider.selectedMinimumValue);
-    NSInteger upperValue = floor(rangeSlider.selectedMaximumValue);
+    NSInteger lowerValue = ceil(rangeSlider.selectedMinimumValue);
+    NSInteger upperValue = ceil(rangeSlider.selectedMaximumValue);
     UISegmentedControl *typeControl = [_searchControls objectForKey:kSearchControlTypeControl];
     NSArray *difficultyStrings;
     if(typeControl.selectedSegmentIndex == 0){
@@ -156,7 +156,6 @@ const NSString *kSearchControlSearchButton = @"search button";
     CGRect minRect = [self getLabelRectForOffset:offset];
     minRect.origin.x += self.view.frame.size.width/4;
     _minDifficultyLabel.frame = minRect;
-    [_minDifficultyLabel setText:@"TEST"];
     [self.view addSubview:_minDifficultyLabel];
     
     UILabel *maxDifficultyHolder = [ClimbersBuddyStyle getLabelWithSearchFormatting];
@@ -170,7 +169,6 @@ const NSString *kSearchControlSearchButton = @"search button";
     CGRect maxRect = [self getLabelRectForOffset:offset];
     maxRect.origin.x += self.view.frame.size.width*3/4 - CONTROL_HORIZONTAL_PADDING;
     _maxDifficultyLabel.frame = maxRect;
-    [_maxDifficultyLabel setText:@"TEST"];
     [self.view addSubview:_maxDifficultyLabel];
     
     CGRect rangeSliderRect = [self getControlRectForOffset:offset];

@@ -9,7 +9,7 @@
 #import "RangeSlider.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define PADDING 10
+#define PADDING 20
 
 @interface RangeSlider (Internal)
 -(void)configureThumbs;
@@ -35,11 +35,13 @@
     if (self) {
         self.layer.masksToBounds = NO;
         
-        _thumbColor = [UIColor colorWithRed:.7 green:.7 blue:.7 alpha:1];
-        _thumbHighlightColor = [UIColor colorWithRed:.5 green:.5 blue:.5 alpha:1];
+        _gradientOffset = .2;
+        
+        _thumbColor = [UIColor colorWithRed:.30 green:.30 blue:.30 alpha:1];
+        _thumbHighlightColor = [UIColor colorWithRed:.25 green:.25 blue:.25 alpha:1];
         _trackBackgroundColor = [UIColor colorWithWhite:.75 alpha:1];
         _trackHighlightColor = [UIColor colorWithWhite:.2 alpha:1];
-
+        
         _trackBackground = [[UIImageView alloc]initWithImage:[self getTrackBackgroundForRect:frame]];
         _trackBackground.layer.masksToBounds = YES;
         _trackBackground.layer.cornerRadius = self.frame.size.height/10;
@@ -61,8 +63,10 @@
         [self configureThumbs];
         [self updateHighlight];
         
+        
+        
         _minThumbOn = NO;
-        _maxThumbOn = NO;        
+        _maxThumbOn = NO;
     }
     return self;
 }
@@ -70,12 +74,12 @@
 -(void)configureThumbs{
     _minThumb.contentMode = UIViewContentModeCenter;
     CGPoint center = _minThumb.center;
-    _minThumb.frame = CGRectMake(_minThumb.frame.origin.x, _minThumb.frame.origin.y, 44, 44);
+    _minThumb.frame = CGRectMake(_minThumb.frame.origin.x, _minThumb.frame.origin.y, 40, 40);
     _minThumb.center = center;
     
     _maxThumb.contentMode = UIViewContentModeCenter;
     center = _maxThumb.center;
-    _maxThumb.frame = CGRectMake(_maxThumb.frame.origin.x, _maxThumb.frame.origin.y, 44, 44);
+    _maxThumb.frame = CGRectMake(_maxThumb.frame.origin.x, _maxThumb.frame.origin.y, 40, 40);
     _maxThumb.center = center;
     
     _trackBackground.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
@@ -89,10 +93,10 @@
 -(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     CGPoint point = [touch locationInView:self];
     if(CGRectContainsPoint(_minThumb.frame, point)){
-        _minThumb.highlighted = YES;
+        [_minThumb setHighlighted:YES];
         _minThumbOn = YES;
     }else if(CGRectContainsPoint(_maxThumb.frame, point)){
-        _maxThumb.highlighted = YES;
+        [_maxThumb setHighlighted:YES];
         _maxThumbOn = YES;
     }
     return YES;
@@ -103,14 +107,14 @@
         return YES;
     }
     CGPoint point = [touch locationInView:self];
+    CGFloat thumbRadius = _minThumb.image.size.width/2;
     if(_minThumbOn){
-        _minThumb.center = CGPointMake(MIN(MAX(point.x, _trackBackground.frame.origin.x),_maxThumb.center.x-(_minThumb.image.size.width/2+_maxThumb.image.size.width/2)), _minThumb.center.y);
-        _selectedMinimumValue = [self getValueForX:_minThumb.center.x];
+        _minThumb.center = CGPointMake(MIN(MAX(point.x, _trackBackground.frame.origin.x),_maxThumb.center.x-thumbRadius*2), _minThumb.center.y);
+        _selectedMinimumValue = [self getValueForX:_minThumb.center.x+thumbRadius];
         NSLog(@"New Minimum = %lf",self.selectedMinimumValue);
-
     }else if(_maxThumbOn){
-        _maxThumb.center = CGPointMake(MAX(MIN(point.x,_trackBackground.frame.size.width+_maxThumb.image.size.width/2),_minThumb.center.x+_minThumb.image.size.width/2+_maxThumb.image.size.width/2), _maxThumb.center.y);
-        _selectedMaximumValue = [self getValueForX:_maxThumb.center.x];
+        _maxThumb.center = CGPointMake(MAX(MIN(point.x,_trackBackground.frame.origin.x + _trackBackground.frame.size.width),_minThumb.center.x+thumbRadius*2), _maxThumb.center.y);
+        _selectedMaximumValue = [self getValueForX:_maxThumb.center.x-thumbRadius];
         NSLog(@"New Maximum = %lf",self.selectedMaximumValue);
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -122,10 +126,10 @@
 
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     if(_minThumb.highlighted){
-        _minThumb.highlighted = NO;
+        [_minThumb setHighlighted:NO];
     }
     if(_maxThumb.highlighted){
-        _maxThumb.highlighted = NO;
+        [_maxThumb setHighlighted:NO];
     }
     _minThumbOn = NO;
     _maxThumbOn = NO;
@@ -141,7 +145,8 @@
 }
 
 -(CGFloat)getValueForX:(CGFloat)x{
-    CGFloat value = _minimumValue+(x-PADDING)/(self.frame.size.width-(PADDING*2))*(_maximumValue-_minimumValue);
+    CGFloat thumbRadius = _minThumb.image.size.width/2;
+    CGFloat value = _minimumValue+(x-PADDING -thumbRadius)/(self.frame.size.width-(PADDING*2)-thumbRadius*2)*(_maximumValue-_minimumValue);
     if(value < _minimumValue){
         value = _minimumValue;
     }else if(value > _maximumValue){
@@ -157,6 +162,12 @@
     _thumbColor = color;
     _minThumb.image = [self getThumbinRect:self.frame];
     _maxThumb.image = [self getThumbinRect:self.frame];
+}
+
+-(void)setThumbHighlightColor:(UIColor *)color{
+    _thumbHighlightColor = color;
+    _minThumb.highlightedImage = [self getHighlightedThumbInRect:self.frame];
+    _maxThumb.highlightedImage = [self getHighlightedThumbInRect:self.frame];
 }
 
 -(void)setTrackBackgroundColor:(UIColor *)color{
@@ -200,9 +211,9 @@
         _maxThumb.center = center;
         [self updateHighlight];
     }else{
-        //seriously, don't do this.    
+        //seriously, don't do this.
     }
-
+    
 }
 
 -(UIImage *)getThumbinRect:(CGRect)rect{
@@ -212,35 +223,59 @@
     
     UIGraphicsBeginImageContext(CGSizeMake(size.width, size.height));
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, _thumbColor.CGColor);
+    
     CGRect circleRect = CGRectMake(0, 0, size.width, size.height);
-    CGContextFillEllipseInRect(context, circleRect);
+    
+    CGContextAddEllipseInRect(context, circleRect);
+    CGContextClip(context);
+    CGFloat topColor[4];
+    [_thumbColor getRed:&topColor[0] green:&topColor[1] blue:&topColor[2] alpha:&topColor[3]];
+    UIColor *darkColor = [UIColor colorWithRed:topColor[0]-_gradientOffset green:topColor[1]-_gradientOffset blue:topColor[2]-_gradientOffset alpha:topColor[3]];
+    
+    NSArray *colors = @[(id)[_thumbColor CGColor],(id)[darkColor CGColor]];
+    CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradient = CGGradientCreateWithColors(space, ((__bridge CFArrayRef)colors), NULL);
+    
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(0, size.height), 0);
+
     thumb = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     return thumb;
 }
 
 -(UIImage *)getHighlightedThumbInRect:(CGRect)rect{
     UIImage *thumb;
+    
     CGSize size = CGSizeMake(rect.size.height*3/4, rect.size.height*3/4);
-
+    
     UIGraphicsBeginImageContext(CGSizeMake(size.width, size.height));
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, .5);
-    CGContextSetStrokeColorWithColor(context, _thumbHighlightColor.CGColor);
-    CGContextSetFillColorWithColor(context, _thumbHighlightColor.CGColor);
+    
     CGRect circleRect = CGRectMake(0, 0, size.width, size.height);
     
-    CGContextStrokeEllipseInRect(context, circleRect);
-    CGContextFillEllipseInRect(context, circleRect);
+    CGContextAddEllipseInRect(context, circleRect);
+    CGContextClip(context);
+    CGFloat topColor[4];
+    [_thumbHighlightColor getRed:&topColor[0] green:&topColor[1] blue:&topColor[2] alpha:&topColor[3]];
+    UIColor *darkColor = [UIColor colorWithRed:topColor[0]-_gradientOffset green:topColor[1]-_gradientOffset blue:topColor[2]-_gradientOffset alpha:topColor[3]];
+    
+    NSArray *colors = @[(id)[_thumbHighlightColor CGColor],(id)[darkColor CGColor]];
+    CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradient = CGGradientCreateWithColors(space, ((__bridge CFArrayRef)colors), NULL);
+    
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(0, size.height), 0);
+    
+    thumb = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
     return thumb;
+
 }
 
 -(UIImage *)getTrackHighlightForTrackHeight:(CGFloat)height{
     UIImage *trackHighlight;
-
+    
     CGSize size = CGSizeMake(10, height);
     CGFloat gradientOffset = .2;
     UIGraphicsBeginImageContext(size);
@@ -248,7 +283,7 @@
     CGFloat topColor[4];
     [_trackHighlightColor getRed:&topColor[0] green:&topColor[1] blue:&topColor[2] alpha:&topColor[3]];
     UIColor *darkColor = [UIColor colorWithRed:topColor[0]-gradientOffset green:topColor[1]-gradientOffset blue:topColor[2]-gradientOffset alpha:topColor[3]];
-
+    
     NSArray *colors = @[(id)[darkColor CGColor],(id)[_trackHighlightColor CGColor]];
     CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
     CGGradientRef gradient = CGGradientCreateWithColors(space, ((__bridge CFArrayRef)colors), NULL);
@@ -271,7 +306,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
-    CGContextSetLineWidth(context, 3);
+    CGContextSetLineWidth(context,3);
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, 0, 0);
     CGContextAddLineToPoint(context, size.width, 0);

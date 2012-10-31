@@ -26,10 +26,11 @@
     UIColor *_thumbHighlightColor;
     UIColor *_trackBackgroundColor;
     UIColor *_trackHighlightColor;
-    
+    CGFloat _gradientOffset;
 }
 
 -(void)setThumbColor:(UIColor *)color;
+-(void)setThumbHighlightColor:(UIColor *)color;
 -(void)setTrackBackgroundColor:(UIColor *)color;
 -(void)setTrackHighlightColor:(UIColor *)color;
 -(void)setMinimumValue:(CGFloat)minimumValue;
@@ -39,6 +40,5 @@
 @property(readonly)float maximumValue;
 @property(nonatomic)float selectedMinimumValue;
 @property(nonatomic)float selectedMaximumValue;
-
 
 @end
