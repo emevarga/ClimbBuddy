@@ -11,17 +11,17 @@
 #import "ClimbInfo.h"
 
 @interface SearchFilter : NSObject{
-    ClimbType _type;
+    NSString *_type;
+    NSUInteger _minDifficulty;
     NSUInteger _maxDifficulty;
-    NSUInteger _maxHeight;
     NSUInteger _maxDistance;
 }
 
-@property(readonly)ClimbType type;
+@property(readonly)NSString * type;
+@property(readonly)NSUInteger minDifficulty;
 @property(readonly)NSUInteger maxDifficulty;
-@property(readonly)NSUInteger maxHeight;
 @property(readonly)NSUInteger maxDistance;
 
--(id)initFor:(ClimbType)type withMaxDifficulty:(NSUInteger)maxDifficulty maxHeight:(NSUInteger)maxHeight andMaxDistance:(NSUInteger)maxDistance;
+-(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty andMaxDistance:(NSUInteger)maxDistance;
 
 @end

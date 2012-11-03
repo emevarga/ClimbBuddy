@@ -15,7 +15,13 @@
 +(UILabel *)getLabelWithSearchFormatting;
 +(UILabel *)getClimbDetailLabel;
 +(NSString *)getFillerDescriptionText;
+
 +(NSString *)getStringForTypeEnum:(ClimbType)type;
++(ClimbType)getTypeForIndex:(NSUInteger)index;
+
+
++(NSArray *)getMiles;
++(NSUInteger)milesForSegment:(NSUInteger)index;
 +(UIButton *)getButtonForSearch;
 +(RangeSlider *)getRangeSlider:(CGRect)rect;
 +(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items withToggle:(BOOL)toggle;

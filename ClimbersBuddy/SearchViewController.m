@@ -13,6 +13,7 @@
 #import "ClimbFetcher.h"
 #import "SearchResultViewController.h"
 #import "RangeSlider.h"
+#import "SearchFilter.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -30,6 +31,8 @@ const NSString *kSearchControlSearchButton = @"search button";
 -(void)typeChanged:(UISegmentedControl *)typeControl;
 -(void)updateLabels;
 -(void)searchButtonPressed;
+
+-(SearchFilter *)generateFilter;
 @end
 
 @implementation SearchViewController
@@ -43,6 +46,25 @@ const NSString *kSearchControlSearchButton = @"search button";
     }
     return self;
 }
+
+-(SearchFilter *)generateFilter{
+    UISegmentedControl *typeControl = [_searchControls objectForKey:kSearchControlTypeControl];
+    ClimbType type = [ClimbersBuddyStyle getTypeForIndex:typeControl.selectedSegmentIndex];
+    NSString *typeString = [ClimbersBuddyStyle getStringForTypeEnum:type];
+    
+    RangeSlider *difficultySlider = [_searchControls objectForKey:kSearchControlDifficultySlider];
+    NSUInteger minDifficulty = ceil(difficultySlider.selectedMinimumValue);
+    NSUInteger maxDifficulty = ceil(difficultySlider.selectedMaximumValue);
+    
+    UISegmentedControl *distanceControl = [_searchControls objectForKey:kSearchControlDistanceControl];
+    NSUInteger maxDistance = [ClimbersBuddyStyle milesForSegment:distanceControl.selectedSegmentIndex];
+    return [[SearchFilter alloc]initFor:typeString withMinDifficulty:minDifficulty maxDifficulty:maxDifficulty andMaxDistance:maxDistance];
+    
+    
+    
+    
+}
+
 
 -(void)searchButtonPressed{
     NSArray *climbs = [ClimbFetcher getClimbsFor:nil];
@@ -123,7 +145,13 @@ const NSString *kSearchControlSearchButton = @"search button";
     [distanceLabel setText:@"Max miles from location:"];
     [self.view addSubview:distanceLabel];
     
-    NSArray *distanceItems = @[@"5",@"25",@"50",@"100"];
+    NSMutableArray *distanceStrings = [NSMutableArray arrayWithCapacity:3];
+    NSArray *miles = [ClimbersBuddyStyle getMiles];
+    for(NSNumber *number in miles){
+        [distanceStrings addObject:[number description]];
+    
+    }
+    NSArray *distanceItems = distanceStrings;
     UISegmentedControl *distanceControl = [ClimbersBuddyStyle getSegmentedControlWithItems:distanceItems withToggle:YES];
     distanceControl.frame = [self getControlRectForOffset:offset];
     [self.view addSubview:distanceControl];

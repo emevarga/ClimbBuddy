@@ -12,15 +12,14 @@
 
 @synthesize type = _type;
 @synthesize maxDifficulty = _maxDifficulty;
-@synthesize maxHeight = _maxHeight;
 @synthesize maxDistance = _maxDistance;
 
--(id)initFor:(ClimbType)type withMaxDifficulty:(NSUInteger)maxDifficulty maxHeight:(NSUInteger)maxHeight andMaxDistance:(NSUInteger)maxDistance{
+-(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty andMaxDistance:(NSUInteger)maxDistance{
     self = [super init];
     if(self){
         _type = type;
         _maxDifficulty = maxDifficulty;
-        _maxHeight = maxHeight;
+        _minDifficulty = minDifficulty;
         _maxDistance = maxDistance;
     }
     return self;
