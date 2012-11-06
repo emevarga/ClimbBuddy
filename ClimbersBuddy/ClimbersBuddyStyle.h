@@ -17,6 +17,7 @@
 +(NSString *)getFillerDescriptionText;
 
 +(NSString *)getStringForTypeEnum:(ClimbType)type;
++(ClimbType)getEnumForString:(NSString *)string;
 +(ClimbType)getTypeForIndex:(NSUInteger)index;
 
 

@@ -7,6 +7,8 @@
 //
 
 #import "SearchFilter.h"
+#import "CommonDefines.h"
+
 
 @implementation SearchFilter
 
@@ -23,6 +25,10 @@
         _maxDistance = maxDistance;
     }
     return self;
+}
+
+-(NSString *)urlForFilters{
+    return SERVER;
 }
 
 @end

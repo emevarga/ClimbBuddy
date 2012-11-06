@@ -47,12 +47,26 @@
 }
 
 +(NSUInteger)milesForSegment:(NSUInteger)index{
-    return [[[self class] getMiles] objectAtIndex:index];
+    return (NSUInteger)[[[self class] getMiles] objectAtIndex:index];
 }
 
 +(ClimbType)getTypeForIndex:(NSUInteger)index{
     index += 10;
     return index;
+}
+
++(ClimbType)getEnumForString:(NSString *)string{
+    ClimbType type;
+    if([string isEqualToString:@"Boulder"]){
+        type = boulder;
+    }else if([string isEqualToString:@"Trad."]){
+        type = trad;
+    }else if([string isEqualToString:@"Top Rope"]){
+        type = topRope;
+    }else if([string isEqualToString:@"Lead"]){
+        type = lead;
+    }
+    return type;
 }
 
 +(NSString *)getStringForTypeEnum:(ClimbType)type{

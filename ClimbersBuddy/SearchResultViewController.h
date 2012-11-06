@@ -8,6 +8,12 @@
 
 #import "ClimbInfoTableViewController.h"
 
-@interface SearchResultViewController : ClimbInfoTableViewController
+@class SearchFilter;
+
+@interface SearchResultViewController : ClimbInfoTableViewController{
+    BOOL _requestSent;
+    SearchFilter *_searchFilter;
+}
+-(id)initWithSearchFilter:(SearchFilter *)filter;
 
 @end

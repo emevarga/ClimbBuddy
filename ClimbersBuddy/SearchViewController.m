@@ -10,7 +10,6 @@
 
 #import "CommonDefines.h"
 #import "ClimbersBuddyStyle.h"
-#import "ClimbFetcher.h"
 #import "SearchResultViewController.h"
 #import "RangeSlider.h"
 #import "SearchFilter.h"
@@ -57,7 +56,10 @@ const NSString *kSearchControlSearchButton = @"search button";
     NSUInteger maxDifficulty = ceil(difficultySlider.selectedMaximumValue);
     
     UISegmentedControl *distanceControl = [_searchControls objectForKey:kSearchControlDistanceControl];
-    NSUInteger maxDistance = [ClimbersBuddyStyle milesForSegment:distanceControl.selectedSegmentIndex];
+    NSUInteger maxDistance = -1;
+    if(distanceControl.selectedSegmentIndex != -1){
+        maxDistance = [ClimbersBuddyStyle milesForSegment:distanceControl.selectedSegmentIndex];
+    }
     return [[SearchFilter alloc]initFor:typeString withMinDifficulty:minDifficulty maxDifficulty:maxDifficulty andMaxDistance:maxDistance];
     
     
@@ -67,8 +69,8 @@ const NSString *kSearchControlSearchButton = @"search button";
 
 
 -(void)searchButtonPressed{
-    NSArray *climbs = [ClimbFetcher getClimbsFor:nil];
-    SearchResultViewController *climbInfoView = [[SearchResultViewController alloc] initWithClimbs:climbs];
+    SearchFilter *filter = [self generateFilter];
+    SearchResultViewController *climbInfoView = [[SearchResultViewController alloc] initWithSearchFilter:filter];
     [self.navigationController pushViewController:climbInfoView animated:YES];
     
     //create search filter

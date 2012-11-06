@@ -23,5 +23,6 @@
 @property(readonly)NSUInteger maxDistance;
 
 -(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty andMaxDistance:(NSUInteger)maxDistance;
+-(NSString *)urlForFilters;
 
 @end
