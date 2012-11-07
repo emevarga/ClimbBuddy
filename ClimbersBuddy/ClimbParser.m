@@ -59,7 +59,7 @@ const NSString *kJSONDescriptionKey = @"description";
     NSError *error;
     NSArray *jsonClimbs = [parser objectWithString:jsonString error:&error];
     if(error){
-        NSLog(@"A parsing error occured");
+        NSLog(@"error = %@",[error localizedDescription]);
         return nil;
     }
     for(NSDictionary *climbDictionary in jsonClimbs){

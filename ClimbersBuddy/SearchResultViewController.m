@@ -49,9 +49,13 @@
                                        queue:[[NSOperationQueue alloc] init]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                                NSString *json = [NSString stringWithUTF8String:[data bytes]];
-                               
-                               NSLog(@"json = %@",json);
                                NSArray *climbs = [ClimbParser getClimbsFor:json];
+                               _climbs = [NSMutableArray arrayWithArray:climbs];
+                              _requestSent = YES;
+                               dispatch_async(dispatch_get_main_queue(), ^{
+                                   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                   [_tableView reloadData];
+                               });
                                
                            }];
 }
