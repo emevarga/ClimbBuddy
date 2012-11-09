@@ -24,6 +24,8 @@ extern NSString *kWallNameKey;
 extern NSString *kLocationKey;
 extern NSString *kLatitudeKey;
 extern NSString *kLongitudeKey;
+extern NSString *kParkingLatitudeKey;
+extern NSString *kParkingLongitudeKey;
 extern NSString *kImageNameKey;
 extern NSString *kDescriptionKey;
 
@@ -35,6 +37,8 @@ extern NSString *kDescriptionKey;
     NSString *_locationName;
     NSNumber *_latitude;
     NSNumber *_longitude;
+    NSNumber *_parkingLatitude;
+    NSNumber *_parkingLongitude;
     NSString *_imageName;
     NSString *_description;
 }

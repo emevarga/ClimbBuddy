@@ -25,6 +25,7 @@
         self.title = @"Results";
         _climbs = [NSMutableArray arrayWithCapacity:10];
         _requestSent = NO;
+        _shouldTryAgain = YES;
         _searchFilter = filter;
     }
     return self;
@@ -48,20 +49,48 @@
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[[NSOperationQueue alloc] init]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               NSString *json = [NSString stringWithUTF8String:[data bytes]];
-                               NSArray *climbs = [ClimbParser getClimbsFor:json];
-                               _climbs = [NSMutableArray arrayWithArray:climbs];
-                              _requestSent = YES;
+                               if(error && !_shouldTryAgain){
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Could not connect"
+                                                                                      message:@"Please check network connection"
+                                                                                     delegate:nil
+                                                                            cancelButtonTitle:@"Dismiss"
+                                                                            otherButtonTitles: nil];
+                                       [alert show];
+                                   });
+                               }
+                               if(data){
+                                   NSString *json = [NSString stringWithUTF8String:[data bytes]];
+                                   NSArray *climbs = [ClimbParser getClimbsFor:json];
+                                   if(climbs){
+                                   _climbs = [NSMutableArray arrayWithArray:climbs];
+                                   }else{
+                                       _climbs = nil;
+                                   }
+                                  _requestSent = YES;
+                               }else{
+                                   _climbs = nil;
+                               }
                                dispatch_async(dispatch_get_main_queue(), ^{
-                                   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                   [_tableView reloadData];
+                                   if(_climbs){
+                                       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                       [_tableView reloadData];
+                                   }else if(_shouldTryAgain){
+                                       _requestSent = NO;
+                                       _shouldTryAgain = NO;
+                                       [self fetchJSON];
+                                   }else{
+                                       _requestSent = YES;
+                                       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                       [_tableView reloadData];
+                                   }
                                });
                                
                            }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(!_requestSent){
+    if(!_requestSent || !_climbs){
         return 1;
     }else{
         return [super tableView:tableView numberOfRowsInSection:section];
@@ -69,19 +98,36 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell;
     if(!_requestSent){
         static NSString *loadingID = @"loading";
-        UITableViewCell *cell;
         cell = [tableView dequeueReusableCellWithIdentifier:loadingID];
         if(!cell){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadingID];
         }
+        
         cell.textLabel.backgroundColor = BACKGROUND_COLOR;
         cell.detailTextLabel.backgroundColor = BACKGROUND_COLOR;
-        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.userInteractionEnabled = NO;
         cell.contentView.backgroundColor = BACKGROUND_COLOR;
         
         [cell.textLabel setText:@"Loading..."];
+        return cell;
+    }else if(!_climbs){
+        static NSString *noResultsID = @"no results";
+        UITableViewCell *cell;
+        cell = [tableView dequeueReusableCellWithIdentifier:noResultsID];
+        if(!cell){
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noResultsID];
+        }
+        cell.textLabel.backgroundColor = BACKGROUND_COLOR;
+        cell.detailTextLabel.backgroundColor = BACKGROUND_COLOR;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.userInteractionEnabled = NO;
+        cell.contentView.backgroundColor = BACKGROUND_COLOR;
+        
+        [cell.textLabel setText:@"Couldn't find any results."];
         return cell;
     }else{
         return [super tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -89,7 +135,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(!_requestSent){
+    if(!_requestSent || !_climbs){
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }else{
         ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];

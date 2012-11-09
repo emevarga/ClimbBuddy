@@ -51,11 +51,13 @@ static NSArray *__boulderDifficulties = nil;
 
 NSString *kClimbNameKey = @"rock_name";
 NSString *kClimbTypeKey = @"climb_type";
-NSString *kDifficultyKey = @"difficulty";
+NSString *kDifficultyKey = @"skill_level";
 NSString *kWallNameKey = @"route_name";
 NSString *kLocationKey = @"location_name";
 NSString *kLatitudeKey = @"latitude";
 NSString *kLongitudeKey = @"longitude";
+NSString *kParkingLatitudeKey = @"asdf";
+NSString *kParkingLongitudeKey = @"asdf";
 NSString *kImageNameKey = @"image_url";
 NSString *kDescriptionKey = @"description";
 
@@ -73,6 +75,8 @@ NSString *noImage = @"nopic.png";
         _locationName = [climbData objectForKey:kLocationKey];
         _latitude = [climbData objectForKey:kLatitudeKey];
         _longitude = [climbData objectForKey:kLongitudeKey];
+        _parkingLatitude = [climbData objectForKey:kParkingLatitudeKey];
+        _parkingLongitude = [climbData objectForKey:kParkingLongitudeKey];
         _imageName = [climbData objectForKey:kImageNameKey];
         if(!_imageName){
             _imageName = noImage;
@@ -92,6 +96,8 @@ NSString *noImage = @"nopic.png";
     [encoder encodeObject:_latitude forKey:kLatitudeKey];
     [encoder encodeObject:_longitude forKey:kLongitudeKey];
     [encoder encodeObject:_imageName forKey:kImageNameKey];
+    [encoder encodeObject:_parkingLatitude forKey:kParkingLatitudeKey];
+    [encoder encodeObject:_parkingLongitude forKey:kParkingLongitudeKey];
     [encoder encodeObject:_description forKey:kDescriptionKey];
 }
 
@@ -104,6 +110,8 @@ NSString *noImage = @"nopic.png";
     [climbData setValue:[encoder decodeObjectForKey:kLatitudeKey] forKey:kLatitudeKey];
     [climbData setValue:[encoder decodeObjectForKey:kLongitudeKey] forKey:kLongitudeKey];
     [climbData setValue:[encoder decodeObjectForKey:kImageNameKey] forKey:kImageNameKey];
+    [climbData setValue:[encoder decodeObjectForKey:kParkingLatitudeKey] forKey:kParkingLatitudeKey];
+    [climbData setValue:[encoder decodeObjectForKey:kParkingLongitudeKey] forKey:kParkingLongitudeKey];
     [climbData setValue:[encoder decodeObjectForKey:kDescriptionKey] forKey:kDescriptionKey];
     return [self initWithDictionary:climbData];
 }

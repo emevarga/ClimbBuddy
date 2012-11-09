@@ -28,6 +28,9 @@
     NSString *areaName = [climbDictionary objectForKey:kLocationKey];
     [climbData setValue:areaName forKey:kLocationKey];
     
+    NSNumber *difficulty = [climbDictionary objectForKey:kDifficultyKey];
+    [climbData setValue:difficulty forKey:kDifficultyKey];
+    
     NSNumber *latitude = [climbDictionary objectForKey:kLatitudeKey];
     [climbData setValue:latitude forKey:kLatitudeKey];
     

@@ -10,8 +10,9 @@
 
 @class SearchFilter;
 
-@interface SearchResultViewController : ClimbInfoTableViewController{
+@interface SearchResultViewController : ClimbInfoTableViewController<UIAlertViewDelegate>{
     BOOL _requestSent;
+    BOOL _shouldTryAgain;
     SearchFilter *_searchFilter;
 }
 -(id)initWithSearchFilter:(SearchFilter *)filter;
