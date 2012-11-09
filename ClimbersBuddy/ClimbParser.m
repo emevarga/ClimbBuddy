@@ -12,42 +12,32 @@
 #import "ClimbersBuddyStyle.h"
 @implementation ClimbParser
 
-const NSString *kJSONClimbTypeKey = @"climb_type";
-const NSString *kJSONClimbNameKey = @"rock_name";
-const NSString *kJSONWallNameKey = @"route_name";
-const NSString *kJSONLocationKey = @"location_name";
-const NSString *kJSONLatitudeKey = @"latitude";
-const NSString *kJSONLongitude = @"longitude";
-const NSString *kJSONImageKey = @"image_url";
-const NSString *kJSONDescriptionKey = @"description";
-
-
 +(ClimbInfo *)parseClimb:(NSDictionary *)climbDictionary{
     NSMutableDictionary *climbData = [NSMutableDictionary dictionaryWithCapacity:10];
     
-    NSString *typeString = [climbDictionary objectForKey:kJSONClimbTypeKey];
+    NSString *typeString = [climbDictionary objectForKey:kClimbTypeKey];
     ClimbType type = [ClimbersBuddyStyle getEnumForString:typeString];
     [climbData setValue:[NSNumber numberWithInt:type] forKey:kClimbTypeKey];
     
-    NSString *climbName = [climbDictionary objectForKey:kJSONClimbNameKey];
+    NSString *climbName = [climbDictionary objectForKey:kClimbNameKey];
     [climbData setValue:climbName forKey:kClimbNameKey];
     
-    NSString *wallName = [climbDictionary objectForKey:kJSONWallNameKey];
+    NSString *wallName = [climbDictionary objectForKey:kWallNameKey];
     [climbData setValue:wallName forKey:kWallNameKey];
     
-    NSString *areaName = [climbDictionary objectForKey:kJSONLocationKey];
+    NSString *areaName = [climbDictionary objectForKey:kLocationKey];
     [climbData setValue:areaName forKey:kLocationKey];
     
-    NSNumber *latitude = [climbDictionary objectForKey:kJSONLatitudeKey];
+    NSNumber *latitude = [climbDictionary objectForKey:kLatitudeKey];
     [climbData setValue:latitude forKey:kLatitudeKey];
     
-    NSNumber *longitude = [climbDictionary objectForKey:kJSONLongitude];
+    NSNumber *longitude = [climbDictionary objectForKey:kLongitudeKey];
     [climbData setValue:longitude forKey:kLongitudeKey];
     
-    NSString *imageURL = [climbDictionary objectForKey:kJSONImageKey];
+    NSString *imageURL = [climbDictionary objectForKey:kImageNameKey];
     [climbData setValue:imageURL forKey:kImageNameKey];
     
-    NSString *description = [climbDictionary objectForKey:kJSONDescriptionKey];
+    NSString *description = [climbDictionary objectForKey:kDescriptionKey];
     [climbData setValue:description forKey:kDescriptionKey];
     
     return [[ClimbInfo alloc] initWithDictionary:climbData];

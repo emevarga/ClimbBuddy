@@ -49,14 +49,14 @@ static NSArray *__boulderDifficulties = nil;
 @synthesize imageName = _imageName;
 @synthesize description = _description;
 
-NSString *kClimbNameKey = @"climb name";
-NSString *kClimbTypeKey = @"climb type";
+NSString *kClimbNameKey = @"rock_name";
+NSString *kClimbTypeKey = @"climb_type";
 NSString *kDifficultyKey = @"difficulty";
-NSString *kWallNameKey = @"route name";
-NSString *kLocationKey = @"location";
+NSString *kWallNameKey = @"route_name";
+NSString *kLocationKey = @"location_name";
 NSString *kLatitudeKey = @"latitude";
 NSString *kLongitudeKey = @"longitude";
-NSString *kImageNameKey = @"image name";
+NSString *kImageNameKey = @"image_url";
 NSString *kDescriptionKey = @"description";
 
 NSString *noImage = @"nopic.png";
