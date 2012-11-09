@@ -74,7 +74,9 @@
                                dispatch_async(dispatch_get_main_queue(), ^{
                                    if(_climbs){
                                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-                                       [_tableView reloadData];
+                                       [_tableView beginUpdates];
+                                       [_tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+                                       [_tableView endUpdates];
                                    }else if(_shouldTryAgain){
                                        _requestSent = NO;
                                        _shouldTryAgain = NO;
