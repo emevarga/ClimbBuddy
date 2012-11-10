@@ -18,9 +18,12 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
         case 0:
-            //get directions
+            [self getDrivingDirections];
             break;
-        case 1:{
+        case 1:
+            [self getWalkingDirections];
+            break;
+        case 2:{
             NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
             if([buttonTitle rangeOfString:@"Remove" options:NSCaseInsensitiveSearch].location == NSNotFound){
                 [self saveClimb];

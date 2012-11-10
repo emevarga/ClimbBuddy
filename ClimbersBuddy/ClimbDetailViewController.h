@@ -24,4 +24,6 @@
 -(void)saveClimb;
 -(void)removeClimb;
 -(void)showActionSheet;
+-(void)getDrivingDirections;
+-(void)getWalkingDirections;
 @end

@@ -29,6 +29,8 @@ extern NSString *kParkingLongitudeKey;
 extern NSString *kImageNameKey;
 extern NSString *kDescriptionKey;
 
+extern NSString *placeHolderImageName;
+
 @interface ClimbInfo : NSObject<NSCoding>{
     NSString *_name;
     ClimbType _type;
@@ -50,6 +52,8 @@ extern NSString *kDescriptionKey;
 @property(readonly)NSString *locationName;
 @property(readonly)NSNumber *latitude;
 @property(readonly)NSNumber *longitude;
+@property(readonly)NSNumber *parkingLatitude;
+@property(readonly)NSNumber *parkingLongitude;
 @property(readonly)NSString *imageName;
 @property(readonly)NSString *description;
 @property(readonly)NSString *docPath;

@@ -11,11 +11,13 @@
 #import "MyClimbsManager.h"
 #import "ClimbersBuddyStyle.h"
 #import "CommonDefines.h"
+#import <MapKit/MapKit.h>
 
 #define IMAGE_RECT CGRectMake(10,10,self.view.frame.size.width/2-20,self.view.frame.size.height/3-20)
 
 @interface ClimbDetailViewController ()
 -(void)positionLabels:(NSArray *)views inRect:(CGRect)rect;
+-(void)fetchImage;
 @end
 
 @implementation ClimbDetailViewController
@@ -29,11 +31,44 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self fetchImage];
+}
+
+-(void)fetchImage{
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    NSURL *url = [NSURL URLWithString:_climb.imageName];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[[NSOperationQueue alloc]init]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if(error){
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Could not connect"
+                                                                                      message:@"Please check network connection"
+                                                                                     delegate:nil
+                                                                            cancelButtonTitle:@"Dismiss"
+                                                                            otherButtonTitles: nil];
+                                       [alert show];
+                                   });
+                               }else if(data){
+                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                       [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
+                                       UIImage *image = [UIImage imageWithData:data];
+                                       [_imageView setImage:image];
+                                   });
+
+                               }
+                           }];
+    
+}
+
 -(void)loadView{
     [super loadView];
     
     self.view.backgroundColor = BACKGROUND_COLOR;
-    UIImage *climbImage = [UIImage imageNamed:_climb.imageName];
+    UIImage *climbImage = [UIImage imageNamed:placeHolderImageName];
     _imageView = [[UIImageView alloc] initWithImage:climbImage];
     _imageView.frame = IMAGE_RECT;
     [self.view addSubview:_imageView];
@@ -99,20 +134,51 @@
 
 -(void)showActionSheet{
     NSString *myClimbsString = [MyClimbsManager myClimbsContains:_climb] ? @"Remove from My Climbs" : @"Add to My Climbs";
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Climb Actions"
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
                                          destructiveButtonTitle:nil
-                                              otherButtonTitles:@"Get Directions",myClimbsString, nil];
+                                              otherButtonTitles:@"Directions to Parking",@"Directions to Climb",myClimbsString, nil];
     [sheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+-(void)getWalkingDirections{
+    Class itemClass = [MKMapItem class];
+    if(itemClass && [itemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)]){
+        MKMapItem *currentLocationItem = [MKMapItem mapItemForCurrentLocation];
+        
+        MKPlacemark *place = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([_climb.latitude doubleValue], [_climb.longitude doubleValue]) addressDictionary:nil];
+        MKMapItem *destinationItem = [[MKMapItem alloc] initWithPlacemark:place];
+        
+        NSArray *mapItemsArray = @[currentLocationItem,destinationItem];
+        NSDictionary *directionsDictionary = [NSDictionary dictionaryWithObject:MKLaunchOptionsDirectionsModeWalking forKey:MKLaunchOptionsDirectionsModeKey];
+        [MKMapItem openMapsWithItems:mapItemsArray launchOptions:directionsDictionary];
+    }
+}
+
+-(void)getDrivingDirections{
+    Class itemClass = [MKMapItem class];
+    if(itemClass && [itemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)]){
+        MKMapItem *currentLocationItem = [MKMapItem mapItemForCurrentLocation];
+        
+        MKPlacemark *place = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([_climb.parkingLatitude doubleValue], [_climb.parkingLongitude doubleValue]) addressDictionary:nil];
+        MKMapItem *destinationItem = [[MKMapItem alloc] initWithPlacemark:place];
+        
+        NSArray *mapItemsArray = @[currentLocationItem,destinationItem];
+        NSDictionary *directionsDictionary = [NSDictionary dictionaryWithObject:MKLaunchOptionsDirectionsModeDriving forKey:MKLaunchOptionsDirectionsModeKey];
+        [MKMapItem openMapsWithItems:mapItemsArray launchOptions:directionsDictionary];
+    }
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
         case 0:
-            //get directions
+            [self getDrivingDirections];
             break;
-        case 1:{
+        case 1:
+            [self getWalkingDirections];
+            break;
+        case 2:{
             NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
             if([buttonTitle rangeOfString:@"Remove" options:NSCaseInsensitiveSearch].location == NSNotFound){
                 [self saveClimb];

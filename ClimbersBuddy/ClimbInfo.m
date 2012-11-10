@@ -46,6 +46,8 @@ static NSArray *__boulderDifficulties = nil;
 @synthesize locationName = _locationName;
 @synthesize latitude = _latitude;
 @synthesize longitude = _longitude;
+@synthesize parkingLatitude = _parkingLatitude;
+@synthesize parkingLongitude = _parkingLongitude;
 @synthesize imageName = _imageName;
 @synthesize description = _description;
 
@@ -61,7 +63,7 @@ NSString *kParkingLongitudeKey = @"asdf";
 NSString *kImageNameKey = @"image_url";
 NSString *kDescriptionKey = @"description";
 
-NSString *noImage = @"nopic.png";
+NSString *placeHolderImageName = @"nopic.png";
 
 -(id)initWithDictionary:(NSDictionary *)climbData{
     self = [super init];
@@ -79,7 +81,7 @@ NSString *noImage = @"nopic.png";
         _parkingLongitude = [climbData objectForKey:kParkingLongitudeKey];
         _imageName = [climbData objectForKey:kImageNameKey];
         if(!_imageName){
-            _imageName = noImage;
+            _imageName = placeHolderImageName;
         }
         _description = [climbData objectForKey:kDescriptionKey];
         
