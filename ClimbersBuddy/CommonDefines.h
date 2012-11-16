@@ -26,6 +26,7 @@
 
 #define DATA_KEY @"Data"
 #define DATA_FILE @"/data.plist"
+#define IMAGE_FILE @"/image.png"
 
 #define SERVER @"http://ineedth.at:3001/climb_data.json"
 

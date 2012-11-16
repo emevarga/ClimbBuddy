@@ -12,6 +12,7 @@
 #import "ClimbersBuddyStyle.h"
 #import "CommonDefines.h"
 #import <MapKit/MapKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 #define IMAGE_RECT CGRectMake(10,10,self.view.frame.size.width/2-20,self.view.frame.size.height/3-20)
 
@@ -33,7 +34,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self fetchImage];
+    if(!_climb.image){
+        [self fetchImage];
+    }
 }
 
 -(void)fetchImage{
@@ -54,12 +57,16 @@
                                    });
                                }else if(data){
                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                       [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
                                        UIImage *image = [UIImage imageWithData:data];
-                                       [_imageView setImage:image];
+                                       [UIView transitionWithView:_imageView
+                                                         duration:1.0f
+                                                          options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                                                              _climb.image = image;
+                                                              _imageView.image = image;
+                                                          } completion:nil];
                                    });
-
                                }
+                              [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
                            }];
     
 }
@@ -70,6 +77,12 @@
     self.view.backgroundColor = BACKGROUND_COLOR;
     UIImage *climbImage = [UIImage imageNamed:placeHolderImageName];
     _imageView = [[UIImageView alloc] initWithImage:climbImage];
+    if(_climb.image){
+        _imageView.highlightedImage = _climb.image;
+        [_imageView setHighlighted:YES];
+    }
+    _imageView.layer.cornerRadius = 5.0f;
+    _imageView.layer.masksToBounds = YES;
     _imageView.frame = IMAGE_RECT;
     [self.view addSubview:_imageView];
     

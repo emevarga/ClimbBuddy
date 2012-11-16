@@ -64,7 +64,12 @@ static NSMutableArray *__myClimbs = nil;
         NSLog(@"Error savingToMyClimbs: %@",[error localizedDescription]);
         return;
     }
+    NSString *imagePath = [filePath stringByAppendingPathComponent:IMAGE_FILE];
     filePath = [filePath stringByAppendingPathComponent:DATA_FILE];
+
+    NSData *imageData = UIImagePNGRepresentation(climb.image);
+    [imageData writeToFile:imagePath atomically:YES];
+
     NSMutableData *climbData = [[NSMutableData alloc]init];
     NSKeyedArchiver *writer = [[NSKeyedArchiver alloc]initForWritingWithMutableData:climbData];
     [writer encodeObject:climb forKey:DATA_KEY];
@@ -116,6 +121,13 @@ static NSMutableArray *__myClimbs = nil;
     return climb;
 }
 
++(UIImage *)imageForPath:(NSString *)path{
+    path = [path stringByAppendingPathComponent:IMAGE_FILE];
+    NSData *data = [[NSData alloc]initWithContentsOfFile:path];
+    UIImage *image = [UIImage imageWithData:data];
+    return image;  
+}
+
 +(NSMutableArray *)loadMyClimbs{
     __myClimbs = [[NSMutableArray alloc]initWithCapacity:5];
     NSString *dataDirectory = [[self class]getDocumentsDirectory];
@@ -125,7 +137,11 @@ static NSMutableArray *__myClimbs = nil;
         NSString *fullPath = [dataDirectory stringByAppendingPathComponent
                               :file];
         ClimbInfo *climb = [[self class] climbForPath:fullPath];
+        UIImage *image = [[self class]imageForPath:fullPath];
         if(climb){
+            if(image){
+                climb.image = image;
+            }
             [__myClimbs addObject:climb];
         }
     }

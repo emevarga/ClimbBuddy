@@ -50,6 +50,7 @@ static NSArray *__boulderDifficulties = nil;
 @synthesize parkingLongitude = _parkingLongitude;
 @synthesize imageName = _imageName;
 @synthesize description = _description;
+@synthesize image = _image;
 
 NSString *kClimbNameKey = @"rock_name";
 NSString *kClimbTypeKey = @"climb_type";
@@ -58,8 +59,8 @@ NSString *kWallNameKey = @"route_name";
 NSString *kLocationKey = @"location_name";
 NSString *kLatitudeKey = @"latitude";
 NSString *kLongitudeKey = @"longitude";
-NSString *kParkingLatitudeKey = @"asdf";
-NSString *kParkingLongitudeKey = @"asdf";
+NSString *kParkingLatitudeKey = @"parking_lat";
+NSString *kParkingLongitudeKey = @"parking_long";
 NSString *kImageNameKey = @"image_url";
 NSString *kDescriptionKey = @"description";
 

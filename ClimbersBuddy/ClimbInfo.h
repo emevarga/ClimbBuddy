@@ -43,6 +43,7 @@ extern NSString *placeHolderImageName;
     NSNumber *_parkingLongitude;
     NSString *_imageName;
     NSString *_description;
+    UIImage *_image;
 }
 
 @property(readonly)NSString *name;
@@ -57,6 +58,7 @@ extern NSString *placeHolderImageName;
 @property(readonly)NSString *imageName;
 @property(readonly)NSString *description;
 @property(readonly)NSString *docPath;
+@property(nonatomic)UIImage *image;
 
 
 +(NSArray *)getRopedDifficulties;
