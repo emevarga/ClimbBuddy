@@ -14,6 +14,7 @@
 #import "RangeSlider.h"
 #import "SearchFilter.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LocationManager.h"
 
 
 const NSString *kSearchControlDistanceControl = @"distance";
@@ -115,6 +116,8 @@ const NSString *kSearchControlSearchButton = @"search button";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self typeChanged:[_searchControls objectForKey:kSearchControlTypeControl]];
+    LocationManager *locationManager = [LocationManager getInstance];
+    [locationManager start];
 }
 
 -(void)loadView{

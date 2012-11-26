@@ -10,6 +10,7 @@
 #import "CommonDefines.h"
 #import <MapKit/MapKit.h>
 #import "ClimbersBuddyStyle.h"
+#import "LocationManager.h"
 
 @implementation SearchFilter
 
@@ -32,12 +33,12 @@
     NSString *maxDistanceString = _maxDistance == -1 ? @"100000" : [[NSNumber numberWithInteger:_maxDistance] stringValue];
     NSString *minDifficultyString = [[NSNumber numberWithInteger:_minDifficulty] stringValue];
     NSString *maxDifficultyString = [[NSNumber numberWithInteger:_maxDifficulty] stringValue];
-    MKMapItem *currentLocationItem = [MKMapItem mapItemForCurrentLocation];
-    MKPlacemark *placemark = currentLocationItem.placemark;
-    NSString *longitude = [[NSNumber numberWithFloat:placemark.location.coordinate.longitude]stringValue];
-    NSString *latitude = [[NSNumber numberWithFloat:placemark.location.coordinate.latitude]stringValue];
+    CLLocationCoordinate2D coordinate = [[[LocationManager getInstance] getLocation] coordinate];
+    NSString *longitude = [[NSNumber numberWithDouble:coordinate.longitude]stringValue];
+    NSString *latitude = [[NSNumber numberWithDouble:coordinate.latitude]stringValue];
     NSString *typeStringForQuery = [_type stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSString *query = [NSString stringWithFormat:@"%@?lat=%@&lng=%@&dist=%@&min_difficulty=%@&max_difficulty=%@&climb_type=%@",SERVER,latitude,longitude,maxDistanceString,minDifficultyString,maxDifficultyString,typeStringForQuery];
+    [[LocationManager getInstance]stop];
     return query;
 }
 

@@ -48,6 +48,7 @@
 		D3B1B8F816562A2C0014457D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B1B8F716562A2C0014457D /* AppIcon.png */; };
 		D3CC7EB716562D9000BD4D09 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CC7EB616562D9000BD4D09 /* Default@2x.png */; };
 		D3CC7EBB16562ECB00BD4D09 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CC7EBA16562ECB00BD4D09 /* Default.png */; };
+		D3D0BEE516640359005AF5B4 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BEE416640359005AF5B4 /* LocationManager.m */; };
 		D3FDD3A615F01F54001DF726 /* ClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */; };
 		D3FDD3AA15F020F9001DF726 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD3A915F020F9001DF726 /* SearchResultViewController.m */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,8 @@
 		D3B1B8F716562A2C0014457D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		D3CC7EB616562D9000BD4D09 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D3CC7EBA16562ECB00BD4D09 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D3D0BEE316640358005AF5B4 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		D3D0BEE416640359005AF5B4 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		D3FDD3A415F01F54001DF726 /* ClimbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbDetailViewController.h; sourceTree = "<group>"; };
 		D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbDetailViewController.m; sourceTree = "<group>"; };
 		D3FDD3A815F020F9001DF726 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				D34D3E1B15E88C8C0047E8A3 /* Model */,
 				D3400DEC15E4238900503B1F /* View Controllers */,
 				D3400DC515E4212600503B1F /* Supporting Files */,
+				D3D0BEE316640358005AF5B4 /* LocationManager.h */,
+				D3D0BEE416640359005AF5B4 /* LocationManager.m */,
 			);
 			path = ClimbersBuddy;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				D384839E16499EA600B0A62C /* SBJsonTokeniser.m in Sources */,
 				D384839F16499EA600B0A62C /* SBJsonUTF8Stream.m in Sources */,
 				D38483A016499EA600B0A62C /* SBJsonWriter.m in Sources */,
+				D3D0BEE516640359005AF5B4 /* LocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
