@@ -22,7 +22,7 @@
 
 
 +(NSArray *)getMiles;
-+(NSUInteger)milesForSegment:(NSUInteger)index;
++(NSInteger)milesForSegment:(NSUInteger)index;
 +(UIButton *)getButtonForSearch;
 +(RangeSlider *)getRangeSlider:(CGRect)rect;
 +(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items withToggle:(BOOL)toggle;

@@ -43,11 +43,11 @@
 
 
 +(NSArray *)getMiles{
-    return @[@5U,@25U,@50U,@100U];
+    return @[[NSNumber numberWithInt:5],[NSNumber numberWithInt:25],[NSNumber numberWithInt:50],[NSNumber numberWithInt:100]];
 }
 
-+(NSUInteger)milesForSegment:(NSUInteger)index{
-    return (NSUInteger)[[[self class] getMiles] objectAtIndex:index];
++(NSInteger)milesForSegment:(NSUInteger)index{
+    return [(NSNumber *)[[[self class] getMiles] objectAtIndex:index]integerValue];
 }
 
 +(ClimbType)getTypeForIndex:(NSUInteger)index{

@@ -18,7 +18,7 @@
 @synthesize maxDifficulty = _maxDifficulty;
 @synthesize maxDistance = _maxDistance;
 
--(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty andMaxDistance:(NSUInteger)maxDistance{
+-(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty andMaxDistance:(NSInteger)maxDistance{
     self = [super init];
     if(self){
         _type = type;

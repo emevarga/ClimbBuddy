@@ -57,7 +57,7 @@ const NSString *kSearchControlSearchButton = @"search button";
     NSUInteger maxDifficulty = ceil(difficultySlider.selectedMaximumValue);
     
     UISegmentedControl *distanceControl = [_searchControls objectForKey:kSearchControlDistanceControl];
-    NSUInteger maxDistance = -1;
+    NSInteger maxDistance = -1;
     if(distanceControl.selectedSegmentIndex != -1){
         maxDistance = [ClimbersBuddyStyle milesForSegment:distanceControl.selectedSegmentIndex];
     }

@@ -14,15 +14,15 @@
     NSString *_type;
     NSUInteger _minDifficulty;
     NSUInteger _maxDifficulty;
-    NSUInteger _maxDistance;
+    NSInteger _maxDistance;
 }
 
 @property(readonly)NSString * type;
 @property(readonly)NSUInteger minDifficulty;
 @property(readonly)NSUInteger maxDifficulty;
-@property(readonly)NSUInteger maxDistance;
+@property(readonly)NSInteger maxDistance;
 
--(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty andMaxDistance:(NSUInteger)maxDistance;
+-(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty andMaxDistance:(NSInteger)maxDistance;
 -(NSString *)urlForFilters;
 
 @end
