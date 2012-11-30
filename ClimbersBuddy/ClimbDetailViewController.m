@@ -11,6 +11,7 @@
 #import "MyClimbsManager.h"
 #import "ClimbersBuddyStyle.h"
 #import "CommonDefines.h"
+#import "LocationManager.h"
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -125,9 +126,10 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
     [self.navigationItem setRightBarButtonItem:rightItem animated:YES];
     
-    _descriptionLabel = [[UITextView alloc]initWithFrame:CGRectMake(10, _imageView.frame.origin.y+_imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
+    _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _imageView.frame.origin.y+_imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
+    [_descriptionLabel setNumberOfLines:0];
+    [_descriptionLabel setLineBreakMode:NSLineBreakByWordWrapping];
     _descriptionLabel.font = [UIFont systemFontOfSize:15];
-    _descriptionLabel.editable = NO;
     [_descriptionLabel setText:_climb.description];
     _descriptionLabel.backgroundColor = BACKGROUND_COLOR;
     [self.view addSubview:_descriptionLabel];
@@ -156,31 +158,15 @@
 }
 
 -(void)getWalkingDirections{
-    Class itemClass = [MKMapItem class];
-    if(itemClass && [itemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)]){
-        MKMapItem *currentLocationItem = [MKMapItem mapItemForCurrentLocation];
-        
-        MKPlacemark *place = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([_climb.latitude doubleValue], [_climb.longitude doubleValue]) addressDictionary:nil];
-        MKMapItem *destinationItem = [[MKMapItem alloc] initWithPlacemark:place];
-        
-        NSArray *mapItemsArray = @[currentLocationItem,destinationItem];
-        NSDictionary *directionsDictionary = [NSDictionary dictionaryWithObject:MKLaunchOptionsDirectionsModeWalking forKey:MKLaunchOptionsDirectionsModeKey];
-        [MKMapItem openMapsWithItems:mapItemsArray launchOptions:directionsDictionary];
-    }
+    CLLocation *current = [[LocationManager getInstance] getLocation];
+    NSString *url = [ClimbersBuddyStyle directionsURLForStart:current.coordinate toFinish:CLLocationCoordinate2DMake([_climb.latitude doubleValue], [_climb.longitude doubleValue]) withWalking:YES];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 -(void)getDrivingDirections{
-    Class itemClass = [MKMapItem class];
-    if(itemClass && [itemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)]){
-        MKMapItem *currentLocationItem = [MKMapItem mapItemForCurrentLocation];
-        
-        MKPlacemark *place = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([_climb.parkingLatitude doubleValue], [_climb.parkingLongitude doubleValue]) addressDictionary:nil];
-        MKMapItem *destinationItem = [[MKMapItem alloc] initWithPlacemark:place];
-        
-        NSArray *mapItemsArray = @[currentLocationItem,destinationItem];
-        NSDictionary *directionsDictionary = [NSDictionary dictionaryWithObject:MKLaunchOptionsDirectionsModeDriving forKey:MKLaunchOptionsDirectionsModeKey];
-        [MKMapItem openMapsWithItems:mapItemsArray launchOptions:directionsDictionary];
-    }
+    CLLocation *current = [[LocationManager getInstance] getLocation];
+    NSString *url = [ClimbersBuddyStyle directionsURLForStart:current.coordinate toFinish:CLLocationCoordinate2DMake([_climb.parkingLatitude doubleValue], [_climb.parkingLongitude doubleValue]) withWalking:NO];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{

@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 #import "ClimbInfo.h"
 @class RangeSlider;
+
 
 @interface ClimbersBuddyStyle : NSObject
 
@@ -27,5 +29,7 @@
 +(RangeSlider *)getRangeSlider:(CGRect)rect;
 +(UISegmentedControl *)getSegmentedControlWithItems:(NSArray *)items withToggle:(BOOL)toggle;
 +(CALayer *)getGradientForLayer:(CALayer *)layer;
+
++(NSString *)directionsURLForStart:(CLLocationCoordinate2D)start toFinish:(CLLocationCoordinate2D)finish withWalking:(BOOL)walking;
 
 @end

@@ -37,6 +37,12 @@
     NSNumber *longitude = [climbDictionary objectForKey:kLongitudeKey];
     [climbData setValue:longitude forKey:kLongitudeKey];
     
+    NSNumber *parkingLatitude = [climbDictionary objectForKey:kParkingLatitudeKey];
+    [climbData setValue:parkingLatitude forKey:kParkingLatitudeKey];
+    
+    NSNumber *parkingLongitude = [climbDictionary objectForKey:kParkingLongitudeKey];
+    [climbData setValue:parkingLongitude forKey:kParkingLongitudeKey];
+    
     NSString *imageURL = [climbDictionary objectForKey:kImageNameKey];
     [climbData setValue:imageURL forKey:kImageNameKey];
     

@@ -150,4 +150,14 @@
     return control;
 }
 
++(NSString *)directionsURLForStart:(CLLocationCoordinate2D)start toFinish:(CLLocationCoordinate2D)finish withWalking:(BOOL)walking{
+    NSString *url =[NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%lf,%lf&daddr=%lf,%lf",start.latitude,start.longitude,finish.latitude,finish.longitude];
+    if(walking){
+        url = [url stringByAppendingString:@"&dirflg=w"];
+    }
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    return url;
+}
+
+
 @end
