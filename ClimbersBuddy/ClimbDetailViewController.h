@@ -13,11 +13,15 @@
 @interface ClimbDetailViewController : UIViewController<UIActionSheetDelegate>{
     ClimbInfo *_climb;
     UIImageView *_imageView;
+    UILabel *_smallNameLabel;
+    UILabel *_smallTypeLabel;
+    UILabel *_smallRouteLabel;
+    UILabel *_smallLocationLabel;
     UILabel *_nameLabel;
     UILabel *_typeLabel;
     UILabel *_wallLabel;
     UILabel *_locationLabel;
-    UILabel *_descriptionLabel;
+    UITextView *_descriptionLabel;
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;

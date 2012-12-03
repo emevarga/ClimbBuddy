@@ -13,14 +13,14 @@
     float _maximumValue;
     float _selectedMinimumValue;
     float _selectedMaximumValue;
+
+    float _thumbRadius;
+    
+    float _minThumbX;
+    float _maxThumbX;
     
     BOOL _minThumbOn;
     BOOL _maxThumbOn;
-    
-    UIImageView *_minThumb;
-    UIImageView *_maxThumb;
-    UIImageView *_trackHightlight;
-    UIImageView *_trackBackground;
     
     UIColor *_thumbColor;
     UIColor *_thumbHighlightColor;

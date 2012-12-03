@@ -17,6 +17,9 @@
 #import "LocationManager.h"
 
 
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+
 const NSString *kSearchControlDistanceControl = @"distance";
 const NSString *kSearchControlTypeControl = @"type";
 const NSString *kSearchControlDifficultySlider = @"difficulty";
@@ -24,6 +27,7 @@ const NSString *kSearchControlHeightSlider = @"height";
 const NSString *kSearchControlSearchButton = @"search button";
 
 @interface SearchViewController (Internal)
+-(NSArray *)getConstraints;
 -(CGRect)getLabelRectForOffset:(CGFloat)offset;
 -(CGRect)getControlRectForOffset:(CGFloat)offset;
 
@@ -62,10 +66,6 @@ const NSString *kSearchControlSearchButton = @"search button";
         maxDistance = [ClimbersBuddyStyle milesForSegment:distanceControl.selectedSegmentIndex];
     }
     return [[SearchFilter alloc]initFor:typeString withMinDifficulty:minDifficulty maxDifficulty:maxDifficulty andMaxDistance:maxDistance];
-    
-    
-    
-    
 }
 
 
@@ -73,10 +73,6 @@ const NSString *kSearchControlSearchButton = @"search button";
     SearchFilter *filter = [self generateFilter];
     SearchResultViewController *climbInfoView = [[SearchResultViewController alloc] initWithSearchFilter:filter];
     [self.navigationController pushViewController:climbInfoView animated:YES];
-    
-    //create search filter
-    //create view with search filter
-    //push view with search results
 }
 
 -(void)difficultySliderChanged:(RangeSlider *)rangeSlider{
@@ -128,7 +124,12 @@ const NSString *kSearchControlSearchButton = @"search button";
         _searchControls = [[NSMutableDictionary alloc]initWithCapacity:5];
     }
     CGFloat controlSectionHeight = 70;
-    CGFloat offset = 10;
+    CGFloat offset;
+    if(IS_IPHONE_5){
+        offset = 30;
+    }else{
+        offset = 10;
+    }
     
     //add to control dictionary
     
@@ -209,6 +210,7 @@ const NSString *kSearchControlSearchButton = @"search button";
     [difficultySlider addTarget:self action:@selector(difficultySliderChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:difficultySlider];
     [_searchControls setObject:difficultySlider forKey:kSearchControlDifficultySlider];
+    [self typeChanged:typeControl];
     
     offset += controlSectionHeight;
     

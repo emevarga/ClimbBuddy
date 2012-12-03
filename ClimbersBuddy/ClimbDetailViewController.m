@@ -15,11 +15,11 @@
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#define IMAGE_RECT CGRectMake(10,10,self.view.frame.size.width/2-20,self.view.frame.size.height/3-20)
-
 @interface ClimbDetailViewController ()
--(void)positionLabels:(NSArray *)views inRect:(CGRect)rect;
 -(void)fetchImage;
+-(NSArray *)getConstraints;
+-(NSArray *)getConstraintsFor:(UIView *)smallView and:(UIView *)largeView withConstant:(CGFloat)constant;
+-(NSLayoutConstraint *)xAlignmentFor:(UIView *)view;
 @end
 
 @implementation ClimbDetailViewController
@@ -84,13 +84,32 @@
     }
     _imageView.layer.cornerRadius = 5.0f;
     _imageView.layer.masksToBounds = YES;
-    _imageView.frame = IMAGE_RECT;
+    [_imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_imageView];
+
+    _smallNameLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    [_smallNameLabel setText:@"Name:"];
+    [_smallNameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:_smallNameLabel];
+
+    _smallTypeLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    [_smallTypeLabel setText:@"Type:"];
+    [_smallTypeLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:_smallTypeLabel];
+    
+    _smallRouteLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    [_smallRouteLabel setText:@"Wall:"];
+    [_smallRouteLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:_smallRouteLabel];
+    
+    _smallLocationLabel = [ClimbersBuddyStyle getLabelWithSearchFormatting];
+    [_smallLocationLabel setText:@"Location:"];
+    [_smallLocationLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:_smallLocationLabel];
     
     _nameLabel = [ClimbersBuddyStyle getClimbDetailLabel];
     [_nameLabel setText:_climb.name];
-    CGSize textSize = [_nameLabel.text sizeWithFont:_nameLabel.font];
-    _nameLabel.frame = CGRectMake(self.view.frame.size.width/2 + 10, 10, self.view.frame.size.width/2-20, textSize.height);
+    [_nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_nameLabel];
     
     _typeLabel = [ClimbersBuddyStyle getClimbDetailLabel];
@@ -101,50 +120,172 @@
         typeString = [NSString stringWithFormat:@"%@, %@",typeString,difficultyString];
     }
     [_typeLabel setText:typeString];
-    
-    CGRect typeRect = _nameLabel.frame;
-    _typeLabel.frame = typeRect;
+    [_typeLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_typeLabel];
     
     _wallLabel = [ClimbersBuddyStyle getClimbDetailLabel];
-    CGRect wallFrame = _typeLabel.frame;
-    _wallLabel.frame = wallFrame;
     [_wallLabel setText:_climb.wallName];
+    [_wallLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_wallLabel];
     
     _locationLabel = [ClimbersBuddyStyle getClimbDetailLabel];
-    CGRect locationFrame = _wallLabel.frame;
-    _locationLabel.frame = locationFrame;
     [_locationLabel setText:_climb.locationName];
+    [_locationLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_locationLabel];
-    
-    CGRect labelRect = CGRectMake(self.view.frame.size.width/2, _imageView.frame.origin.y, self.view.frame.size.width/2, _imageView.frame.size.height);
-    NSArray *labels = [NSArray arrayWithObjects:_nameLabel,_typeLabel,_wallLabel,_locationLabel, nil];
-    [self positionLabels:labels inRect:labelRect];
-    
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
     [self.navigationItem setRightBarButtonItem:rightItem animated:YES];
     
-    _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _imageView.frame.origin.y+_imageView.frame.size.height+10, self.view.frame.size.width-20, 200)];
-    [_descriptionLabel setNumberOfLines:0];
-    [_descriptionLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    _descriptionLabel = [[UITextView alloc]init];
     _descriptionLabel.font = [UIFont systemFontOfSize:15];
+    [_descriptionLabel setEditable:NO];
+    [_descriptionLabel setAllowsEditingTextAttributes:NO];
     [_descriptionLabel setText:_climb.description];
     _descriptionLabel.backgroundColor = BACKGROUND_COLOR;
+    [_descriptionLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_descriptionLabel];
+    
+    [self.view addConstraints:[self getConstraints]];
 }
 
--(void)positionLabels:(NSArray *)views inRect:(CGRect)rect{
-    CGPoint origin = CGPointMake(rect.origin.x+MYCLIMBS_PADDING, rect.origin.y-MYCLIMBS_PADDING/2);
-    for(UIView *view in views){
-        origin.y += MYCLIMBS_PADDING;
-        CGRect viewFrame = view.frame;
-        viewFrame.origin = origin;
-        view.frame = viewFrame;
-        origin.y += view.frame.size.height;
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
 
-    }
+-(NSArray *)getConstraints{
+    NSMutableArray *constraints = [NSMutableArray arrayWithCapacity:5];
+    
+    NSLayoutConstraint *imageTopPadding = [NSLayoutConstraint constraintWithItem:_imageView
+                                                                    attribute:NSLayoutAttributeTop
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.view
+                                                                    attribute:NSLayoutAttributeTop
+                                                                   multiplier:1.0
+                                                                     constant:10];
+    [constraints addObject:imageTopPadding];
+    
+    NSLayoutConstraint *imageSidePadding = [NSLayoutConstraint constraintWithItem:_imageView
+                                                                        attribute:NSLayoutAttributeLeading
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:self.view
+                                                                        attribute:NSLayoutAttributeLeading
+                                                                       multiplier:1.0
+                                                                         constant:10];
+    [constraints addObject:imageSidePadding];
+    
+    NSLayoutConstraint *imageWidth = [NSLayoutConstraint constraintWithItem:_imageView
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:.5
+                                                                   constant:-20];
+    [constraints addObject:imageWidth];
+    
+    NSLayoutConstraint *imageHeight = [NSLayoutConstraint constraintWithItem:_imageView
+                                                                   attribute:NSLayoutAttributeHeight
+                                                                   relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                      toItem:_imageView
+                                                                   attribute:NSLayoutAttributeWidth
+                                                                  multiplier:1.0
+                                                                    constant:0];
+    [constraints addObject:imageHeight];
+    
+    NSLayoutConstraint *imageBottom = [NSLayoutConstraint constraintWithItem:_imageView
+                                                                   attribute:NSLayoutAttributeBottom
+                                                                   relatedBy:NSLayoutRelationLessThanOrEqual
+                                                                      toItem:self.view
+                                                                   attribute:NSLayoutAttributeCenterY
+                                                                  multiplier:1.0
+                                                                    constant:-5];
+    [constraints addObject:imageBottom];
+    
+    [constraints addObject:[self xAlignmentFor:_smallNameLabel]];
+    
+    NSLayoutConstraint *smallNamePositionY = [NSLayoutConstraint constraintWithItem:_smallNameLabel
+                                                                          attribute:NSLayoutAttributeTop
+                                                                          relatedBy:NSLayoutRelationEqual
+                                                                             toItem:self.view
+                                                                          attribute:NSLayoutAttributeTop
+                                                                         multiplier:1.0
+                                                                           constant:10];
+    [constraints addObject:smallNamePositionY];
+    
+    [constraints addObjectsFromArray:[self getConstraintsFor:_smallNameLabel and:_nameLabel withConstant:1]];
+    [constraints addObjectsFromArray:[self getConstraintsFor:_nameLabel and:_smallTypeLabel withConstant:5]];
+    [constraints addObjectsFromArray:[self getConstraintsFor:_smallTypeLabel and:_typeLabel withConstant:1]];
+    [constraints addObjectsFromArray:[self getConstraintsFor:_typeLabel and:_smallRouteLabel withConstant:5]];
+    [constraints addObjectsFromArray:[self getConstraintsFor:_smallRouteLabel and:_wallLabel withConstant:1]];
+    [constraints addObjectsFromArray:[self getConstraintsFor:_wallLabel and:_smallLocationLabel withConstant:5]];
+    [constraints addObjectsFromArray:[self getConstraintsFor:_smallLocationLabel and:_locationLabel withConstant:1]];
+    
+    NSLayoutConstraint *descriptionX = [NSLayoutConstraint constraintWithItem:_descriptionLabel
+                                                                    attribute:NSLayoutAttributeLeading
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.view
+                                                                    attribute:NSLayoutAttributeLeading
+                                                                   multiplier:1.0
+                                                                     constant:10];
+    [constraints addObject:descriptionX];
+    
+    NSLayoutConstraint *descriptionY = [NSLayoutConstraint constraintWithItem:_descriptionLabel
+                                                                    attribute:NSLayoutAttributeTop
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.view
+                                                                    attribute:NSLayoutAttributeCenterY
+                                                                   multiplier:1.0
+                                                                     constant:5];
+    [constraints addObject:descriptionY];
+    
+    NSLayoutConstraint *descriptionWidth = [NSLayoutConstraint constraintWithItem:_descriptionLabel
+                                                                        attribute:NSLayoutAttributeWidth
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:self.view
+                                                                        attribute:NSLayoutAttributeWidth
+                                                                       multiplier:1.0
+                                                                         constant:-10];
+    [constraints addObject:descriptionWidth];
+    
+    NSLayoutConstraint *descriptionHeight = [NSLayoutConstraint constraintWithItem:_descriptionLabel
+                                                                         attribute:NSLayoutAttributeHeight
+                                                                         relatedBy:NSLayoutRelationEqual
+                                                                            toItem:self.view
+                                                                         attribute:NSLayoutAttributeHeight
+                                                                        multiplier:.5
+                                                                          constant:-20];
+
+    [constraints addObject:descriptionHeight];
+    
+    return constraints;
+}
+
+-(NSArray *)getConstraintsFor:(UIView *)smallView and:(UIView *)largeView withConstant:(CGFloat)constant{
+    NSMutableArray *constraints = [NSMutableArray arrayWithCapacity:2];
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:largeView
+                                                        attribute:NSLayoutAttributeTop
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:smallView
+                                                        attribute:NSLayoutAttributeBottom
+                                                       multiplier:1.0
+                                                         constant:constant]];
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:largeView
+                                                        attribute:NSLayoutAttributeLeading
+                                                        relatedBy:NSLayoutRelationEqual
+                                                           toItem:smallView
+                                                        attribute:NSLayoutAttributeLeading
+                                                       multiplier:1.0
+                                                         constant:0]];
+    return constraints;
+}
+
+-(NSLayoutConstraint *)xAlignmentFor:(UIView *)view{
+    return [NSLayoutConstraint constraintWithItem:view
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                           toItem:self.view
+                                        attribute:NSLayoutAttributeCenterX
+                                       multiplier:1.0
+                                         constant:10];
 }
 
 -(void)showActionSheet{

@@ -59,7 +59,7 @@
     ClimbType type;
     if([string isEqualToString:@"Boulder"]){
         type = boulder;
-    }else if([string isEqualToString:@"Trad."]){
+    }else if([string isEqualToString:@"Trad"]){
         type = trad;
     }else if([string isEqualToString:@"Top Rope"]){
         type = topRope;
