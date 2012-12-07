@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class ClimbInfo;
+@class ExpandableView;
 
 @interface ClimbDetailViewController : UIViewController<UIActionSheetDelegate>{
     ClimbInfo *_climb;
-    UIImageView *_imageView;
+    ExpandableView *_imageView;
     UILabel *_smallNameLabel;
     UILabel *_smallTypeLabel;
     UILabel *_smallRouteLabel;
@@ -22,6 +23,8 @@
     UILabel *_wallLabel;
     UILabel *_locationLabel;
     UITextView *_descriptionLabel;
+    
+    UITapGestureRecognizer *_tap;
 }
 
 -(id)initWithClimb:(ClimbInfo *)climb;

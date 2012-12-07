@@ -9,8 +9,6 @@
 #import "RangeSlider.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define PADDING 40.
-
 @interface RangeSlider (Internal)
 -(CGFloat)getXForValue:(CGFloat)value;
 -(CGFloat)getValueForX:(CGFloat)x;
@@ -23,6 +21,7 @@
 @synthesize maximumValue = _maximumValue;
 @synthesize selectedMinimumValue = _selectedMinimumValue;
 @synthesize selectedMaximumValue = _selectedMaximumValue;
+@synthesize padding = _padding;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -40,8 +39,12 @@
         _minimumValue = 0;
         _maximumValue = 100;
         
-        _selectedMinimumValue = 0;
-        _selectedMaximumValue = 100;
+        _padding = 40;
+        
+        _selectedMinimumValue = 20;
+        _selectedMaximumValue = 80;
+        
+        _cornerRadius = 10;
         
         _thumbRadius = self.frame.size.height/2 - 5;
         
@@ -59,26 +62,17 @@
     //draw track
     rect = self.frame;
     
+    _thumbRadius = self.frame.size.height/2 - 5;
+    
     CGFloat gradientOffset = .2;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGSize trackSize = CGSizeMake(rect.size.width-PADDING*2, rect.size.height/3);
+    CGSize trackSize = CGSizeMake(rect.size.width-_padding*2, rect.size.height/3);
     CGFloat topOfTrack = rect.size.height/3;
-    CGRect trackRect = CGRectMake(PADDING, topOfTrack, trackSize.width, trackSize.height);
+    CGRect trackRect = CGRectMake(_padding, topOfTrack-1, trackSize.width, trackSize.height+2);
     
     CGContextSaveGState(context);
-    
-    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
-    CGContextSetLineWidth(context,3);
-    
-    CGContextBeginPath(context);
-    CGContextMoveToPoint(context, PADDING, topOfTrack);
-    CGContextAddLineToPoint(context, PADDING + trackSize.width, topOfTrack);
-    CGContextAddRect(context, trackRect);
-    CGContextClip(context);
-    CGContextStrokePath(context);
-    CGContextStrokeRect(context, CGRectMake(PADDING-1, topOfTrack-1, trackSize.width+2, trackSize.height+2));
     
     CGFloat topTrackColor[4] = {0,0,0,0};
     [_trackBackgroundColor getRed:&topTrackColor[0] green:&topTrackColor[1] blue:&topTrackColor[2] alpha:&topTrackColor[3]];
@@ -88,12 +82,29 @@
     CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
     CGGradientRef gradient = CGGradientCreateWithColors(space, ((__bridge CFArrayRef)colors), NULL);
     
+    CGContextBeginPath(context);
+    CGContextMoveToPoint(context, _padding, topOfTrack);
+    CGContextAddLineToPoint(context, _padding + trackSize.width, topOfTrack);
+    CGContextMoveToPoint(context, trackRect.origin.x, trackRect.origin.y - _cornerRadius);
+    CGContextAddLineToPoint(context, trackRect.origin.x, trackRect.origin.y +trackRect.size.height - _cornerRadius);
+    CGContextAddArc(context, trackRect.origin.x + _cornerRadius, trackRect.origin.y + trackRect.size.height - _cornerRadius, _cornerRadius, M_PI, M_PI_2, 1);
+    
+    CGContextAddLineToPoint(context, trackRect.origin.x + trackRect.size.width - _cornerRadius, trackRect.origin.y + trackRect.size.height);
+    CGContextAddArc(context, trackRect.origin.x + trackRect.size.width - _cornerRadius, trackRect.origin.y + trackRect.size.height - _cornerRadius, _cornerRadius, M_PI_2, 0.0f, 1);
+    CGContextAddLineToPoint(context, trackRect.origin.x + trackRect.size.width, trackRect.origin.y + _cornerRadius);
+    CGContextAddArc(context, trackRect.origin.x + trackRect.size.width - _cornerRadius, trackRect.origin.y + _cornerRadius, _cornerRadius, 0.0f, -M_PI_2, 1);
+    CGContextAddLineToPoint(context, trackRect.origin.x + _cornerRadius, trackRect.origin.y);
+    CGContextAddArc(context, trackRect.origin.x + _cornerRadius, trackRect.origin.y + _cornerRadius, _cornerRadius, -M_PI_2, M_PI, 1);
+    
+    CGContextClip(context);
+    
     CGContextDrawLinearGradient(context, gradient, CGPointMake(0, topOfTrack), CGPointMake(0, topOfTrack + rect.size.height/3), 0);
     
     CGGradientRelease(gradient);
+    
     CGContextRestoreGState(context);
     
-    CGRect highlightRect = CGRectMake(_minThumbX, trackRect.origin.y, (_maxThumbX - _minThumbX) + 2,self.frame.size.height/3);
+    CGRect highlightRect = CGRectMake(_minThumbX, trackRect.origin.y, (_maxThumbX - _minThumbX) + 2,trackRect.size.height);
     
     CGFloat topHighlightColor[4] = {0,0,0,0};
     
@@ -150,8 +161,8 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    _minThumbX = [self getXForValue:_selectedMinimumValue] + PADDING;
-    _maxThumbX = [self getXForValue:_selectedMaximumValue] - PADDING;
+    _minThumbX = [self getXForValue:_selectedMinimumValue];
+    _maxThumbX = [self getXForValue:_selectedMaximumValue];
     [self setNeedsDisplay];
 }
 
@@ -185,10 +196,10 @@
     }
     CGPoint point = [touch locationInView:self];
     if(_minThumbOn){
-        _minThumbX = MIN(MAX(point.x, PADDING),_maxThumbX - _thumbRadius*2);
+        _minThumbX = MIN(MAX(point.x, _padding),_maxThumbX - _thumbRadius*2);
         _selectedMinimumValue = [self getValueForX:_minThumbX + _thumbRadius];
     }else if(_maxThumbOn){
-        _maxThumbX = MAX(MIN(point.x,self.frame.size.width - PADDING),_minThumbX + _thumbRadius*2);
+        _maxThumbX = MAX(MIN(point.x,self.frame.size.width - _padding),_minThumbX + _thumbRadius*2);
         _selectedMaximumValue = [self getValueForX:_maxThumbX - _thumbRadius];
     }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -205,11 +216,11 @@
 
 
 -(CGFloat)getXForValue:(CGFloat)value{
-    return ((self.frame.size.width - PADDING*2)*(value-_minimumValue)/(_maximumValue-_minimumValue)) + PADDING;
+    return ((self.frame.size.width - _padding*2)*(value-_minimumValue)/(_maximumValue-_minimumValue)) + _padding;
 }
 
 -(CGFloat)getValueForX:(CGFloat)x{
-    CGFloat value = _minimumValue+(x-PADDING -_thumbRadius)/(self.frame.size.width-(PADDING*2)-_thumbRadius*2)*(_maximumValue-_minimumValue);
+    CGFloat value = _minimumValue+(x-_padding -_thumbRadius)/(self.frame.size.width-(_padding*2)-_thumbRadius*2)*(_maximumValue-_minimumValue);
     if(value < _minimumValue){
         value = _minimumValue;
     }else if(value > _maximumValue){
@@ -270,7 +281,12 @@
     }else{
         //seriously, don't do this.
     }
-    
+}
+
+-(void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    _minThumbX = [self getXForValue:_selectedMinimumValue];
+    _maxThumbX = [self getXForValue:_selectedMaximumValue];
 }
 
 

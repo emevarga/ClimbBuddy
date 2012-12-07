@@ -13,7 +13,9 @@
     float _maximumValue;
     float _selectedMinimumValue;
     float _selectedMaximumValue;
-
+    float _padding;
+    
+    float _cornerRadius;
     float _thumbRadius;
     
     float _minThumbX;
@@ -40,5 +42,6 @@
 @property(readonly)float maximumValue;
 @property(nonatomic)float selectedMinimumValue;
 @property(nonatomic)float selectedMaximumValue;
+@property(nonatomic)float padding;
 
 @end

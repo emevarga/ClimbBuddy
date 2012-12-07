@@ -12,6 +12,7 @@
 #import "ClimbersBuddyStyle.h"
 #import "CommonDefines.h"
 #import "LocationManager.h"
+#import "ExpandableView.h"
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -20,6 +21,7 @@
 -(NSArray *)getConstraints;
 -(NSArray *)getConstraintsFor:(UIView *)smallView and:(UIView *)largeView withConstant:(CGFloat)constant;
 -(NSLayoutConstraint *)xAlignmentFor:(UIView *)view;
+-(void)tapRecognized:(UITapGestureRecognizer *)tap;
 @end
 
 @implementation ClimbDetailViewController
@@ -40,9 +42,33 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    _imageView.originalFrame = _imageView.frame;
+}
+
+-(void)tapRecognized:(UITapGestureRecognizer *)tap{
+    if(_imageView.expanded){
+        _imageView.expanded = NO;
+        [UIView animateWithDuration:.3
+                         animations:^{
+                             _imageView.frame = _imageView.originalFrame;
+                         }];
+    }else{
+        _imageView.expanded = YES;
+        [self.view bringSubviewToFront:_imageView];
+        [UIView animateWithDuration:.3
+                         animations:^{
+                             _imageView.frame = self.view.bounds;
+                         }];
+    }
+}
+
 -(void)fetchImage{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    NSURL *url = [NSURL URLWithString:_climb.imageName];
+    NSString *imageUrlString = [_climb.imageName stringByReplacingOccurrencesOfString:@" "
+                                                                           withString:@"%20"];
+    NSURL *url = [NSURL URLWithString:imageUrlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[[NSOperationQueue alloc]init]
@@ -75,9 +101,13 @@
 -(void)loadView{
     [super loadView];
     
+    _tap = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                  action:@selector(tapRecognized:)];
+    [self.view addGestureRecognizer:_tap];
+    
     self.view.backgroundColor = BACKGROUND_COLOR;
     UIImage *climbImage = [UIImage imageNamed:placeHolderImageName];
-    _imageView = [[UIImageView alloc] initWithImage:climbImage];
+    _imageView = [[ExpandableView alloc] initWithImage:climbImage];
     if(_climb.image){
         _imageView.highlightedImage = _climb.image;
         [_imageView setHighlighted:YES];
@@ -146,10 +176,6 @@
     [self.view addSubview:_descriptionLabel];
     
     [self.view addConstraints:[self getConstraints]];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
 }
 
 -(NSArray *)getConstraints{
