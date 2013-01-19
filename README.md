@@ -1,4 +1,4 @@
 ClimbBuddy
 ==========
 
-A rock climbing app reference
+A rock climbing reference app
