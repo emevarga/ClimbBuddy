@@ -44,9 +44,9 @@
 		D38B9E9616E2786500BE0019 /* ClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E9116E2786500BE0019 /* ClimbDetailViewController.m */; };
 		D38B9E9716E2786500BE0019 /* MyClimbsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E9316E2786500BE0019 /* MyClimbsDetailViewController.m */; };
 		D38B9E9816E2786500BE0019 /* SearchResultClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E9516E2786500BE0019 /* SearchResultClimbDetailViewController.m */; };
-		D38B9E9C16E278D200BE0019 /* myclimbs.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9E9916E278D200BE0019 /* myclimbs.png */; };
-		D38B9E9D16E278D200BE0019 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9E9A16E278D200BE0019 /* nopic.png */; };
-		D38B9E9E16E278D200BE0019 /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9E9B16E278D200BE0019 /* SearchIcon.png */; };
+		D38B9EA216E2791500BE0019 /* myclimbs.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9E9F16E2791500BE0019 /* myclimbs.png */; };
+		D38B9EA316E2791500BE0019 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9EA016E2791500BE0019 /* nopic.png */; };
+		D38B9EA416E2791500BE0019 /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9EA116E2791500BE0019 /* SearchIcon.png */; };
 		D39A364D15EF23A1009FDC9E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39A364C15EF23A1009FDC9E /* CoreLocation.framework */; };
 		D3B1B8F5165629470014457D /* AppIcon_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B1B8F4165629470014457D /* AppIcon_retina.png */; };
 		D3B1B8F816562A2C0014457D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B1B8F716562A2C0014457D /* AppIcon.png */; };
@@ -126,9 +126,9 @@
 		D38B9E9316E2786500BE0019 /* MyClimbsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyClimbsDetailViewController.m; path = ViewControllers/ClimbDetailViewControllers/MyClimbsDetailViewController.m; sourceTree = "<group>"; };
 		D38B9E9416E2786500BE0019 /* SearchResultClimbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultClimbDetailViewController.h; path = ViewControllers/ClimbDetailViewControllers/SearchResultClimbDetailViewController.h; sourceTree = "<group>"; };
 		D38B9E9516E2786500BE0019 /* SearchResultClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultClimbDetailViewController.m; path = ViewControllers/ClimbDetailViewControllers/SearchResultClimbDetailViewController.m; sourceTree = "<group>"; };
-		D38B9E9916E278D200BE0019 /* myclimbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myclimbs.png; path = Assests/myclimbs.png; sourceTree = "<group>"; };
-		D38B9E9A16E278D200BE0019 /* nopic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nopic.png; path = Assests/nopic.png; sourceTree = "<group>"; };
-		D38B9E9B16E278D200BE0019 /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SearchIcon.png; path = Assests/SearchIcon.png; sourceTree = "<group>"; };
+		D38B9E9F16E2791500BE0019 /* myclimbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myclimbs.png; path = Assets/myclimbs.png; sourceTree = "<group>"; };
+		D38B9EA016E2791500BE0019 /* nopic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nopic.png; path = Assets/nopic.png; sourceTree = "<group>"; };
+		D38B9EA116E2791500BE0019 /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SearchIcon.png; path = Assets/SearchIcon.png; sourceTree = "<group>"; };
 		D39A364C15EF23A1009FDC9E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D3B1B8F4165629470014457D /* AppIcon_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_retina.png; sourceTree = "<group>"; };
 		D3B1B8F716562A2C0014457D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
@@ -228,9 +228,9 @@
 				D3B1B8F716562A2C0014457D /* AppIcon.png */,
 				D3B1B8F4165629470014457D /* AppIcon_retina.png */,
 				D31537AF160AED220027D3DF /* Default-568h@2x.png */,
-				D38B9E9916E278D200BE0019 /* myclimbs.png */,
-				D38B9E9A16E278D200BE0019 /* nopic.png */,
-				D38B9E9B16E278D200BE0019 /* SearchIcon.png */,
+				D38B9E9F16E2791500BE0019 /* myclimbs.png */,
+				D38B9EA016E2791500BE0019 /* nopic.png */,
+				D38B9EA116E2791500BE0019 /* SearchIcon.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -391,9 +391,9 @@
 				D3B1B8F816562A2C0014457D /* AppIcon.png in Resources */,
 				D3CC7EB716562D9000BD4D09 /* Default@2x.png in Resources */,
 				D3CC7EBB16562ECB00BD4D09 /* Default.png in Resources */,
-				D38B9E9C16E278D200BE0019 /* myclimbs.png in Resources */,
-				D38B9E9D16E278D200BE0019 /* nopic.png in Resources */,
-				D38B9E9E16E278D200BE0019 /* SearchIcon.png in Resources */,
+				D38B9EA216E2791500BE0019 /* myclimbs.png in Resources */,
+				D38B9EA316E2791500BE0019 /* nopic.png in Resources */,
+				D38B9EA416E2791500BE0019 /* SearchIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

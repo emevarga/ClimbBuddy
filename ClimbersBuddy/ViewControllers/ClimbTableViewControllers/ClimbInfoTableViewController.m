@@ -74,13 +74,8 @@
     }
     
     ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
-    [cell.textLabel setText:climb.name];
-    cell.textLabel.backgroundColor = BACKGROUND_COLOR;
-    NSString *detailText;
-    if(climb.wallName && climb.locationName){
-        detailText = [NSString stringWithFormat:@"%@, %@",climb.wallName,climb.locationName];
-    }
-    [cell.detailTextLabel setText:detailText];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@, %@",climb.wallName,climb.locationName]];
+    [cell.detailTextLabel setText:climb.name];
     cell.detailTextLabel.backgroundColor = BACKGROUND_COLOR;
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
