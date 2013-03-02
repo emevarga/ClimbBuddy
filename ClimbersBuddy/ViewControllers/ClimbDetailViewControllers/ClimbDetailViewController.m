@@ -13,6 +13,7 @@
 #import "CommonDefines.h"
 #import "LocationManager.h"
 #import "ExpandableView.h"
+#import "PointingViewController.h"
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -327,9 +328,8 @@
 }
 
 -(void)getWalkingDirections{
-    CLLocation *current = [[LocationManager getInstance] getLocation];
-    NSString *url = [ClimbersBuddyStyle directionsURLForStart:current.coordinate toFinish:CLLocationCoordinate2DMake([_climb.latitude doubleValue], [_climb.longitude doubleValue]) withWalking:YES];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    PointingViewController *compass = [[PointingViewController alloc] init];
+    [self.navigationController pushViewController:compass animated:YES];
 }
 
 -(void)getDrivingDirections{

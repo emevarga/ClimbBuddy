@@ -65,6 +65,8 @@
         type = topRope;
     }else if([string isEqualToString:@"Lead"]){
         type = lead;
+    }else{
+        type = any;
     }
     return type;
 }
@@ -85,6 +87,7 @@
             string = @"Top Rope";
             break;
         default:
+            string = @"Any";
             break;
     }
     return string;

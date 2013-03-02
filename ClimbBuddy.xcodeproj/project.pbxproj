@@ -47,6 +47,9 @@
 		D38B9EA216E2791500BE0019 /* myclimbs.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9E9F16E2791500BE0019 /* myclimbs.png */; };
 		D38B9EA316E2791500BE0019 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9EA016E2791500BE0019 /* nopic.png */; };
 		D38B9EA416E2791500BE0019 /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9EA116E2791500BE0019 /* SearchIcon.png */; };
+		D38B9EA716E2876200BE0019 /* PointingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9EA616E2876200BE0019 /* PointingViewController.m */; };
+		D38B9EA916E28CF900BE0019 /* compass.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9EA816E28CF900BE0019 /* compass.png */; };
+		D38B9EAC16E29AEE00BE0019 /* UIView+UIViewConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9EAB16E29AEE00BE0019 /* UIView+UIViewConvenience.m */; };
 		D39A364D15EF23A1009FDC9E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39A364C15EF23A1009FDC9E /* CoreLocation.framework */; };
 		D3B1B8F5165629470014457D /* AppIcon_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B1B8F4165629470014457D /* AppIcon_retina.png */; };
 		D3B1B8F816562A2C0014457D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B1B8F716562A2C0014457D /* AppIcon.png */; };
@@ -129,6 +132,11 @@
 		D38B9E9F16E2791500BE0019 /* myclimbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myclimbs.png; path = Assets/myclimbs.png; sourceTree = "<group>"; };
 		D38B9EA016E2791500BE0019 /* nopic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nopic.png; path = Assets/nopic.png; sourceTree = "<group>"; };
 		D38B9EA116E2791500BE0019 /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SearchIcon.png; path = Assets/SearchIcon.png; sourceTree = "<group>"; };
+		D38B9EA516E2876200BE0019 /* PointingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointingViewController.h; path = ViewControllers/PointingViewController.h; sourceTree = "<group>"; };
+		D38B9EA616E2876200BE0019 /* PointingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PointingViewController.m; path = ViewControllers/PointingViewController.m; sourceTree = "<group>"; };
+		D38B9EA816E28CF900BE0019 /* compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = compass.png; path = Assets/compass.png; sourceTree = "<group>"; };
+		D38B9EAA16E29AED00BE0019 /* UIView+UIViewConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewConvenience.h"; sourceTree = "<group>"; };
+		D38B9EAB16E29AEE00BE0019 /* UIView+UIViewConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIViewConvenience.m"; sourceTree = "<group>"; };
 		D39A364C15EF23A1009FDC9E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D3B1B8F4165629470014457D /* AppIcon_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_retina.png; sourceTree = "<group>"; };
 		D3B1B8F716562A2C0014457D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
@@ -214,6 +222,8 @@
 			children = (
 				D38B9E8416E277D400BE0019 /* SearchViewController.h */,
 				D38B9E8516E277D400BE0019 /* SearchViewController.m */,
+				D38B9EA516E2876200BE0019 /* PointingViewController.h */,
+				D38B9EA616E2876200BE0019 /* PointingViewController.m */,
 				D35DBDF816079B67003F9C94 /* Climb Table View Controllers */,
 				D35DBDF716079B3C003F9C94 /* Climb Detail View Controllers */,
 			);
@@ -224,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				D3CC7EBA16562ECB00BD4D09 /* Default.png */,
+				D38B9EA816E28CF900BE0019 /* compass.png */,
 				D3CC7EB616562D9000BD4D09 /* Default@2x.png */,
 				D3B1B8F716562A2C0014457D /* AppIcon.png */,
 				D3B1B8F4165629470014457D /* AppIcon_retina.png */,
@@ -309,6 +320,8 @@
 		D39A365215EFD2C4009FDC9E /* CommonHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				D38B9EAA16E29AED00BE0019 /* UIView+UIViewConvenience.h */,
+				D38B9EAB16E29AEE00BE0019 /* UIView+UIViewConvenience.m */,
 				D38B9E4316E275D300BE0019 /* ClimbersBuddyStyle.h */,
 				D38B9E4416E275D300BE0019 /* ClimbersBuddyStyle.m */,
 				D38B9E4516E275D300BE0019 /* ClimbParser.h */,
@@ -394,6 +407,7 @@
 				D38B9EA216E2791500BE0019 /* myclimbs.png in Resources */,
 				D38B9EA316E2791500BE0019 /* nopic.png in Resources */,
 				D38B9EA416E2791500BE0019 /* SearchIcon.png in Resources */,
+				D38B9EA916E28CF900BE0019 /* compass.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +448,8 @@
 				D38B9E9616E2786500BE0019 /* ClimbDetailViewController.m in Sources */,
 				D38B9E9716E2786500BE0019 /* MyClimbsDetailViewController.m in Sources */,
 				D38B9E9816E2786500BE0019 /* SearchResultClimbDetailViewController.m in Sources */,
+				D38B9EA716E2876200BE0019 /* PointingViewController.m in Sources */,
+				D38B9EAC16E29AEE00BE0019 /* UIView+UIViewConvenience.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
