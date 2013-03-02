@@ -16,42 +16,42 @@
 		D3400DC915E4212600503B1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3400DC715E4212600503B1F /* InfoPlist.strings */; };
 		D3400DCB15E4212600503B1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DCA15E4212600503B1F /* main.m */; };
 		D3400DCF15E4212600503B1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DCE15E4212600503B1F /* AppDelegate.m */; };
-		D3400DEB15E4238300503B1F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DEA15E4238300503B1F /* SearchViewController.m */; };
-		D3400DEF15E424DF00503B1F /* MyClimbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DEE15E424DF00503B1F /* MyClimbsViewController.m */; };
-		D3400DF315E6CA3300503B1F /* ClimbersBuddyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3400DF215E6CA3300503B1F /* ClimbersBuddyStyle.m */; };
-		D357A109160AF7450039BA9B /* ClimbInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D34D3E1815E88C580047E8A3 /* ClimbInfo.m */; };
-		D35DBDF516079B2F003F9C94 /* SearchResultClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35DBDF416079B2F003F9C94 /* SearchResultClimbDetailViewController.m */; };
-		D35DBDFB16079DC6003F9C94 /* MyClimbsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35DBDFA16079DC6003F9C94 /* MyClimbsDetailViewController.m */; };
-		D35DBDFF1607BE7E003F9C94 /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D35DBDFE1607BE7E003F9C94 /* SearchIcon.png */; };
-		D35DBE031607C106003F9C94 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = D35DBE021607C106003F9C94 /* nopic.png */; };
-		D35DBE051607C195003F9C94 /* myclimbs.png in Resources */ = {isa = PBXBuildFile; fileRef = D35DBE041607C195003F9C94 /* myclimbs.png */; };
-		D364A1AC1671E5F400E84853 /* ExpandableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D364A1AB1671E5F400E84853 /* ExpandableView.m */; };
-		D364A1BB1671E84400E84853 /* RangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D364A1BA1671E84400E84853 /* RangeSlider.m */; };
-		D3666C5A15E963B5001490BF /* SearchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3666C5915E963B5001490BF /* SearchFilter.m */; };
-		D384837A16499D9100B0A62C /* ClimbParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D384837916499D9100B0A62C /* ClimbParser.m */; };
-		D384839516499EA600B0A62C /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = D384837D16499EA600B0A62C /* NSObject+SBJson.m */; };
-		D384839616499EA600B0A62C /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D384838016499EA600B0A62C /* SBJsonParser.m */; };
-		D384839716499EA600B0A62C /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D384838216499EA600B0A62C /* SBJsonStreamParser.m */; };
-		D384839816499EA600B0A62C /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D384838416499EA600B0A62C /* SBJsonStreamParserAccumulator.m */; };
-		D384839916499EA600B0A62C /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D384838616499EA600B0A62C /* SBJsonStreamParserAdapter.m */; };
-		D384839A16499EA600B0A62C /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = D384838816499EA600B0A62C /* SBJsonStreamParserState.m */; };
-		D384839B16499EA600B0A62C /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D384838A16499EA600B0A62C /* SBJsonStreamWriter.m */; };
-		D384839C16499EA600B0A62C /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D384838C16499EA600B0A62C /* SBJsonStreamWriterAccumulator.m */; };
-		D384839D16499EA600B0A62C /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = D384838E16499EA600B0A62C /* SBJsonStreamWriterState.m */; };
-		D384839E16499EA600B0A62C /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = D384839016499EA600B0A62C /* SBJsonTokeniser.m */; };
-		D384839F16499EA600B0A62C /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D384839216499EA600B0A62C /* SBJsonUTF8Stream.m */; };
-		D38483A016499EA600B0A62C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D384839416499EA600B0A62C /* SBJsonWriter.m */; };
+		D38B9E4A16E275D300BE0019 /* ClimbersBuddyStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E4416E275D300BE0019 /* ClimbersBuddyStyle.m */; };
+		D38B9E4B16E275D300BE0019 /* ClimbParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E4616E275D300BE0019 /* ClimbParser.m */; };
+		D38B9E4C16E275D300BE0019 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E4916E275D300BE0019 /* LocationManager.m */; };
+		D38B9E6616E2767700BE0019 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E4E16E2767700BE0019 /* NSObject+SBJson.m */; };
+		D38B9E6716E2767700BE0019 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E5116E2767700BE0019 /* SBJsonParser.m */; };
+		D38B9E6816E2767700BE0019 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E5316E2767700BE0019 /* SBJsonStreamParser.m */; };
+		D38B9E6916E2767700BE0019 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E5516E2767700BE0019 /* SBJsonStreamParserAccumulator.m */; };
+		D38B9E6A16E2767700BE0019 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E5716E2767700BE0019 /* SBJsonStreamParserAdapter.m */; };
+		D38B9E6B16E2767700BE0019 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E5916E2767700BE0019 /* SBJsonStreamParserState.m */; };
+		D38B9E6C16E2767700BE0019 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E5B16E2767700BE0019 /* SBJsonStreamWriter.m */; };
+		D38B9E6D16E2767700BE0019 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E5D16E2767700BE0019 /* SBJsonStreamWriterAccumulator.m */; };
+		D38B9E6E16E2767700BE0019 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E5F16E2767700BE0019 /* SBJsonStreamWriterState.m */; };
+		D38B9E6F16E2767700BE0019 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E6116E2767700BE0019 /* SBJsonTokeniser.m */; };
+		D38B9E7016E2767700BE0019 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E6316E2767700BE0019 /* SBJsonUTF8Stream.m */; };
+		D38B9E7116E2767700BE0019 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E6516E2767700BE0019 /* SBJsonWriter.m */; };
+		D38B9E7816E276B700BE0019 /* ClimbInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E7316E276B700BE0019 /* ClimbInfo.m */; };
+		D38B9E7916E276B700BE0019 /* MyClimbsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E7516E276B700BE0019 /* MyClimbsManager.m */; };
+		D38B9E7A16E276B700BE0019 /* SearchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E7716E276B700BE0019 /* SearchFilter.m */; };
+		D38B9E8116E276F000BE0019 /* ExpandableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E7C16E276F000BE0019 /* ExpandableView.m */; };
+		D38B9E8216E276F000BE0019 /* RangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E7E16E276F000BE0019 /* RangeSlider.m */; };
+		D38B9E8316E276F000BE0019 /* ToggleSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E8016E276F000BE0019 /* ToggleSegmentedControl.m */; };
+		D38B9E8616E277D400BE0019 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E8516E277D400BE0019 /* SearchViewController.m */; };
+		D38B9E8D16E277E800BE0019 /* ClimbInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E8816E277E800BE0019 /* ClimbInfoTableViewController.m */; };
+		D38B9E8E16E277E800BE0019 /* MyClimbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E8A16E277E800BE0019 /* MyClimbsViewController.m */; };
+		D38B9E8F16E277E800BE0019 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E8C16E277E800BE0019 /* SearchResultViewController.m */; };
+		D38B9E9616E2786500BE0019 /* ClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E9116E2786500BE0019 /* ClimbDetailViewController.m */; };
+		D38B9E9716E2786500BE0019 /* MyClimbsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E9316E2786500BE0019 /* MyClimbsDetailViewController.m */; };
+		D38B9E9816E2786500BE0019 /* SearchResultClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38B9E9516E2786500BE0019 /* SearchResultClimbDetailViewController.m */; };
+		D38B9E9C16E278D200BE0019 /* myclimbs.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9E9916E278D200BE0019 /* myclimbs.png */; };
+		D38B9E9D16E278D200BE0019 /* nopic.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9E9A16E278D200BE0019 /* nopic.png */; };
+		D38B9E9E16E278D200BE0019 /* SearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D38B9E9B16E278D200BE0019 /* SearchIcon.png */; };
 		D39A364D15EF23A1009FDC9E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39A364C15EF23A1009FDC9E /* CoreLocation.framework */; };
-		D39A365115EF3334009FDC9E /* ClimbInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39A365015EF3334009FDC9E /* ClimbInfoTableViewController.m */; };
-		D3A6A96115EC09530098539C /* ToggleSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A6A96015EC09530098539C /* ToggleSegmentedControl.m */; };
-		D3AC2F34160306FE00065D46 /* MyClimbsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AC2F33160306FE00065D46 /* MyClimbsManager.m */; };
 		D3B1B8F5165629470014457D /* AppIcon_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B1B8F4165629470014457D /* AppIcon_retina.png */; };
 		D3B1B8F816562A2C0014457D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B1B8F716562A2C0014457D /* AppIcon.png */; };
 		D3CC7EB716562D9000BD4D09 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CC7EB616562D9000BD4D09 /* Default@2x.png */; };
 		D3CC7EBB16562ECB00BD4D09 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CC7EBA16562ECB00BD4D09 /* Default.png */; };
-		D3D0BEE516640359005AF5B4 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BEE416640359005AF5B4 /* LocationManager.m */; };
-		D3FDD3A615F01F54001DF726 /* ClimbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */; };
-		D3FDD3AA15F020F9001DF726 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FDD3A915F020F9001DF726 /* SearchResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,72 +68,72 @@
 		D3400DCC15E4212600503B1F /* ClimbBuddy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClimbBuddy-Prefix.pch"; sourceTree = "<group>"; };
 		D3400DCD15E4212600503B1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D3400DCE15E4212600503B1F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D3400DE915E4238300503B1F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		D3400DEA15E4238300503B1F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		D3400DED15E424DF00503B1F /* MyClimbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClimbsViewController.h; sourceTree = "<group>"; };
-		D3400DEE15E424DF00503B1F /* MyClimbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClimbsViewController.m; sourceTree = "<group>"; };
-		D3400DF015E4377700503B1F /* CommonDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefines.h; sourceTree = "<group>"; };
-		D3400DF115E6CA3300503B1F /* ClimbersBuddyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbersBuddyStyle.h; sourceTree = "<group>"; };
-		D3400DF215E6CA3300503B1F /* ClimbersBuddyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbersBuddyStyle.m; sourceTree = "<group>"; };
-		D34D3E1715E88C580047E8A3 /* ClimbInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbInfo.h; sourceTree = "<group>"; };
-		D34D3E1815E88C580047E8A3 /* ClimbInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbInfo.m; sourceTree = "<group>"; };
-		D35DBDF316079B2F003F9C94 /* SearchResultClimbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultClimbDetailViewController.h; sourceTree = "<group>"; };
-		D35DBDF416079B2F003F9C94 /* SearchResultClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultClimbDetailViewController.m; sourceTree = "<group>"; };
-		D35DBDF916079DC6003F9C94 /* MyClimbsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClimbsDetailViewController.h; sourceTree = "<group>"; };
-		D35DBDFA16079DC6003F9C94 /* MyClimbsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClimbsDetailViewController.m; sourceTree = "<group>"; };
-		D35DBDFE1607BE7E003F9C94 /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchIcon.png; sourceTree = "<group>"; };
-		D35DBE021607C106003F9C94 /* nopic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nopic.png; path = ClimbersBuddy/nopic.png; sourceTree = "<group>"; };
-		D35DBE041607C195003F9C94 /* myclimbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myclimbs.png; sourceTree = "<group>"; };
-		D364A1AA1671E5F400E84853 /* ExpandableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandableView.h; sourceTree = "<group>"; };
-		D364A1AB1671E5F400E84853 /* ExpandableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandableView.m; sourceTree = "<group>"; };
-		D364A1B91671E84400E84853 /* RangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeSlider.h; sourceTree = "<group>"; };
-		D364A1BA1671E84400E84853 /* RangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeSlider.m; sourceTree = "<group>"; };
-		D3666C5815E963B5001490BF /* SearchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchFilter.h; sourceTree = "<group>"; };
-		D3666C5915E963B5001490BF /* SearchFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchFilter.m; sourceTree = "<group>"; };
-		D384837816499D9100B0A62C /* ClimbParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbParser.h; sourceTree = "<group>"; };
-		D384837916499D9100B0A62C /* ClimbParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbParser.m; sourceTree = "<group>"; };
-		D384837C16499EA600B0A62C /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
-		D384837D16499EA600B0A62C /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
-		D384837E16499EA600B0A62C /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
-		D384837F16499EA600B0A62C /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		D384838016499EA600B0A62C /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		D384838116499EA600B0A62C /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
-		D384838216499EA600B0A62C /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
-		D384838316499EA600B0A62C /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
-		D384838416499EA600B0A62C /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
-		D384838516499EA600B0A62C /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
-		D384838616499EA600B0A62C /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
-		D384838716499EA600B0A62C /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
-		D384838816499EA600B0A62C /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
-		D384838916499EA600B0A62C /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
-		D384838A16499EA600B0A62C /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
-		D384838B16499EA600B0A62C /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
-		D384838C16499EA600B0A62C /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
-		D384838D16499EA600B0A62C /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
-		D384838E16499EA600B0A62C /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
-		D384838F16499EA600B0A62C /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
-		D384839016499EA600B0A62C /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
-		D384839116499EA600B0A62C /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
-		D384839216499EA600B0A62C /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
-		D384839316499EA600B0A62C /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		D384839416499EA600B0A62C /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		D38B9E4316E275D300BE0019 /* ClimbersBuddyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClimbersBuddyStyle.h; path = CommonHelpers/ClimbersBuddyStyle.h; sourceTree = "<group>"; };
+		D38B9E4416E275D300BE0019 /* ClimbersBuddyStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClimbersBuddyStyle.m; path = CommonHelpers/ClimbersBuddyStyle.m; sourceTree = "<group>"; };
+		D38B9E4516E275D300BE0019 /* ClimbParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClimbParser.h; path = CommonHelpers/ClimbParser.h; sourceTree = "<group>"; };
+		D38B9E4616E275D300BE0019 /* ClimbParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClimbParser.m; path = CommonHelpers/ClimbParser.m; sourceTree = "<group>"; };
+		D38B9E4716E275D300BE0019 /* CommonDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonDefines.h; path = CommonHelpers/CommonDefines.h; sourceTree = "<group>"; };
+		D38B9E4816E275D300BE0019 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationManager.h; path = CommonHelpers/LocationManager.h; sourceTree = "<group>"; };
+		D38B9E4916E275D300BE0019 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = CommonHelpers/LocationManager.m; sourceTree = "<group>"; };
+		D38B9E4D16E2767700BE0019 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "CommonHelpers/JSON/NSObject+SBJson.h"; sourceTree = "<group>"; };
+		D38B9E4E16E2767700BE0019 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJson.m"; path = "CommonHelpers/JSON/NSObject+SBJson.m"; sourceTree = "<group>"; };
+		D38B9E4F16E2767700BE0019 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = CommonHelpers/JSON/SBJson.h; sourceTree = "<group>"; };
+		D38B9E5016E2767700BE0019 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = CommonHelpers/JSON/SBJsonParser.h; sourceTree = "<group>"; };
+		D38B9E5116E2767700BE0019 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = CommonHelpers/JSON/SBJsonParser.m; sourceTree = "<group>"; };
+		D38B9E5216E2767700BE0019 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParser.h; path = CommonHelpers/JSON/SBJsonStreamParser.h; sourceTree = "<group>"; };
+		D38B9E5316E2767700BE0019 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamParser.m; path = CommonHelpers/JSON/SBJsonStreamParser.m; sourceTree = "<group>"; };
+		D38B9E5416E2767700BE0019 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserAccumulator.h; path = CommonHelpers/JSON/SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		D38B9E5516E2767700BE0019 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamParserAccumulator.m; path = CommonHelpers/JSON/SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		D38B9E5616E2767700BE0019 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserAdapter.h; path = CommonHelpers/JSON/SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		D38B9E5716E2767700BE0019 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamParserAdapter.m; path = CommonHelpers/JSON/SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		D38B9E5816E2767700BE0019 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamParserState.h; path = CommonHelpers/JSON/SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		D38B9E5916E2767700BE0019 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamParserState.m; path = CommonHelpers/JSON/SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		D38B9E5A16E2767700BE0019 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriter.h; path = CommonHelpers/JSON/SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		D38B9E5B16E2767700BE0019 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamWriter.m; path = CommonHelpers/JSON/SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		D38B9E5C16E2767700BE0019 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriterAccumulator.h; path = CommonHelpers/JSON/SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		D38B9E5D16E2767700BE0019 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamWriterAccumulator.m; path = CommonHelpers/JSON/SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		D38B9E5E16E2767700BE0019 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonStreamWriterState.h; path = CommonHelpers/JSON/SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		D38B9E5F16E2767700BE0019 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamWriterState.m; path = CommonHelpers/JSON/SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		D38B9E6016E2767700BE0019 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonTokeniser.h; path = CommonHelpers/JSON/SBJsonTokeniser.h; sourceTree = "<group>"; };
+		D38B9E6116E2767700BE0019 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonTokeniser.m; path = CommonHelpers/JSON/SBJsonTokeniser.m; sourceTree = "<group>"; };
+		D38B9E6216E2767700BE0019 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonUTF8Stream.h; path = CommonHelpers/JSON/SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		D38B9E6316E2767700BE0019 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = CommonHelpers/JSON/SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		D38B9E6416E2767700BE0019 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = CommonHelpers/JSON/SBJsonWriter.h; sourceTree = "<group>"; };
+		D38B9E6516E2767700BE0019 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = CommonHelpers/JSON/SBJsonWriter.m; sourceTree = "<group>"; };
+		D38B9E7216E276B700BE0019 /* ClimbInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClimbInfo.h; path = Model/ClimbInfo.h; sourceTree = "<group>"; };
+		D38B9E7316E276B700BE0019 /* ClimbInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClimbInfo.m; path = Model/ClimbInfo.m; sourceTree = "<group>"; };
+		D38B9E7416E276B700BE0019 /* MyClimbsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyClimbsManager.h; path = Model/MyClimbsManager.h; sourceTree = "<group>"; };
+		D38B9E7516E276B700BE0019 /* MyClimbsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyClimbsManager.m; path = Model/MyClimbsManager.m; sourceTree = "<group>"; };
+		D38B9E7616E276B700BE0019 /* SearchFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchFilter.h; path = Model/SearchFilter.h; sourceTree = "<group>"; };
+		D38B9E7716E276B700BE0019 /* SearchFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchFilter.m; path = Model/SearchFilter.m; sourceTree = "<group>"; };
+		D38B9E7B16E276F000BE0019 /* ExpandableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpandableView.h; path = Views/ExpandableView.h; sourceTree = "<group>"; };
+		D38B9E7C16E276F000BE0019 /* ExpandableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpandableView.m; path = Views/ExpandableView.m; sourceTree = "<group>"; };
+		D38B9E7D16E276F000BE0019 /* RangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RangeSlider.h; path = Views/RangeSlider.h; sourceTree = "<group>"; };
+		D38B9E7E16E276F000BE0019 /* RangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RangeSlider.m; path = Views/RangeSlider.m; sourceTree = "<group>"; };
+		D38B9E7F16E276F000BE0019 /* ToggleSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleSegmentedControl.h; path = Views/ToggleSegmentedControl.h; sourceTree = "<group>"; };
+		D38B9E8016E276F000BE0019 /* ToggleSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleSegmentedControl.m; path = Views/ToggleSegmentedControl.m; sourceTree = "<group>"; };
+		D38B9E8416E277D400BE0019 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ViewControllers/SearchViewController.h; sourceTree = "<group>"; };
+		D38B9E8516E277D400BE0019 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ViewControllers/SearchViewController.m; sourceTree = "<group>"; };
+		D38B9E8716E277E800BE0019 /* ClimbInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClimbInfoTableViewController.h; path = ViewControllers/ClimbTableViewControllers/ClimbInfoTableViewController.h; sourceTree = "<group>"; };
+		D38B9E8816E277E800BE0019 /* ClimbInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClimbInfoTableViewController.m; path = ViewControllers/ClimbTableViewControllers/ClimbInfoTableViewController.m; sourceTree = "<group>"; };
+		D38B9E8916E277E800BE0019 /* MyClimbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyClimbsViewController.h; path = ViewControllers/ClimbTableViewControllers/MyClimbsViewController.h; sourceTree = "<group>"; };
+		D38B9E8A16E277E800BE0019 /* MyClimbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyClimbsViewController.m; path = ViewControllers/ClimbTableViewControllers/MyClimbsViewController.m; sourceTree = "<group>"; };
+		D38B9E8B16E277E800BE0019 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultViewController.h; path = ViewControllers/ClimbTableViewControllers/SearchResultViewController.h; sourceTree = "<group>"; };
+		D38B9E8C16E277E800BE0019 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultViewController.m; path = ViewControllers/ClimbTableViewControllers/SearchResultViewController.m; sourceTree = "<group>"; };
+		D38B9E9016E2786500BE0019 /* ClimbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClimbDetailViewController.h; path = ViewControllers/ClimbDetailViewControllers/ClimbDetailViewController.h; sourceTree = "<group>"; };
+		D38B9E9116E2786500BE0019 /* ClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClimbDetailViewController.m; path = ViewControllers/ClimbDetailViewControllers/ClimbDetailViewController.m; sourceTree = "<group>"; };
+		D38B9E9216E2786500BE0019 /* MyClimbsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyClimbsDetailViewController.h; path = ViewControllers/ClimbDetailViewControllers/MyClimbsDetailViewController.h; sourceTree = "<group>"; };
+		D38B9E9316E2786500BE0019 /* MyClimbsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyClimbsDetailViewController.m; path = ViewControllers/ClimbDetailViewControllers/MyClimbsDetailViewController.m; sourceTree = "<group>"; };
+		D38B9E9416E2786500BE0019 /* SearchResultClimbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultClimbDetailViewController.h; path = ViewControllers/ClimbDetailViewControllers/SearchResultClimbDetailViewController.h; sourceTree = "<group>"; };
+		D38B9E9516E2786500BE0019 /* SearchResultClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultClimbDetailViewController.m; path = ViewControllers/ClimbDetailViewControllers/SearchResultClimbDetailViewController.m; sourceTree = "<group>"; };
+		D38B9E9916E278D200BE0019 /* myclimbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myclimbs.png; path = Assests/myclimbs.png; sourceTree = "<group>"; };
+		D38B9E9A16E278D200BE0019 /* nopic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nopic.png; path = Assests/nopic.png; sourceTree = "<group>"; };
+		D38B9E9B16E278D200BE0019 /* SearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SearchIcon.png; path = Assests/SearchIcon.png; sourceTree = "<group>"; };
 		D39A364C15EF23A1009FDC9E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		D39A364F15EF3334009FDC9E /* ClimbInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbInfoTableViewController.h; sourceTree = "<group>"; };
-		D39A365015EF3334009FDC9E /* ClimbInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbInfoTableViewController.m; sourceTree = "<group>"; };
-		D3A6A95F15EC09530098539C /* ToggleSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleSegmentedControl.h; sourceTree = "<group>"; };
-		D3A6A96015EC09530098539C /* ToggleSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleSegmentedControl.m; sourceTree = "<group>"; };
-		D3AC2F32160306FE00065D46 /* MyClimbsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyClimbsManager.h; sourceTree = "<group>"; };
-		D3AC2F33160306FE00065D46 /* MyClimbsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyClimbsManager.m; sourceTree = "<group>"; };
 		D3B1B8F4165629470014457D /* AppIcon_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_retina.png; sourceTree = "<group>"; };
 		D3B1B8F716562A2C0014457D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		D3CC7EB616562D9000BD4D09 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D3CC7EBA16562ECB00BD4D09 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		D3D0BEE316640358005AF5B4 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
-		D3D0BEE416640359005AF5B4 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
-		D3FDD3A415F01F54001DF726 /* ClimbDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimbDetailViewController.h; sourceTree = "<group>"; };
-		D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimbDetailViewController.m; sourceTree = "<group>"; };
-		D3FDD3A815F020F9001DF726 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
-		D3FDD3A915F020F9001DF726 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +212,8 @@
 		D3400DEC15E4238900503B1F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D3400DE915E4238300503B1F /* SearchViewController.h */,
-				D3400DEA15E4238300503B1F /* SearchViewController.m */,
+				D38B9E8416E277D400BE0019 /* SearchViewController.h */,
+				D38B9E8516E277D400BE0019 /* SearchViewController.m */,
 				D35DBDF816079B67003F9C94 /* Climb Table View Controllers */,
 				D35DBDF716079B3C003F9C94 /* Climb Detail View Controllers */,
 			);
@@ -228,9 +228,9 @@
 				D3B1B8F716562A2C0014457D /* AppIcon.png */,
 				D3B1B8F4165629470014457D /* AppIcon_retina.png */,
 				D31537AF160AED220027D3DF /* Default-568h@2x.png */,
-				D35DBE041607C195003F9C94 /* myclimbs.png */,
-				D35DBDFE1607BE7E003F9C94 /* SearchIcon.png */,
-				D35DBE021607C106003F9C94 /* nopic.png */,
+				D38B9E9916E278D200BE0019 /* myclimbs.png */,
+				D38B9E9A16E278D200BE0019 /* nopic.png */,
+				D38B9E9B16E278D200BE0019 /* SearchIcon.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -238,12 +238,12 @@
 		D34D3E1B15E88C8C0047E8A3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D3666C5815E963B5001490BF /* SearchFilter.h */,
-				D3666C5915E963B5001490BF /* SearchFilter.m */,
-				D34D3E1715E88C580047E8A3 /* ClimbInfo.h */,
-				D34D3E1815E88C580047E8A3 /* ClimbInfo.m */,
-				D3AC2F32160306FE00065D46 /* MyClimbsManager.h */,
-				D3AC2F33160306FE00065D46 /* MyClimbsManager.m */,
+				D38B9E7216E276B700BE0019 /* ClimbInfo.h */,
+				D38B9E7316E276B700BE0019 /* ClimbInfo.m */,
+				D38B9E7416E276B700BE0019 /* MyClimbsManager.h */,
+				D38B9E7516E276B700BE0019 /* MyClimbsManager.m */,
+				D38B9E7616E276B700BE0019 /* SearchFilter.h */,
+				D38B9E7716E276B700BE0019 /* SearchFilter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,12 +251,12 @@
 		D35DBDF716079B3C003F9C94 /* Climb Detail View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D3FDD3A415F01F54001DF726 /* ClimbDetailViewController.h */,
-				D3FDD3A515F01F54001DF726 /* ClimbDetailViewController.m */,
-				D35DBDF916079DC6003F9C94 /* MyClimbsDetailViewController.h */,
-				D35DBDFA16079DC6003F9C94 /* MyClimbsDetailViewController.m */,
-				D35DBDF316079B2F003F9C94 /* SearchResultClimbDetailViewController.h */,
-				D35DBDF416079B2F003F9C94 /* SearchResultClimbDetailViewController.m */,
+				D38B9E9016E2786500BE0019 /* ClimbDetailViewController.h */,
+				D38B9E9116E2786500BE0019 /* ClimbDetailViewController.m */,
+				D38B9E9216E2786500BE0019 /* MyClimbsDetailViewController.h */,
+				D38B9E9316E2786500BE0019 /* MyClimbsDetailViewController.m */,
+				D38B9E9416E2786500BE0019 /* SearchResultClimbDetailViewController.h */,
+				D38B9E9516E2786500BE0019 /* SearchResultClimbDetailViewController.m */,
 			);
 			name = "Climb Detail View Controllers";
 			sourceTree = "<group>";
@@ -264,12 +264,12 @@
 		D35DBDF816079B67003F9C94 /* Climb Table View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D39A364F15EF3334009FDC9E /* ClimbInfoTableViewController.h */,
-				D39A365015EF3334009FDC9E /* ClimbInfoTableViewController.m */,
-				D3FDD3A815F020F9001DF726 /* SearchResultViewController.h */,
-				D3FDD3A915F020F9001DF726 /* SearchResultViewController.m */,
-				D3400DED15E424DF00503B1F /* MyClimbsViewController.h */,
-				D3400DEE15E424DF00503B1F /* MyClimbsViewController.m */,
+				D38B9E8716E277E800BE0019 /* ClimbInfoTableViewController.h */,
+				D38B9E8816E277E800BE0019 /* ClimbInfoTableViewController.m */,
+				D38B9E8916E277E800BE0019 /* MyClimbsViewController.h */,
+				D38B9E8A16E277E800BE0019 /* MyClimbsViewController.m */,
+				D38B9E8B16E277E800BE0019 /* SearchResultViewController.h */,
+				D38B9E8C16E277E800BE0019 /* SearchResultViewController.m */,
 			);
 			name = "Climb Table View Controllers";
 			sourceTree = "<group>";
@@ -277,31 +277,31 @@
 		D384837B16499E9100B0A62C /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				D384837C16499EA600B0A62C /* NSObject+SBJson.h */,
-				D384837D16499EA600B0A62C /* NSObject+SBJson.m */,
-				D384837E16499EA600B0A62C /* SBJson.h */,
-				D384837F16499EA600B0A62C /* SBJsonParser.h */,
-				D384838016499EA600B0A62C /* SBJsonParser.m */,
-				D384838116499EA600B0A62C /* SBJsonStreamParser.h */,
-				D384838216499EA600B0A62C /* SBJsonStreamParser.m */,
-				D384838316499EA600B0A62C /* SBJsonStreamParserAccumulator.h */,
-				D384838416499EA600B0A62C /* SBJsonStreamParserAccumulator.m */,
-				D384838516499EA600B0A62C /* SBJsonStreamParserAdapter.h */,
-				D384838616499EA600B0A62C /* SBJsonStreamParserAdapter.m */,
-				D384838716499EA600B0A62C /* SBJsonStreamParserState.h */,
-				D384838816499EA600B0A62C /* SBJsonStreamParserState.m */,
-				D384838916499EA600B0A62C /* SBJsonStreamWriter.h */,
-				D384838A16499EA600B0A62C /* SBJsonStreamWriter.m */,
-				D384838B16499EA600B0A62C /* SBJsonStreamWriterAccumulator.h */,
-				D384838C16499EA600B0A62C /* SBJsonStreamWriterAccumulator.m */,
-				D384838D16499EA600B0A62C /* SBJsonStreamWriterState.h */,
-				D384838E16499EA600B0A62C /* SBJsonStreamWriterState.m */,
-				D384838F16499EA600B0A62C /* SBJsonTokeniser.h */,
-				D384839016499EA600B0A62C /* SBJsonTokeniser.m */,
-				D384839116499EA600B0A62C /* SBJsonUTF8Stream.h */,
-				D384839216499EA600B0A62C /* SBJsonUTF8Stream.m */,
-				D384839316499EA600B0A62C /* SBJsonWriter.h */,
-				D384839416499EA600B0A62C /* SBJsonWriter.m */,
+				D38B9E4D16E2767700BE0019 /* NSObject+SBJson.h */,
+				D38B9E4E16E2767700BE0019 /* NSObject+SBJson.m */,
+				D38B9E4F16E2767700BE0019 /* SBJson.h */,
+				D38B9E5016E2767700BE0019 /* SBJsonParser.h */,
+				D38B9E5116E2767700BE0019 /* SBJsonParser.m */,
+				D38B9E5216E2767700BE0019 /* SBJsonStreamParser.h */,
+				D38B9E5316E2767700BE0019 /* SBJsonStreamParser.m */,
+				D38B9E5416E2767700BE0019 /* SBJsonStreamParserAccumulator.h */,
+				D38B9E5516E2767700BE0019 /* SBJsonStreamParserAccumulator.m */,
+				D38B9E5616E2767700BE0019 /* SBJsonStreamParserAdapter.h */,
+				D38B9E5716E2767700BE0019 /* SBJsonStreamParserAdapter.m */,
+				D38B9E5816E2767700BE0019 /* SBJsonStreamParserState.h */,
+				D38B9E5916E2767700BE0019 /* SBJsonStreamParserState.m */,
+				D38B9E5A16E2767700BE0019 /* SBJsonStreamWriter.h */,
+				D38B9E5B16E2767700BE0019 /* SBJsonStreamWriter.m */,
+				D38B9E5C16E2767700BE0019 /* SBJsonStreamWriterAccumulator.h */,
+				D38B9E5D16E2767700BE0019 /* SBJsonStreamWriterAccumulator.m */,
+				D38B9E5E16E2767700BE0019 /* SBJsonStreamWriterState.h */,
+				D38B9E5F16E2767700BE0019 /* SBJsonStreamWriterState.m */,
+				D38B9E6016E2767700BE0019 /* SBJsonTokeniser.h */,
+				D38B9E6116E2767700BE0019 /* SBJsonTokeniser.m */,
+				D38B9E6216E2767700BE0019 /* SBJsonUTF8Stream.h */,
+				D38B9E6316E2767700BE0019 /* SBJsonUTF8Stream.m */,
+				D38B9E6416E2767700BE0019 /* SBJsonWriter.h */,
+				D38B9E6516E2767700BE0019 /* SBJsonWriter.m */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -309,13 +309,13 @@
 		D39A365215EFD2C4009FDC9E /* CommonHelpers */ = {
 			isa = PBXGroup;
 			children = (
-				D3D0BEE316640358005AF5B4 /* LocationManager.h */,
-				D3D0BEE416640359005AF5B4 /* LocationManager.m */,
-				D3400DF015E4377700503B1F /* CommonDefines.h */,
-				D3400DF115E6CA3300503B1F /* ClimbersBuddyStyle.h */,
-				D3400DF215E6CA3300503B1F /* ClimbersBuddyStyle.m */,
-				D384837816499D9100B0A62C /* ClimbParser.h */,
-				D384837916499D9100B0A62C /* ClimbParser.m */,
+				D38B9E4316E275D300BE0019 /* ClimbersBuddyStyle.h */,
+				D38B9E4416E275D300BE0019 /* ClimbersBuddyStyle.m */,
+				D38B9E4516E275D300BE0019 /* ClimbParser.h */,
+				D38B9E4616E275D300BE0019 /* ClimbParser.m */,
+				D38B9E4716E275D300BE0019 /* CommonDefines.h */,
+				D38B9E4816E275D300BE0019 /* LocationManager.h */,
+				D38B9E4916E275D300BE0019 /* LocationManager.m */,
 				D384837B16499E9100B0A62C /* JSON */,
 			);
 			name = CommonHelpers;
@@ -324,12 +324,12 @@
 		D3A6A96315EC096D0098539C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D364A1AA1671E5F400E84853 /* ExpandableView.h */,
-				D364A1AB1671E5F400E84853 /* ExpandableView.m */,
-				D364A1B91671E84400E84853 /* RangeSlider.h */,
-				D364A1BA1671E84400E84853 /* RangeSlider.m */,
-				D3A6A95F15EC09530098539C /* ToggleSegmentedControl.h */,
-				D3A6A96015EC09530098539C /* ToggleSegmentedControl.m */,
+				D38B9E7B16E276F000BE0019 /* ExpandableView.h */,
+				D38B9E7C16E276F000BE0019 /* ExpandableView.m */,
+				D38B9E7D16E276F000BE0019 /* RangeSlider.h */,
+				D38B9E7E16E276F000BE0019 /* RangeSlider.m */,
+				D38B9E7F16E276F000BE0019 /* ToggleSegmentedControl.h */,
+				D38B9E8016E276F000BE0019 /* ToggleSegmentedControl.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -386,14 +386,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3400DC915E4212600503B1F /* InfoPlist.strings in Resources */,
-				D35DBDFF1607BE7E003F9C94 /* SearchIcon.png in Resources */,
-				D35DBE031607C106003F9C94 /* nopic.png in Resources */,
-				D35DBE051607C195003F9C94 /* myclimbs.png in Resources */,
 				D31537B0160AED220027D3DF /* Default-568h@2x.png in Resources */,
 				D3B1B8F5165629470014457D /* AppIcon_retina.png in Resources */,
 				D3B1B8F816562A2C0014457D /* AppIcon.png in Resources */,
 				D3CC7EB716562D9000BD4D09 /* Default@2x.png in Resources */,
 				D3CC7EBB16562ECB00BD4D09 /* Default.png in Resources */,
+				D38B9E9C16E278D200BE0019 /* myclimbs.png in Resources */,
+				D38B9E9D16E278D200BE0019 /* nopic.png in Resources */,
+				D38B9E9E16E278D200BE0019 /* SearchIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,34 +406,34 @@
 			files = (
 				D3400DCB15E4212600503B1F /* main.m in Sources */,
 				D3400DCF15E4212600503B1F /* AppDelegate.m in Sources */,
-				D3400DEB15E4238300503B1F /* SearchViewController.m in Sources */,
-				D3400DEF15E424DF00503B1F /* MyClimbsViewController.m in Sources */,
-				D3400DF315E6CA3300503B1F /* ClimbersBuddyStyle.m in Sources */,
-				D3666C5A15E963B5001490BF /* SearchFilter.m in Sources */,
-				D3A6A96115EC09530098539C /* ToggleSegmentedControl.m in Sources */,
-				D39A365115EF3334009FDC9E /* ClimbInfoTableViewController.m in Sources */,
-				D3FDD3A615F01F54001DF726 /* ClimbDetailViewController.m in Sources */,
-				D3FDD3AA15F020F9001DF726 /* SearchResultViewController.m in Sources */,
-				D3AC2F34160306FE00065D46 /* MyClimbsManager.m in Sources */,
-				D35DBDF516079B2F003F9C94 /* SearchResultClimbDetailViewController.m in Sources */,
-				D35DBDFB16079DC6003F9C94 /* MyClimbsDetailViewController.m in Sources */,
-				D357A109160AF7450039BA9B /* ClimbInfo.m in Sources */,
-				D384837A16499D9100B0A62C /* ClimbParser.m in Sources */,
-				D384839516499EA600B0A62C /* NSObject+SBJson.m in Sources */,
-				D384839616499EA600B0A62C /* SBJsonParser.m in Sources */,
-				D384839716499EA600B0A62C /* SBJsonStreamParser.m in Sources */,
-				D384839816499EA600B0A62C /* SBJsonStreamParserAccumulator.m in Sources */,
-				D384839916499EA600B0A62C /* SBJsonStreamParserAdapter.m in Sources */,
-				D384839A16499EA600B0A62C /* SBJsonStreamParserState.m in Sources */,
-				D384839B16499EA600B0A62C /* SBJsonStreamWriter.m in Sources */,
-				D384839C16499EA600B0A62C /* SBJsonStreamWriterAccumulator.m in Sources */,
-				D384839D16499EA600B0A62C /* SBJsonStreamWriterState.m in Sources */,
-				D384839E16499EA600B0A62C /* SBJsonTokeniser.m in Sources */,
-				D384839F16499EA600B0A62C /* SBJsonUTF8Stream.m in Sources */,
-				D38483A016499EA600B0A62C /* SBJsonWriter.m in Sources */,
-				D3D0BEE516640359005AF5B4 /* LocationManager.m in Sources */,
-				D364A1AC1671E5F400E84853 /* ExpandableView.m in Sources */,
-				D364A1BB1671E84400E84853 /* RangeSlider.m in Sources */,
+				D38B9E4A16E275D300BE0019 /* ClimbersBuddyStyle.m in Sources */,
+				D38B9E4B16E275D300BE0019 /* ClimbParser.m in Sources */,
+				D38B9E4C16E275D300BE0019 /* LocationManager.m in Sources */,
+				D38B9E6616E2767700BE0019 /* NSObject+SBJson.m in Sources */,
+				D38B9E6716E2767700BE0019 /* SBJsonParser.m in Sources */,
+				D38B9E6816E2767700BE0019 /* SBJsonStreamParser.m in Sources */,
+				D38B9E6916E2767700BE0019 /* SBJsonStreamParserAccumulator.m in Sources */,
+				D38B9E6A16E2767700BE0019 /* SBJsonStreamParserAdapter.m in Sources */,
+				D38B9E6B16E2767700BE0019 /* SBJsonStreamParserState.m in Sources */,
+				D38B9E6C16E2767700BE0019 /* SBJsonStreamWriter.m in Sources */,
+				D38B9E6D16E2767700BE0019 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				D38B9E6E16E2767700BE0019 /* SBJsonStreamWriterState.m in Sources */,
+				D38B9E6F16E2767700BE0019 /* SBJsonTokeniser.m in Sources */,
+				D38B9E7016E2767700BE0019 /* SBJsonUTF8Stream.m in Sources */,
+				D38B9E7116E2767700BE0019 /* SBJsonWriter.m in Sources */,
+				D38B9E7816E276B700BE0019 /* ClimbInfo.m in Sources */,
+				D38B9E7916E276B700BE0019 /* MyClimbsManager.m in Sources */,
+				D38B9E7A16E276B700BE0019 /* SearchFilter.m in Sources */,
+				D38B9E8116E276F000BE0019 /* ExpandableView.m in Sources */,
+				D38B9E8216E276F000BE0019 /* RangeSlider.m in Sources */,
+				D38B9E8316E276F000BE0019 /* ToggleSegmentedControl.m in Sources */,
+				D38B9E8616E277D400BE0019 /* SearchViewController.m in Sources */,
+				D38B9E8D16E277E800BE0019 /* ClimbInfoTableViewController.m in Sources */,
+				D38B9E8E16E277E800BE0019 /* MyClimbsViewController.m in Sources */,
+				D38B9E8F16E277E800BE0019 /* SearchResultViewController.m in Sources */,
+				D38B9E9616E2786500BE0019 /* ClimbDetailViewController.m in Sources */,
+				D38B9E9716E2786500BE0019 /* MyClimbsDetailViewController.m in Sources */,
+				D38B9E9816E2786500BE0019 /* SearchResultClimbDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
