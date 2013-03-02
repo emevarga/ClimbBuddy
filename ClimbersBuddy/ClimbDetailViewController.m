@@ -42,8 +42,8 @@
     }
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
     _imageView.originalFrame = _imageView.frame;
 }
 
@@ -56,7 +56,7 @@
                          }];
     }else{
         _imageView.expanded = YES;
-        [self.view bringSubviewToFront:_imageView];
+
         [UIView animateWithDuration:.3
                          animations:^{
                              _imageView.frame = self.view.bounds;
@@ -174,6 +174,8 @@
     _descriptionLabel.backgroundColor = BACKGROUND_COLOR;
     [_descriptionLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_descriptionLabel];
+    
+    [self.view bringSubviewToFront:_imageView];
     
     [self.view addConstraints:[self getConstraints]];
 }
