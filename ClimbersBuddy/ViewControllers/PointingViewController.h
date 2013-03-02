@@ -11,7 +11,11 @@
 
 @interface PointingViewController : UIViewController<CLLocationManagerDelegate>{
     CLLocationManager *_manager;
+    CLLocationCoordinate2D _target;
     UIImageView *_compass;
+    UILabel *_distanceLabel;
 }
+
+-(id)initWithTargetLocationCoordinate:(CLLocationCoordinate2D)targetCoordinate;
 
 @end

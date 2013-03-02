@@ -328,7 +328,7 @@
 }
 
 -(void)getWalkingDirections{
-    PointingViewController *compass = [[PointingViewController alloc] init];
+    PointingViewController *compass = [[PointingViewController alloc] initWithTargetLocationCoordinate:CLLocationCoordinate2DMake([_climb.latitude doubleValue],[_climb.longitude doubleValue])];
     [self.navigationController pushViewController:compass animated:YES];
 }
 
