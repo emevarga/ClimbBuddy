@@ -24,7 +24,7 @@
         _manager.delegate = self;
         [_manager setDesiredAccuracy:kCLLocationAccuracyBest];
         [_manager setDistanceFilter:kCLDistanceFilterNone];
-        _target = targetCoordinate;
+        _target = [[CLLocation alloc] initWithLatitude:targetCoordinate.latitude longitude:targetCoordinate.longitude];
     }
     return self;
 }
@@ -42,6 +42,8 @@
     
     _distanceLabel = [ClimbersBuddyStyle getClimbDetailLabel];
     [_distanceLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_distanceLabel setTextAlignment:NSTextAlignmentCenter];
+    [_distanceLabel setText:@"Hi!"];
     [self.view addSubview:_distanceLabel];
     
     [self.view addConstraints:[self getConstraints]];
@@ -62,7 +64,8 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-
+    CLLocationDistance meters = [_target distanceFromLocation:newLocation];
+    [_distanceLabel setText:[NSString stringWithFormat:@"%f m",meters]];
 }
 
 - (float) getHeadingForDirectionFromCoordinate:(CLLocationCoordinate2D)fromLoc toCoordinate:(CLLocationCoordinate2D)toLoc{
@@ -76,7 +79,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
     float heading =  -newHeading.trueHeading * M_PI / 180.0f;
-    float bearing = [self getHeadingForDirectionFromCoordinate:([[_manager location] coordinate]) toCoordinate:_target];
+    float bearing = [self getHeadingForDirectionFromCoordinate:([[_manager location] coordinate]) toCoordinate:[_target coordinate]];
     float newRad = bearing = heading;
     [UIView animateWithDuration:.3
                      animations:^{
@@ -93,8 +96,17 @@
                                                                    toItem:self.view
                                                                 attribute:NSLayoutAttributeTop
                                                                multiplier:1.0
-                                                                 constant:-10];
+                                                                 constant:10];
     [constraints addObject:labelTop];
+    
+    NSLayoutConstraint *labelCenter = [NSLayoutConstraint constraintWithItem:_distanceLabel
+                                                                     attribute:NSLayoutAttributeCenterX
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:self.view
+                                                                     attribute:NSLayoutAttributeCenterX
+                                                                    multiplier:1.0
+                                                                      constant:-10];
+    [constraints addObject:labelCenter];
     
     return constraints;
 
