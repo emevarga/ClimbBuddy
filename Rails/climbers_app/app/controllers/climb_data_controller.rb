@@ -4,23 +4,39 @@ class ClimbDataController < ApplicationController
   # GET /climb_data
   # GET /climb_data.json
   def index
+    logger.debug "<<<<<<<<<<<<<<<<  I'M IN >>>>>>>>>>>>>" 
+    # if a location & distance were provided, handle here
     if params[:dist] && params[:lat] && params[:lng] && (params[:dist].to_i >= 0)
       if params[:filter] == 'closest'
         @climb_data = ClimbDatum.geo_scope(:within => params[:dist], :origin => [params[:lat],params[:lng]]).order("distance ASC")
+        logger.debug "-------------CLOSEST WAS PICKED"
+      elsif params[:filter] == 'hardest'
+        @climb_data = ClimbDatum.geo_scope(:within => params[:dist], :origin => [params[:lat],params[:lng]]).order("skill_level DESC")
+        logger.debug "-------------HARDEST WAS PICKED"
       elsif
         @climb_data = ClimbDatum.geo_scope(:within => params[:dist], :origin => [params[:lat],params[:lng]])
         logger.debug "cats #{@climb_data.count}"
-        #@climb_data = ClimbDatum.climb_within(params[:dist], :options => {:origin => [params[:lat],params[:lng]]})
       end
     end
 
-      my_conditions = {}
-      my_conditions[:skill_level] = params[:min_difficulty].to_i..params[:max_difficulty].to_i if params[:min_difficulty] && params[:max_difficulty]
-      my_conditions[:climb_type] = params[:climb_type] if params[:climb_type]
+    # set up conditions for a search based on params passed in
+    my_conditions = {}
+    my_conditions[:skill_level] = params[:min_difficulty].to_i..params[:max_difficulty].to_i if params[:min_difficulty] && params[:max_difficulty]
+    my_conditions[:climb_type] = params[:climb_type] if params[:climb_type]
      
-
+    # if distance/location information WASN'T provided, search with conditions
     if !@climb_data
       @climb_data = ClimbDatum.find(:all, :conditions => my_conditions)
+     
+      # Apply filters that weren't applied otherwise, closest doesn't work without distance calculations 
+      if params[:filter] 
+        if params[:filter] == 'hardest' || params[:filter] == 'best_match'
+          logger.debug "-------------HARDEST WAS PICKED"
+          @climb_data = @climb_data.sort { |a,b| b.skill_level <=> a.skill_level }
+        end         
+      end
+
+    # If distance/location information WAS provided, operate on existing list
     else 
       
       if my_conditions[:skill_level]  
@@ -32,16 +48,10 @@ class ClimbDataController < ApplicationController
         @climb_data.delete_if {|x| x.climb_type != params[:climb_type]}  
       end
       
-      if params[:filter] 
-        if params[:filter] == 'closest'
-          #@climb_data = @climb_data.sort { |a,b| b.dist <=> a.dist }
-        elsif params[:filter] == 'hardest'
-          @climb_data = @climb_data.sort { |a,b| b.skill_level <=> a.skill_level }
-        end         
-      end
 
     end
     
+    # send back a response
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @climb_data }
