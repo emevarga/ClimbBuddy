@@ -1,6 +1,15 @@
 require 'geokit' 
 
 class ClimbDataController < ApplicationController
+  before_filter :authenticate
+  skip_before_filter :authenticate, :except => [:edit, :update, :destroy, :create]
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |name, password|
+      name == "emevarga" && password == "failflood"
+    end
+  end
+  
   # GET /climb_data
   # GET /climb_data.json
   def index
