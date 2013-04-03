@@ -4,27 +4,21 @@ class ClimbDataController < ApplicationController
   # GET /climb_data
   # GET /climb_data.json
   def index
-    logger.debug "<<<<<<<<<<<<<<<<  I'M IN >>>>>>>>>>>>>" 
     # if a location & distance were provided, handle here
     if params[:dist] && params[:lat] && params[:lng] && (params[:dist].to_i >= 0)
       if params[:filter] == 'closest'
         @climb_data = ClimbDatum.geo_scope(:within => params[:dist], :origin => [params[:lat],params[:lng]]).order("distance ASC")
-        logger.debug "-------------CLOSEST WAS PICKED"
       elsif params[:filter] == 'hardest'
         @climb_data = ClimbDatum.geo_scope(:within => params[:dist], :origin => [params[:lat],params[:lng]]).order("skill_level DESC")
-        logger.debug "-------------HARDEST WAS PICKED"
       elsif params[:filter] == 'best_match'
         if params[:min_difficulty] && params[:max_difficulty]
           @avg_difficulty = ( params[:min_difficulty].to_i + params[:max_difficulty].to_i ) * 0.5
-          logger.debug "---------------> "+@avg_difficulty.to_s
 #@avg_difficulty = 7.5
           @climb_data = ClimbDatum.geo_scope(:within => params[:dist], :origin => [params[:lat],params[:lng]]).order("(ABS(#{@avg_difficulty.to_s}-skill_level)*(distance * 0.33)) ASC")
-          logger.debug "--------------BEST MATCH WAS PICKED" 
             
         end
       elsif
         @climb_data = ClimbDatum.geo_scope(:within => params[:dist], :origin => [params[:lat],params[:lng]])
-        logger.debug "cats #{@climb_data.count}"
       end
     end
 
@@ -40,7 +34,6 @@ class ClimbDataController < ApplicationController
       # Apply filters that weren't applied otherwise, closest doesn't work without distance calculations 
       if params[:filter] 
         if params[:filter] == 'hardest' || params[:filter] == 'best_match'
-          logger.debug "-------------HARDEST WAS PICKED"
           @climb_data = @climb_data.sort { |a,b| b.skill_level <=> a.skill_level }
         end         
       end
@@ -58,6 +51,8 @@ class ClimbDataController < ApplicationController
       end
       
     end
+
+    #logger.debug "cats "+@climb_data.count.to_s
     
     # send back a response
     respond_to do |format|
