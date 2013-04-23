@@ -1,0 +1,49 @@
+<h1>Listing climb_data</h1>
+
+<table>
+  <tr>
+    <th>State</th>
+    <th>Area</th>
+    <th>Location name</th>
+    <th>Rock name</th>
+    <th>Route name</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Parking lat</th>
+    <th>Parking long</th>
+    <th>Skill level</th>
+    <th>Climb type</th>
+    <th>Height</th>
+    <th>Image url</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @climb_data.each do |climb_datum| %>
+  <tr>
+    <td><%= climb_datum.state %></td>
+    <td><%= climb_datum.area %></td>
+    <td><%= climb_datum.location_name %></td>
+    <td><%= climb_datum.rock_name %></td>
+    <td><%= climb_datum.route_name %></td>
+    <td><%= climb_datum.latitude %></td>
+    <td><%= climb_datum.longitude %></td>
+    <td><%= climb_datum.parking_lat %></td>
+    <td><%= climb_datum.parking_long %></td>
+    <td><%= climb_datum.skill_level %></td>
+    <td><%= climb_datum.climb_type %></td>
+    <td><%= climb_datum.height %></td>
+    <td><%= climb_datum.image_url %></td>
+    <td><%= climb_datum.description %></td>
+    <td><%= link_to 'Show', climb_datum %></td>
+    <td><%= link_to 'Edit', edit_climb_datum_path(climb_datum) %></td>
+    <td><%= link_to 'Destroy', climb_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Climb datum', new_climb_datum_path %>

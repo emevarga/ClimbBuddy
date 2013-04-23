@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>State:</b>
+  <%= @climb_datum.state %>
+</p>
+
+<p>
+  <b>Area:</b>
+  <%= @climb_datum.area %>
+</p>
+
+<p>
+  <b>Location name:</b>
+  <%= @climb_datum.location_name %>
+</p>
+
+<p>
+  <b>Rock name:</b>
+  <%= @climb_datum.rock_name %>
+</p>
+
+<p>
+  <b>Route name:</b>
+  <%= @climb_datum.route_name %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @climb_datum.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @climb_datum.longitude %>
+</p>
+
+<p>
+  <b>Parking lat:</b>
+  <%= @climb_datum.parking_lat %>
+</p>
+
+<p>
+  <b>Parking long:</b>
+  <%= @climb_datum.parking_long %>
+</p>
+
+<p>
+  <b>Skill level:</b>
+  <%= @climb_datum.skill_level %>
+</p>
+
+<p>
+  <b>Climb type:</b>
+  <%= @climb_datum.climb_type %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @climb_datum.height %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @climb_datum.image_url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @climb_datum.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_climb_datum_path(@climb_datum) %> |
+<%= link_to 'Back', climb_data_path %>
