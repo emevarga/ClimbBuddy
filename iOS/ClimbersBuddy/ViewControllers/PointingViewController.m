@@ -65,7 +65,12 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
     CLLocationDistance meters = [_target distanceFromLocation:newLocation];
-    [_distanceLabel setText:[NSString stringWithFormat:@"%f m",meters]];
+    if(meters > 1000){
+        CLLocationDistance km = meters/1000;
+        [_distanceLabel setText:[NSString stringWithFormat:@"%f km",km]];
+    }else{
+        [_distanceLabel setText:[NSString stringWithFormat:@"%f m",meters]];
+    }
 }
 
 - (float) getHeadingForDirectionFromCoordinate:(CLLocationCoordinate2D)fromLoc toCoordinate:(CLLocationCoordinate2D)toLoc{
