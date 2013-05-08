@@ -18,13 +18,14 @@
 @synthesize maxDifficulty = _maxDifficulty;
 @synthesize maxDistance = _maxDistance;
 
--(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty andMaxDistance:(NSInteger)maxDistance{
+-(id)initFor:(NSString *)type withMinDifficulty:(NSUInteger)minDifficulty maxDifficulty:(NSUInteger)maxDifficulty maxDistance:(NSInteger)maxDistance filterType:(NSString *)filterType{
     self = [super init];
     if(self){
         _type = type;
         _maxDifficulty = maxDifficulty;
         _minDifficulty = minDifficulty;
         _maxDistance = maxDistance;
+        _filterType = filterType;
     }
     return self;
 }

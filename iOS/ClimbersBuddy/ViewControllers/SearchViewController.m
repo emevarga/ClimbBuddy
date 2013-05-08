@@ -25,6 +25,7 @@ const NSString *kSearchControlTypeControl = @"type";
 const NSString *kSearchControlDifficultySlider = @"difficulty";
 const NSString *kSearchControlHeightSlider = @"height";
 const NSString *kSearchControlSearchButton = @"search button";
+const NSString *kSearchControlFilterControl = @"filter";
 
 @interface SearchViewController (Internal)
 -(NSArray *)getConstraints;
@@ -51,6 +52,18 @@ const NSString *kSearchControlSearchButton = @"search button";
     return self;
 }
 
+-(NSString *)filterTypeForIndex:(NSInteger)index{
+    NSString *filterType = nil;
+    if(index == 0){
+        filterType = @"closest";
+    }else if(index == 1){
+        filterType = @"best_match";
+    }else if(index == 2){
+        filterType = @"hardest";
+    }
+    return filterType;
+}
+
 -(SearchFilter *)generateFilter{
     UISegmentedControl *typeControl = [_searchControls objectForKey:kSearchControlTypeControl];
     ClimbType type = [ClimbersBuddyStyle getTypeForIndex:typeControl.selectedSegmentIndex];
@@ -65,7 +78,9 @@ const NSString *kSearchControlSearchButton = @"search button";
     if(distanceControl.selectedSegmentIndex != -1){
         maxDistance = [ClimbersBuddyStyle milesForSegment:distanceControl.selectedSegmentIndex];
     }
-    return [[SearchFilter alloc]initFor:typeString withMinDifficulty:minDifficulty maxDifficulty:maxDifficulty andMaxDistance:maxDistance];
+    UISegmentedControl *filterControl = [_searchControls objectForKey:kSearchControlFilterControl];
+    NSString *filterType = [self filterTypeForIndex:filterControl.selectedSegmentIndex];
+    return [[SearchFilter alloc]initFor:typeString withMinDifficulty:minDifficulty maxDifficulty:maxDifficulty maxDistance:maxDistance filterType:filterType];
 }
 
 
@@ -143,6 +158,7 @@ const NSString *kSearchControlSearchButton = @"search button";
     [filterControl setSelectedSegmentIndex:1];
     filterControl.frame = [self getControlRectForOffset:offset];
     [self.view addSubview:filterControl];
+    [_searchControls setObject:filterControl forKey:kSearchControlFilterControl];
     
     offset += controlSectionHeight;
     
