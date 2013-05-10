@@ -38,7 +38,7 @@
     NSString *longitude = [[NSNumber numberWithDouble:coordinate.longitude]stringValue];
     NSString *latitude = [[NSNumber numberWithDouble:coordinate.latitude]stringValue];
     NSString *typeStringForQuery = [_type stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    NSString *query = [NSString stringWithFormat:@"%@?lat=%@&lng=%@&dist=%@&min_difficulty=%@&max_difficulty=%@&climb_type=%@",SERVER,latitude,longitude,maxDistanceString,minDifficultyString,maxDifficultyString,typeStringForQuery];
+    NSString *query = [NSString stringWithFormat:@"%@?lat=%@&lng=%@&dist=%@&min_difficulty=%@&max_difficulty=%@&climb_type=%@&filter_type=%@",SERVER,latitude,longitude,maxDistanceString,minDifficultyString,maxDifficultyString,typeStringForQuery,_filterType];
     [[LocationManager getInstance]stop];
     return query;
 }
