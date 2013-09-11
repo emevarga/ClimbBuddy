@@ -28,6 +28,6 @@
 #define DATA_FILE @"/data.plist"
 #define IMAGE_FILE @"/image.png"
 
-#define SERVER @"http://54.243.49.197:3000/climb_data.json"
+#define SERVER @"http://climbersbuddy.com/climb_data.json"
 
 #endif
