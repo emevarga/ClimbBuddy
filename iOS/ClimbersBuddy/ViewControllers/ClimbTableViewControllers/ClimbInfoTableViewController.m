@@ -75,6 +75,7 @@
     
     ClimbInfo *climb = [_climbs objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@, %@",climb.wallName,climb.locationName]];
+    [cell.textLabel setBackgroundColor:BACKGROUND_COLOR];
     [cell.detailTextLabel setText:climb.name];
     cell.detailTextLabel.backgroundColor = BACKGROUND_COLOR;
     

@@ -102,6 +102,13 @@
 -(void)loadView{
     [super loadView];
     
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    if ([self respondsToSelector:@selector(setExtendedLayoutIncludesOpaqueBars:)]) {
+        self.extendedLayoutIncludesOpaqueBars = YES;
+    }
+    
     _tap = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                   action:@selector(tapRecognized:)];
     [self.view addGestureRecognizer:_tap];

@@ -133,6 +133,12 @@ const NSString *kSearchControlFilterControl = @"filter";
 
 -(void)loadView{
     [super loadView];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    if ([self respondsToSelector:@selector(setExtendedLayoutIncludesOpaqueBars:)]) {
+        self.extendedLayoutIncludesOpaqueBars = YES;
+    }
     self.view.backgroundColor = BACKGROUND_COLOR;
     self.view.layer.masksToBounds = YES;
     if(!_searchControls){

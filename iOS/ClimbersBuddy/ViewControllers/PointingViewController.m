@@ -32,6 +32,13 @@
 -(void)loadView{
     [super loadView];
     
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    if ([self respondsToSelector:@selector(setExtendedLayoutIncludesOpaqueBars:)]) {
+        self.extendedLayoutIncludesOpaqueBars = YES;
+    }
+    
     [self.view setBackgroundColor:BACKGROUND_COLOR];
     
     _compass = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass.png"]];
