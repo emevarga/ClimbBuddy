@@ -133,7 +133,9 @@ const NSString *kSearchControlFilterControl = @"filter";
 
 -(void)loadView{
     [super loadView];
+    UIColor *segmentTextColor = [UIColor whiteColor];
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        segmentTextColor = [UIColor darkGrayColor];
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     if ([self respondsToSelector:@selector(setExtendedLayoutIncludesOpaqueBars:)]) {
@@ -161,7 +163,7 @@ const NSString *kSearchControlFilterControl = @"filter";
     
     NSArray *filterItems = @[@"Nearest",@"Best Match",@"Most Difficult"];
     UISegmentedControl *filterControl = [ClimbersBuddyStyle getSegmentedControlWithItems:filterItems withToggle:NO];
-    [filterControl setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor darkGrayColor]} forState:UIControlStateNormal];
+    [filterControl setTitleTextAttributes:@{UITextAttributeTextColor : segmentTextColor} forState:UIControlStateNormal];
     
     [filterControl setSelectedSegmentIndex:1];
     filterControl.frame = [self getControlRectForOffset:offset];
@@ -183,7 +185,7 @@ const NSString *kSearchControlFilterControl = @"filter";
     }
     NSArray *distanceItems = distanceStrings;
     UISegmentedControl *distanceControl = [ClimbersBuddyStyle getSegmentedControlWithItems:distanceItems withToggle:YES];
-    [distanceControl setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor darkGrayColor]} forState:UIControlStateNormal];
+    [distanceControl setTitleTextAttributes:@{UITextAttributeTextColor : segmentTextColor} forState:UIControlStateNormal];
     distanceControl.frame = [self getControlRectForOffset:offset];
     [self.view addSubview:distanceControl];
     [_searchControls setObject:distanceControl forKey:kSearchControlDistanceControl];
@@ -197,7 +199,7 @@ const NSString *kSearchControlFilterControl = @"filter";
     
     NSArray *typeItems = @[@"Boulder",@"Top Rope",@"Lead",@"Trad."];
     UISegmentedControl *typeControl = [ClimbersBuddyStyle getSegmentedControlWithItems:typeItems withToggle:NO];
-    [typeControl setTitleTextAttributes:@{UITextAttributeTextColor : [UIColor darkGrayColor]} forState:UIControlStateNormal];
+    [typeControl setTitleTextAttributes:@{UITextAttributeTextColor : segmentTextColor} forState:UIControlStateNormal];
     typeControl.frame = [self getControlRectForOffset:offset];
     [typeControl setSelectedSegmentIndex:0];
     [typeControl addTarget:self action:@selector(typeChanged:) forControlEvents:UIControlEventValueChanged];
