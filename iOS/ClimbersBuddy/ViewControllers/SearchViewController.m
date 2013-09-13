@@ -249,7 +249,7 @@ const NSString *kSearchControlFilterControl = @"filter";
     [searchButton.layer insertSublayer:gradientLayer atIndex:0];
     [self.view addSubview:searchButton];
     [_searchControls setObject:searchButton forKey:kSearchControlSearchButton];
-
+    
 }
 
 -(CGRect)getLabelRectForOffset:(CGFloat)offset{
