@@ -369,6 +369,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = CSHaus;
+				TargetAttributes = {
+					D3400DB915E4212500503B1F = {
+						DevelopmentTeam = 3XMWP2B429;
+					};
+				};
 			};
 			buildConfigurationList = D3400DB415E4212500503B1F /* Build configuration list for PBXProject "ClimbBuddy" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -534,10 +539,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClimbersBuddy/ClimbBuddy-Prefix.pch";
 				INFOPLIST_FILE = "ClimbersBuddy/ClimbBuddy-Info.plist";
 				PRODUCT_NAME = ClimbBuddy;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -547,10 +555,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClimbersBuddy/ClimbBuddy-Prefix.pch";
 				INFOPLIST_FILE = "ClimbersBuddy/ClimbBuddy-Info.plist";
 				PRODUCT_NAME = ClimbBuddy;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

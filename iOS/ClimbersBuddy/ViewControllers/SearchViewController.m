@@ -180,9 +180,12 @@ const NSString *kSearchControlFilterControl = @"filter";
     NSMutableArray *distanceStrings = [NSMutableArray arrayWithCapacity:3];
     NSArray *miles = [ClimbersBuddyStyle getMiles];
     for(NSNumber *number in miles){
+        if (number == [miles lastObject]) {
+            break;
+        }
         [distanceStrings addObject:[number description]];
-    
     }
+    [distanceStrings addObject:[NSString stringWithFormat:@"%@+",[miles lastObject]]];
     NSArray *distanceItems = distanceStrings;
     UISegmentedControl *distanceControl = [ClimbersBuddyStyle getSegmentedControlWithItems:distanceItems withToggle:YES];
     [distanceControl setTitleTextAttributes:@{UITextAttributeTextColor : segmentTextColor} forState:UIControlStateNormal];

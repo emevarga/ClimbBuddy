@@ -31,7 +31,7 @@
 }
 
 -(NSString *)urlForFilters{
-    NSString *maxDistanceString = _maxDistance == -1 ? @"-1" : [[NSNumber numberWithInteger:_maxDistance] stringValue];
+    NSString *maxDistanceString = _maxDistance == -1 || _maxDistance == 100 ? @"-1" : [[NSNumber numberWithInteger:_maxDistance] stringValue];
     NSString *minDifficultyString = [[NSNumber numberWithInteger:_minDifficulty] stringValue];
     NSString *maxDifficultyString = [[NSNumber numberWithInteger:_maxDifficulty] stringValue];
     CLLocationCoordinate2D coordinate = [[[LocationManager getInstance] getLocation] coordinate];
